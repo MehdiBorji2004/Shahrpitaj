@@ -1,0 +1,36 @@
+.manage-btns-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+
+  button.confirm-btn {
+    border: 2px solid var(--success-green);
+    color: var(--success-green);
+    padding: 8px 14px;
+    border-radius: 50px;
+    background-color: white;
+    outline: none;
+    &:hover {
+      border: none;
+      color: white;
+      background-color: var(--success-green);
+    }
+  }
+
+  button.delete-btn {
+    border: 2px solid var(--err-text-color);
+    color: var(--err-text-color);
+    padding: 8px 14px;
+    border-radius: 50px;
+    background-color: white;
+    outline: none;
+    &:hover {
+      border: none;
+      color: white;
+      background-color: var(--err-text-color);
+      transition: all 0.3s ease-in;
+    }
+  }
+}

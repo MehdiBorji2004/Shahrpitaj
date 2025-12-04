@@ -1,0 +1,86 @@
+.scroll-top {
+  display: block;
+  position: fixed;
+  z-index: 10000;
+  bottom: 3rem;
+  right: 3rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 50px;
+  height: 50px;
+  animation: scrollTop 0.5s ease-in-out;
+  cursor: pointer;
+}
+.scroll-top svg {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  color: var(--bs-color);
+}
+
+@keyframes scrollTop {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ________________ Responsive _________________ */
+
+/* xl laptops */
+@media (max-width: 1199px) {
+  .scroll-top {
+    bottom: 2.5rem;
+    right: 2.5rem;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* lg tablets & sm laptops */
+@media (max-width: 992px) {
+  .scroll-top {
+    bottom: 2rem;
+    right: 2rem;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* tablets size */
+@media (max-width: 768px) {
+  .scroll-top {
+    bottom: 1.8rem;
+    right: 1.8rem;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* mobile size */
+@media (max-width: 576px) {
+  .scroll-top {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* small mobile size */
+@media (max-width: 300px) {
+  .scroll-top {
+    bottom: 1.2rem;
+    right: 1.2rem;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+

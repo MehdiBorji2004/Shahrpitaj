@@ -1,0 +1,242 @@
+/*_________ Responsive _________*/
+/* lg laptops */
+@media (max-width: 1199px) {
+  .banner-container {
+    height: auto;
+    padding: 3rem 0 !important;
+  }
+  .banner-text-container {
+    width: 70%;
+    padding: 0rem 3rem 0rem 0rem !important;
+    justify-content: center;
+  }
+  .banner-text {
+    font-size: 18px;
+  }
+  .banner-title {
+    font-size: 25px;
+  }
+  .banner-subtitle {
+    width: 90%;
+    font-size: 13px;
+    padding: 0;
+  }
+  .banner-address {
+    justify-content: space-between;
+    width: 100%;
+  }
+  .address-btn {
+    width: 20%;
+  }
+  .address-text {
+    width: 75%;
+    font-size: 12px;
+  }
+  .address-text b {
+    font-size: 14px;
+  }
+
+  .banner-img-container {
+    justify-content: start;
+    width: 25%;
+  }
+  .banner-img-container img {
+    width: 80%;
+  }
+}
+
+/* horizantal tablets & sm laptops size */
+@media (max-width: 992px) {
+  .banner-container {
+    height: auto;
+  }
+  .banner-row {
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem !important;
+  }
+  .banner-text-container {
+    width: 100%;
+    height: max-content;
+    padding: 2rem 2rem 0 2rem !important;
+  }
+  .banner-address {
+    justify-content: start;
+  }
+  .banner-img-container {
+    width: 70%;
+    height: max-content;
+    justify-content: center;
+  }
+  .banner-img-container img {
+    width: 25%;
+  }
+}
+
+/* vertical tablets size */
+@media (max-width: 768px) {
+  .banner-container {
+    height: auto;
+  }
+  .banner-row {
+    padding: 1.5rem 1rem !important;
+    justify-content: space-evenly;
+  }
+  .banner-text-container {
+    padding: 0.5rem 1rem !important;
+  }
+  .banner-text {
+    font-size: 16px;
+  }
+  .banner-title {
+    font-size: 22px;
+  }
+  .banner-subtitle {
+    width: 90%;
+    font-size: 12px;
+  }
+  .banner-address {
+    gap: 1rem;
+  }
+  .address-btn {
+    width: 20%;
+    height: 100%;
+  }
+  .address-btn button {
+    width: 80%;
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 11px;
+
+    svg {
+      font-size: 10px;
+    }
+  }
+  .address-btn button a {
+    font-size: 9px;
+  }
+  .address-text {
+    width: 70%;
+  }
+  .banner-img-container {
+    width: 70%;
+  }
+  .banner-img-container img {
+    width: 25%;
+  }
+}
+
+/* mobile size */
+@media (max-width: 576px) {
+  .banner-container {
+    height: auto;
+  }
+  .banner-row {
+    justify-content: space-evenly;
+    padding: 1rem 0.5rem !important;
+  }
+  .banner-text-container {
+    padding: 1rem 0.5rem !important;
+    align-items: center;
+  }
+  .banner-text {
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+  }
+  .banner-title {
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+  }
+  .banner-subtitle {
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 10px;
+    margin-bottom: 1rem !important;
+  }
+  .banner-address {
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .address-btn {
+    width: 40%;
+    button {
+      width: 100%;
+      margin: 0 auto !important;
+      padding: 8px 0;
+      font-size: 11px;
+      border-radius: 50px;
+
+      svg {
+        font-size: 9px;
+      }
+    }
+  }
+  .address-btn button {
+    width: 100%;
+    height: 100%;
+  }
+  .address-text {
+    width: 100%;
+    height: 50%;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  .address-text b {
+    font-size: 12px;
+  }
+  .banner-img-container {
+    width: 50%;
+  }
+  .banner-img-container img {
+    width: 45%;
+  }
+  .banner-features :nth-child(1),
+  .banner-features :nth-child(2) {
+    width: 50%;
+  }
+  .banner-features :nth-child(3) {
+    width: 50%;
+  }
+
+  .banner-features div {
+    .feature-icon {
+      width: 50px !important;
+      height: 50px;
+    }
+
+    .feature-text {
+      text-align: center;
+    }
+  }
+}
+
+/* small mobile size */
+@media (max-width: 300px) {
+  .banner-text {
+    font-size: 11px;
+  }
+  .banner-title {
+    font-size: 16px;
+  }
+  .banner-subtitle {
+    font-size: 10px;
+  }
+  .address-btn {
+    width: 60%;
+  }
+  .address-text {
+    font-size: 10px;
+  }
+  .address-text b {
+    font-size: 11px;
+  }
+  .banner-img-container img {
+    width: 60%;
+  }
+}

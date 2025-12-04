@@ -1,0 +1,147 @@
+/* ________________ Responsive _________________ */
+
+/* xl laptops */
+@media (max-width: 1199px) {
+  .header {
+    padding-right: 1rem;
+  }
+  /* .header-logo-img {
+    width: 35px;
+    height: 35px;
+    flex-grow: 1;
+  }
+  .header-logo-title {
+    font-size: 12px;
+  }
+  .header-logo-subtitle {
+    font-size: 12px;
+  } */
+  .header-nav-list {
+    gap: 1rem;
+    flex-grow: 1;
+    justify-content: end;
+  }
+  .header-reserve-box {
+    min-width: 35%;
+    height: 70px;
+    border-radius: 0 0 40px 0;
+    flex-grow: 1;
+  }
+}
+
+/* lg tablets & sm laptops */
+@media (max-width: 992px) {
+  /* .header-logo-img {
+    width: 30px;
+    height: 30px;
+  }
+  .header-logo-title {
+    font-size: 10px;
+    min-width: max-content;
+  }
+  .header-logo-subtitle {
+    font-size: 10px;
+    min-width: max-content;
+  } */
+  .header-nav-list {
+    gap: 10px;
+    padding: 0 10px;
+    justify-content: center;
+  }
+  .header-reserve-box {
+    min-width: 25%;
+    height: 65px;
+    border-radius: 0 0 35px 0;
+  }
+  .reserve-btn {
+    width: 100px;
+  }
+  .reserve-btn-link {
+    font-size: 11px;
+  }
+  .reserve-btn-link svg {
+    font-size: 11px;
+  }
+}
+
+/* tablets size */
+@media (max-width: 768px) {
+  .header {
+    gap: 3px;
+  }
+  /* .header-logo-img {
+    width: 20px;
+    height: 20px;
+  }
+  .header-logo-title {
+    font-size: 8px;
+  }
+  .header-logo-subtitle {
+    font-size: 8px;
+  } */
+  .header-nav-list {
+    gap: 0.8rem;
+  }
+  .header-reserve-box {
+    min-width: 25%;
+    height: 50px;
+    border-radius: 0 0 25px 0;
+  }
+  .reserve-btn {
+    width: 70px;
+    padding: 4px;
+  }
+  .reserve-btn-link {
+    font-size: 9px;
+  }
+  .reserve-btn-link svg {
+    font-size: 9px;
+  }
+}
+
+/* mobile size */
+@media (max-width: 576px) {
+  .header {
+    gap: 5px;
+  }
+  /* .header-logo-link {
+    align-items: center;
+  }
+  .header-logo-img {
+    width: 20px;
+    height: 20px;
+  }
+  .header-logo-title {
+    font-size: 9px;
+  }
+  .header-logo-subtitle {
+    font-size: 9px;
+  } */
+  .header-reserve-box {
+    min-width: 25%;
+    height: 40px;
+    border-radius: 0 0 20px 0;
+  }
+}
+
+/* small mobile size */
+@media (max-width: 300px) {
+  .header {
+    gap: 3px;
+  }
+  /* .header-logo-img {
+    width: 15px;
+    height: 15px;
+  }
+  .header-logo-title {
+    font-size: 6px;
+  }
+  .header-logo-subtitle {
+    font-size: 6px;
+  } */
+  .header-reserve-box {
+    min-width: 20%;
+    height: 35px;
+    border-radius: 0 0 15px 0;
+  }
+}

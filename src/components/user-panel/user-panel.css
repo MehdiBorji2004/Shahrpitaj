@@ -1,0 +1,389 @@
+.user-panel-container {
+  margin: 0 auto !important;
+  padding: 3rem;
+}
+
+.user-panel-wrapper {
+  width: 100%;
+}
+
+.user-panel-header {
+  position: relative;
+}
+
+.panel-title {
+  color: var(--bs-title-gray-color);
+  font-size: var(--title-fontsize);
+  font-family: "Vazir-Bold";
+  font-weight: bold;
+  margin-bottom: 1.5rem !important;
+}
+
+.wellcome-msg {
+  color: var(--bs-text-black-color);
+  font-size: 18px;
+}
+
+.user-panel-header .logout-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  border: 2px solid var(--err-text-color);
+  color: var(--err-text-color);
+
+  a {
+    color: inherit;
+  }
+
+  svg {
+    font-size: 18px;
+  }
+
+  &:hover {
+    background-color: var(--err-text-color);
+    border: none;
+    color: white;
+  }
+}
+
+.user-panel-info,
+.user-panel-activeReserve,
+.user-panel-prevReserves {
+  padding: 2rem;
+  background-color: var(--inputs-bg-color);
+  border-radius: 1rem;
+  margin-top: 2rem !important;
+  position: relative;
+  border-right: 4px solid var(--bs-color);
+}
+
+.user-panel-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .user-info-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 2px solid var(--bs-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 90%;
+      height: 90%;
+      border-radius: inherit;
+    }
+  }
+}
+
+.my-info,
+.my-activeReserve,
+.my-prevReserves {
+  color: var(--bs-text-black-color);
+  font-weight: bold;
+  margin-bottom: 2rem !important;
+}
+
+.border-right {
+  width: 4px;
+  height: 75%;
+  margin: auto 0 !important;
+  position: absolute;
+  right: 0%;
+  background-color: var(--bs-color);
+  border-radius: 1rem;
+}
+
+.activeReserves-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  div {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+}
+
+.activeReserve-items {
+  background-color: var(--white);
+  padding: 2rem 3rem;
+  border-radius: 50px;
+  position: relative;
+
+  &::before {
+    content: "";
+    background-color: var(--bs-color);
+    border-radius: 50px;
+    height: 2px;
+    width: 50%;
+    position: absolute;
+    top: 0%;
+    justify-self: anchor-center;
+  }
+
+  &:hover {
+    box-shadow: var(--box-shadow);
+    transform: translateY(-5px);
+    transition: all 0.2s ease-in;
+  }
+}
+
+.info-items p,
+.activeReserve-items p,
+.prevRserves-items p {
+  color: var(--bs-text-black-color);
+  margin-bottom: 10px !important;
+}
+
+.edit-info-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edit-info-btn {
+  background-color: var(--bs-color);
+  color: white;
+  margin-top: 1rem !important;
+}
+.edit-info-btn:hover {
+  color: white;
+  background-color: var(--bs-hover-color);
+  transform: scale(var(--btn-scale));
+}
+.edit-info-btn svg {
+  font-size: 15px;
+}
+
+.delete-profile-btn {
+  background-color: var(--err-text-color);
+  color: white;
+  margin-top: 1rem !important;
+
+  svg {
+    font-size: 15px;
+  }
+
+  &:hover {
+    color: white;
+    background-color: var(--err-text-color);
+    transform: scale(var(--btn-scale));
+  }
+}
+
+.cancel-reserve-btn {
+  background-color: var(--err-text-color);
+  color: white;
+  margin-top: 1rem !important;
+}
+.cancel-reserve-btn:hover {
+  color: white;
+  background-color: #d42420;
+  transform: scale(var(--btn-scale));
+}
+
+.no-reserve-text {
+  margin-bottom: 2rem !important;
+}
+
+.prev-reserves-contianer {
+  padding: 1.5rem 0;
+  margin-top: 2rem !important;
+  color: var(--bs-text-black-color);
+}
+.prev-reserves-title {
+  font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  .user-panel-header {
+    .panel-title {
+      font-size: 20px;
+    }
+
+    .wellcome-msg {
+      font-size: 14px;
+      margin-bottom: 1rem !important;
+    }
+
+    .logout-btn {
+      padding: 10px 12px;
+      width: max-content;
+      font-size: 12px;
+
+      svg {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .edit-info-buttons {
+    .btn {
+      width: max-content;
+    }
+    button {
+      font-weight: unset;
+    }
+  }
+
+  .user-panel-info {
+    .user-info-img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .user-panel-header {
+    .panel-title {
+      font-size: 20px;
+    }
+
+    .wellcome-msg {
+      font-size: 14px;
+      margin-bottom: 1rem !important;
+    }
+  }
+
+  .edit-info-buttons {
+    .btn {
+      min-width: 80px;
+    }
+  }
+
+  .user-panel-info {
+    .user-info-img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .user-panel-header {
+    padding-top: 2rem;
+
+    .panel-title {
+      font-size: 18px;
+    }
+
+    .wellcome-msg {
+      font-size: 12px;
+      margin-bottom: 1rem !important;
+      padding-top: 20px;
+    }
+
+    .logout-btn {
+      padding: 7px;
+      width: max-content;
+      font-size: 10px;
+      top: 20%;
+
+      svg {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .user-panel-info,
+  .user-panel-activeReserve,
+  .user-panel-prevReserves {
+    border-right: 2px solid var(--bs-color);
+  }
+
+  .user-panel-activeReserve {
+    .reserve-btn {
+      width: 80px;
+      padding: 8px 12px;
+      font-size: 9px;
+      border-radius: 50px;
+
+      svg {
+        font-size: 8px;
+      }
+    }
+  }
+
+  .edit-info-buttons {
+    .btn {
+      min-width: 80px;
+    }
+    button {
+      padding: 7px;
+      font-weight: unset;
+      font-size: 9px;
+
+      svg {
+        font-size: 9px;
+      }
+    }
+  }
+  .user-panel-info {
+    .user-info-img {
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  .activeReserve-items {
+    border-radius: 30px;
+    .btn {
+      width: max-content;
+    }
+    .cancel-reserve-btn {
+      padding: 9px;
+      font-weight: unset;
+      font-size: 10px;
+      min-width: 90px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .user-panel-info {
+    .user-info-img {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .user-panel-header {
+    .panel-title {
+      font-size: 12px;
+    }
+
+    .wellcome-msg {
+      font-size: 10px;
+      padding: 9px 0;
+    }
+
+    .logout-btn {
+      padding: 5px;
+      width: max-content;
+      font-size: 7px;
+
+      svg {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .user-panel-info {
+    flex-direction: column;
+    gap: 20px;
+    .user-info-img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}

@@ -1,0 +1,143 @@
+/*_________ Responsive _________*/
+/* lg laptops */
+@media (max-width: 1199px) {
+  .reserve-container {
+    padding: 4rem var(--xl-container-pad);
+  }
+  .reserve-title {
+    font-size: 25px;
+  }
+  .reserve-successfully-msg {
+    top: 75px;
+    left: 2%;
+    width: 400px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .reserve-container {
+    padding: 64px 48px;
+  }
+}
+
+/* horizantal tablets & sm laptops size */
+@media (max-width: 992px) {
+  *,
+  .select-box-label,
+  .calendar-title,
+  .time-picker-title {
+    font-size: 16px;
+  }
+  .reserve-container {
+    padding: 4rem var(--lg-container-pad);
+  }
+  .reserve-title {
+    font-size: 20px;
+  }
+  .submit-btn {
+    font-size: 16px;
+    width: 180px;
+  }
+  .reserve-successfully-msg {
+    width: 350px;
+  }
+}
+
+/* vertical tablets size */
+@media (max-width: 768px) {
+  *,
+  .select-box-label,
+  .calendar-title,
+  .time-picker-title {
+    font-size: 14px;
+  }
+  .reserve-container {
+    padding: 4rem var(--md-container-pad);
+  }
+  .submit-btn {
+    font-size: 14px;
+    width: 160px;
+  }
+}
+
+/* mobile size */
+@media (max-width: 576px) {
+  *,
+  .select-box-label,
+  .calendar-title,
+  .time-picker-title {
+    font-size: 11px;
+  }
+  .reserve-title {
+    font-size: 16px;
+  }
+  .select-services-box {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+  .select-box option {
+    font-size: 12px;
+  }
+  .servicer-name,
+  .service-type {
+    width: 100%;
+  }
+  .submit-btn {
+    font-size: 11px;
+    width: 100px;
+  }
+  .select-box {
+    font-size: 9px;
+  }
+  .month-name {
+    font-size: 15px;
+  }
+  .changeMonth-btn {
+    width: 25px;
+    height: 25px;
+  }
+  .weekday,
+  .day {
+    font-size: 9px;
+  }
+
+  .reserve-successfully-msg {
+    top: 45px;
+    height: auto;
+    width: max-content;
+  }
+  .reserve-successfully-msg p {
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .reserve-container {
+    padding: 40px !important;
+  }
+
+  .submit-reserve {
+    width: 40%;
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .reserve-container {
+    padding: 25px !important;
+  }
+
+  .submit-reserve {
+    width: 40%;
+
+    .submit-btn {
+      width: 100%;
+      padding: 10px;
+    }
+  }
+}

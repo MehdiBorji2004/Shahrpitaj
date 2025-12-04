@@ -1,0 +1,662 @@
+.contact-page {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--gray-50) 0%,
+    var(--primary-lighter) 100%
+  );
+  font-family: "Vazir", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* هدر صفحه */
+.contact-hero {
+  position: relative;
+  height: 70dvh;
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue) 0%,
+    var(--primary-dark) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  overflow: hidden;
+  margin-bottom: 60px !important;
+}
+
+.hero-content {
+  z-index: 2;
+  position: relative;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem !important;
+  background: linear-gradient(45deg, var(--white), var(--gray-100));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  max-width: 500px;
+  margin: 0 auto !important;
+  line-height: 1.6;
+}
+
+.hero-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.decoration-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.decoration-circle:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  top: 10%;
+  left: 10%;
+}
+
+.decoration-circle:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  bottom: 20%;
+  right: 15%;
+}
+
+.decoration-circle:nth-child(3) {
+  width: 80px;
+  height: 80px;
+  bottom: 10%;
+  left: 20%;
+}
+
+/* کانتینر اصلی */
+.contact-container {
+  max-width: 1200px;
+  margin: -60px auto !important;
+  padding: 0 20px 60px;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin: 0 auto !important;
+}
+
+.contact-section-header {
+  P {
+    margin: 1rem 0 !important;
+  }
+}
+
+/* بخش اطلاعات تماس */
+.contact-info-section {
+  background: var(--white);
+  padding: 50px 40px;
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px !important;
+}
+
+.section-header h2 {
+  font-size: 2.2rem;
+  color: var(--gray-800);
+  margin-bottom: 12px !important;
+  font-weight: 700;
+}
+
+.section-header p {
+  color: var(--gray-600);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* کارت‌های اطلاعات */
+.contact-info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.info-card {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 280px;
+  background: var(--gray-50);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-light));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-lighter);
+  background: var(--white);
+}
+
+.info-card:hover::before {
+  transform: scaleX(1);
+}
+
+.info-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto !important;
+  margin-bottom: 1rem !important;
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--primary-light)
+  );
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.8rem;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.info-icon-svg {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.info-title {
+  font-size: 1.4rem;
+  color: var(--gray-800);
+  margin-bottom: 16px !important;
+  font-weight: 600;
+}
+
+.info-details {
+  margin-bottom: 12px !important;
+}
+
+.info-detail {
+  color: var(--gray-700);
+  margin: 8px 0 !important;
+  font-weight: 500;
+}
+
+.info-description {
+  color: var(--gray-600);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* بخش شبکه‌های اجتماعی */
+.social-main-section {
+  background: var(--white);
+  padding: 50px 40px;
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+}
+
+.social-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px !important;
+}
+
+.social-card {
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 300px;
+  background: var(--gray-50);
+  padding: 35px 30px;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--social-color);
+}
+
+.social-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  background: var(--white);
+}
+
+.social-card-header {
+  margin-bottom: 20px !important;
+}
+
+.social-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto !important;
+  background: var(--social-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  svg {
+    font-size: 25px;
+  }
+}
+
+.social-card-title {
+  font-size: 18px;
+  color: var(--gray-800);
+  margin-top: 12px !important;
+  font-weight: 600;
+}
+
+.social-card-description {
+  color: var(--gray-600);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 25px !important;
+}
+
+.social-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--social-color);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-card-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.link-arrow {
+  transition: transform 0.3s ease;
+}
+
+.social-card-link:hover .link-arrow {
+  transform: translateX(-3px);
+}
+
+/* بخش آدرس */
+.address-section {
+  background: var(--white);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+}
+
+.address-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+}
+
+.address-content {
+  padding: 50px 40px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-lighter) 0%,
+    var(--white) 100%
+  );
+}
+
+.address-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px !important;
+}
+
+.address-main-icon {
+  font-size: 2.5rem;
+  color: var(--primary-blue);
+}
+
+.address-header h2 {
+  font-size: 1.8rem;
+  color: var(--gray-800);
+  margin-bottom: 5px !important;
+  font-weight: 700;
+}
+
+.address-header p {
+  color: var(--gray-600);
+  font-size: 1.1rem;
+}
+
+.address-details {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.address-item strong {
+  display: block;
+  color: var(--gray-800);
+  margin-bottom: 10px !important;
+  font-size: 1.1rem;
+}
+
+.address-item p {
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
+.access-features {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.access-badge {
+  background: var(--primary-blue);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.access-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 !important;
+}
+
+.access-list li {
+  color: var(--gray-700);
+  padding: 8px 0;
+  padding-right: 20px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.access-list li::before {
+  content: "•";
+  color: var(--primary-blue);
+  position: absolute;
+  right: 0;
+  font-size: 1.2rem;
+}
+
+/* بخش نقشه */
+.google-map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e1e5e9;
+}
+
+.map-actions {
+  padding: 16px;
+  /* background: #f8f9fa; */
+  text-align: center;
+  /* border-top: 1px solid #e9ecef; */
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+}
+
+.navigation-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #dc3545;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.navigation-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-show);
+}
+.map-visual {
+  /* background: linear-gradient(
+    135deg,
+    var(--primary-blue) 0%,
+    var(--primary-dark) 100%
+  ); */
+  background-image: url("/images/google-map-img.png");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-placeholder {
+  text-align: center;
+  color: var(--white);
+  padding: 40px;
+}
+
+.map-icon {
+  font-size: 4rem;
+  margin-bottom: 20px !important;
+  opacity: 0.9;
+}
+
+.map-info h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px !important;
+  font-weight: 600;
+}
+
+.map-info p {
+  opacity: 0.9;
+  margin-bottom: 25px !important;
+  font-size: 1.1rem;
+}
+
+.navigation-btn {
+  background: var(--white);
+  color: var(--primary-blue);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.navigation-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-arrow {
+  transition: transform 0.3s ease;
+}
+
+.navigation-btn:hover .nav-arrow {
+  transform: translateX(3px);
+}
+
+/* رسپانسیو */
+@media (max-width: 1024px) {
+  .contact-container {
+    margin-top: -40px !important;
+    gap: 40px;
+  }
+
+  .contact-hero {
+    height: 300px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    margin-top: -30px !important;
+    padding: 0 15px 40px;
+    gap: 30px;
+  }
+
+  .contact-hero {
+    height: 250px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .contact-info-section,
+  .social-main-section {
+    padding: 30px 25px;
+  }
+
+  .contact-info-grid,
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .address-container {
+    grid-template-columns: 1fr;
+  }
+
+  .address-content {
+    padding: 30px 25px;
+  }
+
+  .map-placeholder {
+    padding: 30px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hero {
+    height: 200px;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .contact-section-header {
+    text-align: center;
+    margin-bottom: 4rem !important;
+  }
+
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .info-card,
+  .social-card {
+    padding: 25px 20px;
+  }
+
+  .info-icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .contact-info-grid {
+    width: 80%;
+    margin: 0 auto !important;
+  }
+
+  .address-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .access-features {
+    justify-content: center;
+  }
+
+  .social-grid {
+    width: 80%;
+    margin: 0 auto !important;
+  }
+
+  .social-icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .social-card::before {
+    height: 2px;
+  }
+
+  .social-card-title {
+    font-size: 16px;
+  }
+}

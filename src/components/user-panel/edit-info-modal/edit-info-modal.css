@@ -1,0 +1,348 @@
+.user-panel-modal-container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  right: 0;
+  background-color: var(--modal-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-panel-modal-box {
+  width: 30%;
+  height: auto;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  animation: box-animate 0.4s ease-in-out;
+}
+
+@keyframes box-animate {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.modal-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem !important;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.modal-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  margin-top: 1.5rem !important;
+}
+
+.edit-info-form .input-wrapper,
+.upload-profile-form .input-wrapper {
+  width: 100%;
+  align-items: start;
+}
+
+.edit-info-form label,
+.upload-profile-form label {
+  font-size: 13px;
+  padding: 0 10px 10px 0;
+}
+
+.edit-info-form label span,
+.upload-profile-form label span {
+  color: var(--bs-color);
+}
+
+.modal-buttons .submit-btn {
+  background: var(--bs-color);
+  color: white;
+  border: none;
+  margin-top: 0px !important;
+  padding: 0.65rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-buttons .submit-btn:hover {
+  background: var(--bs-hover-color);
+  transform: translateY(-1px);
+}
+
+.modal-buttons .cancel-btn {
+  background: #f8f9fa;
+  color: #666;
+  border: none;
+  padding: 0.65rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-buttons .cancel-btn:hover {
+  background: #e9ecef;
+}
+
+/* ===== Responsive Design ===== */
+
+/* Desktop Large (1024px and above) */
+@media (min-width: 1024px) {
+  .user-panel-modal-box {
+    width: 80%;
+    max-width: 450px;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+  }
+
+  .modal-title {
+    font-size: 18px;
+    margin-bottom: 1rem;
+  }
+
+  .edit-info-form .input-wrapper,
+  .upload-profile-form .input-wrapper {
+    margin-bottom: 1rem;
+  }
+
+  .edit-info-form label,
+  .upload-profile-form label {
+    font-size: 13px;
+  }
+
+  .modal-buttons {
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .modal-buttons button {
+    padding: 0.65rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .user-panel-modal-box {
+    width: 55%;
+    max-width: 500px;
+    padding: 1.25rem 1.75rem;
+    border-radius: 0.875rem;
+  }
+
+  .modal-title {
+    font-size: 16px;
+    margin-bottom: 1rem;
+  }
+
+  .edit-info-form .input-wrapper,
+  .upload-profile-form .input-wrapper {
+    margin-bottom: 0.9rem;
+  }
+
+  .edit-info-form label,
+  .upload-profile-form label {
+    font-size: 12px;
+  }
+
+  .edit-info-form input,
+  .upload-profile-form input {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .modal-buttons {
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  .modal-buttons button {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Large (425px - 767px) */
+@media (min-width: 425px) and (max-width: 767px) {
+  .user-panel-modal-box {
+    width: 75%;
+    max-width: 100%;
+    padding: 1rem 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 15px;
+    margin-bottom: 0.85rem;
+  }
+
+  .edit-info-form .input-wrapper,
+  .upload-profile-form .input-wrapper {
+    margin-bottom: 0.8rem;
+  }
+
+  .edit-info-form label,
+  .upload-profile-form label {
+    font-size: 10px;
+  }
+
+  .edit-info-form input,
+  .upload-profile-form input {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  .modal-buttons {
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-direction: column;
+
+    .btn {
+      font-weight: unset;
+    }
+  }
+
+  .modal-buttons button {
+    width: 100%;
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  @keyframes box-animate {
+    0% {
+      transform: translateY(-50px) scale(0.95);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+/* Mobile Medium (375px - 424px) */
+@media (min-width: 375px) and (max-width: 424px) {
+  .user-panel-modal-box {
+    width: 70%;
+    margin: 0 auto !important;
+    max-width: 100%;
+    padding: 0.9rem 1.25rem;
+    border-radius: 0.65rem;
+  }
+
+  .modal-title {
+    font-size: 14px;
+    margin-bottom: 0.75rem;
+  }
+
+  .edit-info-form .input-wrapper,
+  .upload-profile-form .input-wrapper {
+    margin-bottom: 0.75rem;
+  }
+
+  .edit-info-form label,
+  .upload-profile-form label {
+    font-size: 9px;
+  }
+
+  .edit-info-form input,
+  .upload-profile-form input {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+
+  .modal-buttons {
+    gap: 0.4rem;
+    margin-top: 0.9rem;
+    flex-direction: column;
+    .btn {
+      font-weight: unset;
+    }
+  }
+
+  .modal-buttons button {
+    width: 100%;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  @keyframes box-animate {
+    0% {
+      transform: translateY(-40px) scale(0.95);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+/* Mobile Small (320px - 374px) */
+@media (max-width: 374px) {
+  .user-panel-modal-box {
+    width: 85%;
+    max-width: 100%;
+    padding: 0.8rem 1rem;
+  }
+
+  .modal-title {
+    font-size: 13px;
+    margin-bottom: 0.65rem;
+    font-weight: 600;
+  }
+
+  .edit-info-form .input-wrapper,
+  .upload-profile-form .input-wrapper {
+    margin-bottom: 0.65rem;
+  }
+
+  .edit-info-form label,
+  .upload-profile-form label {
+    font-size: 10px;
+  }
+
+  .edit-info-form input,
+  .upload-profile-form input {
+    padding: 9px;
+    font-size: 0.75rem;
+  }
+
+  .modal-buttons {
+    gap: 0.3rem;
+    margin-top: 0.8rem;
+    flex-direction: column;
+
+    .btn {
+      font-weight: unset;
+    }
+  }
+
+  .modal-buttons button {
+    width: 100%;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  @keyframes box-animate {
+    0% {
+      transform: translateY(-30px) scale(0.9);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,445 @@
+/* استایل‌های اصلی کامپوننت نظرات */
+.comments-container {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto !important;
+  padding: 3rem 0 !important;
+  margin-bottom: 1rem !important;
+}
+
+.comments-title {
+  color: var(--bs-title-gray-color);
+  font-size: var(--title-fontsize);
+  font-family: "Vazir-Bold";
+  font-weight: bold;
+  padding: 0;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+  text-align: center;
+
+  span {
+    font-size: inherit;
+    font-weight: inherit;
+    color: var(--bs-color);
+  }
+}
+
+.comments-slide-btn {
+  width: 110px;
+  position: absolute;
+  top: 0%;
+  left: 2%;
+  z-index: 100;
+}
+
+/* کانتینر اسلایدر */
+.horizontal-comments-container {
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.horizontal-comments-swiper {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  cursor: grab;
+  padding-bottom: 2rem;
+}
+.horizontal-comments-swiper:active {
+  cursor: grabbing;
+}
+
+/* رفع مشکل اسکرول */
+.horizontal-comments-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+  display: flex;
+  align-items: stretch;
+  min-width: max-content; /* مهم برای اسکرول بی‌وقف */
+  padding-top: 1rem;
+}
+
+.comment-slide {
+  width: 380px !important;
+  height: auto;
+  flex-shrink: 0;
+  margin: 0 15px !important;
+  user-select: none;
+}
+
+.comment-card {
+  border-radius: 15px;
+  padding: 30px;
+  height: 100%;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.comment-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--bs-color);
+}
+
+.comment-card:hover {
+  transform: translateY(-5px);
+
+  .user-comment::before,
+  .user-comment::after {
+    color: var(--bs-color);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+}
+
+/* پروفایل کاربر */
+.user-comment-profile {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d9d9d9d9;
+}
+
+.user-comment-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.comment-card:hover .user-comment-img {
+  border-color: var(--bs-color);
+  transform: scale(1.05);
+}
+
+.user-comment-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--bs-text-black-color);
+  margin: 0 0 5px 0;
+}
+
+.user-comment-subname {
+  font-size: 14px;
+  color: var(--bs-color);
+  font-weight: 500;
+}
+
+.user-comment-date {
+  text-align: end;
+  font-size: 12px;
+  padding-top: 10px;
+  color: var(--bs-text-gray-color);
+}
+
+/* متن نظر */
+.user-comment-text {
+  position: relative;
+}
+
+.user-comment {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #475569;
+  text-align: justify;
+  margin: 0;
+  position: relative;
+  padding: 0 10px;
+  text-overflow: ellipsis;
+}
+
+.user-comment::before,
+.user-comment::after {
+  content: '"';
+  font-size: 3rem;
+  color: #e2e8f0;
+  position: absolute;
+  font-family: serif;
+}
+
+.user-comment::before {
+  top: -20px;
+  left: -5px;
+}
+
+.user-comment::after {
+  bottom: -40px;
+  right: -15px;
+}
+
+/* استایل‌های مربوط به pagination */
+.horizontal-comments-swiper .swiper-pagination {
+  position: relative;
+  margin-top: 40px;
+}
+
+.horizontal-comments-swiper .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #cbd5e1;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.horizontal-comments-swiper .swiper-pagination-bullet-active {
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* استایل زمانی که نظری وجود ندارد */
+.no-comment-container {
+  text-align: start;
+  padding: 80px 20px;
+  position: relative;
+
+  div {
+    text-align: center;
+  }
+}
+
+.no-comment-text {
+  color: var(--bs-text-black-color);
+  margin-bottom: 30px;
+  font-weight: 500;
+  margin-bottom: 1rem !important;
+}
+
+.create-new-comment-btn {
+  background-color: var(--bs-color);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--box-shadow);
+
+  &:hover {
+    color: white;
+    background-color: var(--bs-hover-color);
+    transform: scale(var(--btn-scale));
+  }
+}
+
+.hide-no-comment {
+  display: none;
+}
+
+.admin-reply-container {
+  background-color: #f6f6f6;
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+  margin-top: 1rem !important;
+  text-align: start;
+  max-height: 70px;
+  overflow: auto;
+
+  p {
+    font-size: 14px;
+  }
+}
+
+/* ________________________ریسپانسیو_____________ */
+/* رسپانسیو برای تبلت */
+@media (max-width: 1024px) {
+  .comments-container {
+    padding: 40px 15px;
+  }
+
+  .comments-title {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+
+  .comment-slide {
+    width: 350px !important;
+    margin: 0 12px;
+  }
+
+  .comment-card {
+    padding: 25px;
+  }
+
+  .user-comment-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .user-comment-name {
+    font-size: 1.1rem;
+  }
+}
+
+/* رسپانسیو برای موبایل */
+@media (max-width: 768px) {
+  .horizontal-comments-swiper {
+    touch-action: pan-y; /* برای عملکرد بهتر تاچ */
+  }
+  .comments-container {
+    padding: 30px 10px;
+  }
+
+  .comments-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .comment-slide {
+    width: 300px !important;
+    margin: 0 10px;
+  }
+
+  .comment-card {
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .user-comment-profile {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+
+  .user-comment-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .user-comment-name {
+    font-size: 1rem;
+  }
+
+  .user-comment {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .no-comment-text {
+    font-size: 1.1rem;
+  }
+
+  .create-new-comment-btn {
+    padding: 10px 25px;
+    font-size: 1rem;
+  }
+}
+
+/* رسپانسیو برای موبایل‌های کوچک */
+@media (max-width: 480px) {
+  .comments-title {
+    font-size: 1.5rem;
+  }
+
+  .comment-slide {
+    width: 280px !important;
+    margin: 0 8px;
+  }
+
+  .comment-card {
+    padding: 15px;
+  }
+
+  .user-comment-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .user-comment-name {
+    font-size: 0.9rem;
+  }
+
+  .user-comment-subname {
+    font-size: 0.8rem;
+  }
+
+  .user-comment {
+    font-size: 0.85rem;
+  }
+
+  .admin-reply-container{
+    p{
+      font-size: 9px;
+    }
+  }
+
+  .horizontal-comments-swiper .swiper-pagination {
+    margin-top: 30px;
+  }
+
+  .horizontal-comments-swiper .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* استایل‌های خاص برای حالت توقف روی هاور */
+@media (hover: hover) {
+  .horizontal-comments-swiper:hover .swiper-wrapper {
+    animation-play-state: paused;
+  }
+}
+
+/* پشتیبانی از حالت تیره */
+/* @media (prefers-color-scheme: dark) {
+  .comments-container {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  }
+
+  .comments-title {
+    color: #f1f5f9;
+  }
+
+  .comment-card {
+    background: #334155;
+    border-color: #475569;
+    color: #e2e8f0;
+  }
+
+  .user-comment-name {
+    color: #f1f5f9;
+  }
+
+  .user-comment-subname {
+    color: #94a3b8;
+  }
+
+  .user-comment {
+    color: #cbd5e1;
+  }
+
+  .user-comment::before,
+  .user-comment::after {
+    color: #475569;
+  }
+} */
+
+/* استایل برای دستگاه‌های با حرکت کاهش‌یافته */
+@media (prefers-reduced-motion: reduce) {
+  .horizontal-comments-swiper .swiper-wrapper {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .comment-card,
+  .user-comment-img,
+  .create-new-comment-btn {
+    transition: none !important;
+  }
+
+  .horizontal-comments-swiper .swiper-pagination-bullet {
+    transition: none !important;
+  }
+}

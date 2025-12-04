@@ -1,0 +1,493 @@
+.services-container {
+  margin: 0 auto !important;
+  padding: 3rem 0;
+  gap: 2rem;
+}
+.services-title {
+  color: var(--bs-title-gray-color);
+  font-size: var(--title-fontsize);
+  font-family: "Vazir-Bold";
+  font-weight: bold;
+  padding: 0;
+}
+.services-title span {
+  color: var(--bs-color);
+  font-size: var(--title-fontsize);
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+/* ServicesPage.css */
+.services-page {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--gray-50) 0%,
+    var(--primary-lighter) 100%
+  );
+  font-family: "Vazir", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* هدر صفحه */
+.services-hero {
+  position: relative;
+  height: 70dvh;
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue) 0%,
+    var(--primary-dark) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  overflow: hidden;
+}
+
+.hero-content {
+  z-index: 2;
+  position: relative;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem !important;
+  background: linear-gradient(45deg, var(--white), var(--gray-100));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto !important;
+  line-height: 1.6;
+}
+
+.hero-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.decoration-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.decoration-circle:nth-child(1) {
+  width: 120px;
+  height: 120px;
+  top: 15%;
+  left: 10%;
+}
+
+.decoration-circle:nth-child(2) {
+  width: 180px;
+  height: 180px;
+  bottom: 20%;
+  right: 12%;
+}
+
+.decoration-circle:nth-child(3) {
+  width: 90px;
+  height: 90px;
+  bottom: 15%;
+  left: 20%;
+}
+
+/* بخش ویژگی‌ها */
+.service-features-section {
+  padding: 80px 0;
+  background: var(--gray-50);
+}
+
+.service-features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.service-feature-card {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 300px;
+  background: var(--white);
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.service-feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-lighter);
+}
+
+.service-feature-icon {
+  margin-bottom: 20px !important;
+  svg {
+    font-size: 30px;
+    color: var(--primary-blue);
+  }
+}
+
+.service-feature-title {
+  font-size: 1.3rem;
+  color: var(--gray-800);
+  margin-bottom: 15px !important;
+  font-weight: 600;
+}
+
+.service-feature-description {
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+/* بخش تمام خدمات */
+.all-services-section {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.service-item {
+  flex-basis: 360px;
+  /* flex-grow: 1; */
+  flex-shrink: 1;
+  background: var(--gray-50);
+  padding: 30px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.service-item:hover {
+  background: var(--white);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-lighter);
+}
+
+.service-item-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px !important;
+}
+
+.service-item-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--primary-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.3rem;
+}
+
+.service-item-name {
+  font-size: 1.3rem;
+  color: var(--gray-800);
+  margin: 0 !important;
+  font-weight: 600;
+}
+
+.service-item-description {
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 20px !important;
+  height: 100px;
+  overflow: hidden;
+}
+
+.service-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.service-item-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.service-item-link:hover {
+  transform: translateX(-5px);
+}
+
+.link-icon {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.service-item-link:hover .link-icon {
+  transform: translateX(-3px);
+}
+
+.no-services,
+.no-services-message p {
+  text-align: center;
+}
+
+/* بخش ایجاد نظرات */
+.create-comments-section {
+  padding: 80px 0;
+  background-color: var(--white);
+}
+
+/* بخش CTA */
+.services-cta {
+  padding: 80px 0;
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue) 0%,
+    var(--primary-dark) 100%
+  );
+  color: var(--white);
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px !important;
+  font-weight: 700;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 40px !important;
+  max-width: 600px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  padding: 16px 32px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  min-width: 160px;
+  display: inline-block;
+}
+
+.cta-btn.primary {
+  background: var(--white);
+  color: var(--primary-blue);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+
+.cta-btn.secondary:hover {
+  background: var(--white);
+  color: var(--primary-blue);
+  transform: translateY(-3px);
+}
+
+/* لودینگ */
+.services-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  gap: 20px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--gray-200);
+  border-top: 4px solid var(--primary-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* رسپانسیو */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .service-slide {
+    width: 300px;
+    height: 400px;
+  }
+
+  .services-grid,
+  .service-features-grid,
+  .create-comments-section,
+  .services-swiper {
+    width: 90%;
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-hero {
+    height: 300px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .section-header {
+    h2 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    width: 80%;
+    margin: 0 auto !important;
+  }
+
+  .service-item-description {
+    height: 50px;
+  }
+
+  .service-features-grid {
+    width: 80%;
+    margin: 0 auto !important;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-btn {
+    width: 200px;
+  }
+
+  .create-comments-section {
+    padding: 80px 30px;
+  }
+
+  .service-item-footer {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-hero {
+    height: 250px;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .service-slide {
+    width: 280px;
+    height: 380px;
+  }
+
+  .service-item {
+    padding: 20px;
+  }
+
+  .service-item-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-content {
+    padding: 20px;
+  }
+
+  .create-comments-section {
+    padding: 80px 20px;
+  }
+}
+
+@media (max-width: 350px) {
+  .cta-content {
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 10px;
+    }
+  }
+}

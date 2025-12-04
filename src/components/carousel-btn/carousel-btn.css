@@ -1,0 +1,89 @@
+.carousel-btn {
+  position: absolute;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--bs-color);
+  color: var(--bs-color);
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover {
+  background-color: var(--bs-color);
+  color: white;
+  border: none;
+}
+
+.next-btn {
+  left: 0;
+}
+
+.prev-btn {
+  right: 0;
+}
+
+.carousel-btn svg {
+  font-size: 25px;
+}
+
+/*_________ Responsive section __________*/
+
+/* xl laptops */
+@media (max-width: 1199px) {
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+  }
+  .carousel-btn svg {
+    font-size: 18px;
+  }
+}
+
+/* lg tablets & sm laptops */
+@media (max-width: 992px) {
+  .carousel-btn {
+    width: 32px;
+    height: 32px;
+  }
+  .carousel-btn svg {
+    font-size: 16px;
+  }
+}
+
+/* tablets */
+@media (max-width: 768px) {
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+  }
+  .carousel-btn svg {
+    font-size: 14px;
+  }
+}
+
+/* mobile */
+@media (max-width: 576px) {
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+  }
+  .carousel-btn svg {
+    font-size: 14px;
+  }
+}
+
+/* small mobile */
+@media (max-width: 300px) {
+  .carousel-btn {
+    width: 20px;
+    height: 20px;
+  }
+  .carousel-btn svg {
+    font-size: 10px;
+  }
+}

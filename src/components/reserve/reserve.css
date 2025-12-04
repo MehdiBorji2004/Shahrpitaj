@@ -1,0 +1,100 @@
+.reserve-container {
+  margin: 0 auto !important;
+  padding: 4rem 0 !important;
+}
+
+.reserve-title {
+  color: var(--bs-title-gray-color);
+  font-size: var(--title-fontsize);
+  font-family: "Vazir-Bold";
+  font-weight: bold;
+  margin-bottom: 1.5rem !important;
+}
+.reserve-title b {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  color: var(--bs-color);
+}
+.select-services-box {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+.servicer-name,
+.service-type {
+  width: 50%;
+}
+
+.selection-summary {
+  background-color: var(--bs-color-bg);
+  margin-top: 1rem !important;
+  padding: 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+
+.selection-summary p {
+  min-width: max-content;
+  padding-bottom: 0.5rem;
+}
+
+.selection-summary-title {
+  font-weight: bold;
+}
+
+.services-total-price {
+  width: 100%;
+  padding: 3rem 0;
+  margin-top: 20px;
+}
+.total-price-title {
+  min-width: max-content;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  color: var(--bs-text-black-color);
+  font-size: 17px;
+}
+.total-price {
+  min-width: max-content;
+  padding: 0.5rem;
+  color: var(--bs-text-black-color);
+  font-size: 17px;
+}
+
+.submit-reserve {
+  width: 100%;
+  padding: 2rem 0;
+}
+.submit-btn {
+  font-size: 18px;
+  padding: 1rem 1.5rem;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background-color: var(--bs-color);
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.6;
+  width: 200px;
+  text-align: center;
+}
+.active {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.submit-btn:hover {
+  transform: scale(var(--btn-scale));
+  background-color: var(--bs-hover-color);
+}
+
+/* پیام نمایش خطاها در رزرو */
+.data-validate-errors {
+  font-size: 14px;
+  color: var(--err-text-color);
+  margin-top: 1rem !important;
+  min-width: max-content;
+}

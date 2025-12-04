@@ -1,0 +1,54 @@
+.work-time-container {
+  height: 500px;
+  margin: 0 auto 3rem auto !important;
+  align-items: center;
+}
+.work-time-title {
+  font-size: var(--title-fontsize);
+  color: var(--bs-title-gray-color);
+  font-family: "Vazir-Bold";
+  font-weight: bold;
+  padding-bottom: 1rem;
+}
+.work-time-title span {
+  color: var(--bs-color);
+  font-size: inherit;
+  font-family: "Vazir-Bold";
+  font-weight: inherit;
+}
+.work-time-subtitle {
+  font-size: var(--subtitle-fontsize);
+  color: var(--bs-text-gray-color);
+  padding-bottom: 2rem;
+  text-align: justify;
+  width: 100%;
+}
+
+.work-time-container > * {
+  width: 50%;
+}
+
+.week-days-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  p{
+    width: 200px;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+}
+
+.week-days {
+  background-color: var(--bs-ghost-white-color);
+  color: var(--bs-text-gray-color);
+  font-size: var(--subtitle-fontsize);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem !important;
+  padding: 12px;
+  width: 95%;
+  text-align: center;
+}
+

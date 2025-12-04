@@ -1,0 +1,114 @@
+.footer-box {
+  width: 100%;
+  background-color: var(--bs-ghost-white-color);
+}
+.footer-container {
+  margin: 0 auto !important;
+  padding: 5rem 0 !important;
+  display: flex;
+  align-items: center;
+}
+.footer-logo {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: auto;
+  gap: 0.5rem;
+}
+.footer-logo-link {
+  display: inherit;
+  gap: inherit;
+}
+.footer-logo-img {
+  width: 50px;
+  height: 50px;
+}
+.footer-logo-title {
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Vazir-Bold";
+  color: var(--bs-text-black-color);
+}
+.footer-logo-subtitle {
+  color: var(--bs-text-gray-color);
+  font-size: 20px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 4rem;
+}
+.footer-useful-links,
+.footer-user-links {
+  text-decoration: none;
+  color: var(--bs-text-gray-color);
+}
+.footer-useful-links p,
+.footer-user-links p {
+  font-weight: bold;
+  margin-bottom: 10px !important;
+}
+
+.useful-links-list,
+.user-links-list {
+  padding: 0%;
+}
+.useful-links-item,
+.user-links-item {
+  margin-bottom: 10px !important;
+}
+
+.useful-links-item a,
+.user-links-item a {
+  color: var(--bs-text-gray-color);
+}
+.useful-links-item a:hover,
+.user-links-item a:hover {
+  color: var(--bs-color);
+}
+
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+}
+.footer-info div {
+  min-width: auto;
+}
+
+.footer-contacts {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.footer-contacts-title {
+  font-weight: bold;
+  color: var(--bs-text-black-color);
+  min-width: max-content;
+}
+.footer-contacts-icons {
+  display: flex;
+  gap: 16px;
+}
+.footer-contacts-icons a svg{
+  font-size: 20px;
+}
+.footer-credits {
+  color: var(--bs-text-gray-color);
+  font-size: 12px;
+  margin-top: 20px !important;
+}
+.developer-name {
+  width: max-content !important;
+}
+.developer-name a p{
+  color: var(--bs-text-gray-color);
+  font-size: var(--subtitle-fontsize);
+  display: flex;
+  gap: 7px;
+}
+.developer-name a p b{
+  color: var(--bs-text-gray-color);
+  font-size: var(--subtitle-fontsize);
+}

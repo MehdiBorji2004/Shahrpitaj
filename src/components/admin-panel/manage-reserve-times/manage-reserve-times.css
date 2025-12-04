@@ -1,0 +1,49 @@
+.manage-reserves-container {
+  background-image: url("/public/images/worktime-img.png");
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: var(--white);
+}
+
+.start-end-times {
+  width: 70%;
+  margin: 3rem auto !important;
+  backdrop-filter: blur(3px);
+  box-shadow: var(--box-shadow);
+  padding: 0.5rem 1.5rem;
+  border-radius: 1rem;
+
+  .input-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  input {
+    margin-top: 0.5rem !important;
+  }
+
+  .save-btn {
+    margin: 1.5rem 0 !important;
+    color: var(--white);
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .start-end-times {
+    width: 75%;
+    position: absolute;
+    top: 20%;
+    left: 13%;
+
+    .btn {
+      font-weight: unset;
+    }
+  }
+}

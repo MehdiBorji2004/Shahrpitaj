@@ -1,0 +1,103 @@
+.site-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  flex-basis: auto;
+  gap: 0.5rem;
+}
+.site-logo-link {
+  display: inherit;
+  gap: inherit;
+  align-self: center;
+}
+.site-logo-title {
+  font-weight: bold;
+  color: var(--bs-text-black-color);
+}
+.site-logo-subtitle {
+  color: var(--bs-text-gray-color);
+}
+
+.site-logo-img {
+  width: 40px;
+  height: 40px;
+}
+
+/* ________________ Responsive _________________ */
+
+/* xl laptops */
+@media (max-width: 1199px) {
+  .site-logo-img {
+    width: 35px;
+    height: 35px;
+    flex-grow: 1;
+  }
+  .site-logo-title {
+    font-size: 12px;
+  }
+  .site-logo-subtitle {
+    font-size: 12px;
+  }
+}
+
+/* lg tablets & sm laptops */
+@media (max-width: 992px) {
+  .site-logo-img {
+    width: 30px;
+    height: 30px;
+  }
+  .site-logo-title {
+    font-size: 10px;
+    min-width: max-content;
+  }
+  .site-logo-subtitle {
+    font-size: 10px;
+    min-width: max-content;
+  }
+}
+
+/* tablets size */
+@media (max-width: 768px) {
+  .site-logo-img {
+    width: 20px;
+    height: 20px;
+  }
+  .site-logo-title {
+    font-size: 8px;
+  }
+  .site-logo-subtitle {
+    font-size: 8px;
+  }
+}
+
+/* mobile size */
+@media (max-width: 576px) {
+  .site-logo-link {
+    align-items: center;
+  }
+  .site-logo-img {
+    width: 20px;
+    height: 20px;
+  }
+  .site-logo-title {
+    font-size: 9px;
+  }
+  .site-logo-subtitle {
+    font-size: 9px;
+  }
+}
+
+/* small mobile size */
+@media (max-width: 300px) {
+  .site-logo-img {
+    width: 15px;
+    height: 15px;
+  }
+  .site-logo-title {
+    font-size: 6px;
+  }
+  .site-logo-subtitle {
+    font-size: 6px;
+  }
+}

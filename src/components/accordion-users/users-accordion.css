@@ -1,0 +1,44 @@
+.accordion-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.accordion-item {
+  animation: fadeInSlide 0.4s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* انیمیشن برای هر آیتم با تاخیر */
+.accordion-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.accordion-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.accordion-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.accordion-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* انیمیشن برای آکاردئون */
+.accordion-body {
+  transition: all 0.3s ease-in-out;
+}
+
+.accordion-header button {
+  transition: background-color 0.3s ease;
+}

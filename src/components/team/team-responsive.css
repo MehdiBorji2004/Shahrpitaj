@@ -1,0 +1,135 @@
+/* ________________ Responsive _________________ */
+
+/* xl laptops */
+@media (max-width: 1199px) {
+  .team-container {
+    height: 450px;
+    padding: var(--xl-container-pad);
+  }
+  .team-title {
+    font-size: 25px;
+  }
+  .team-title span {
+    font-size: 25px;
+  }
+  .team-cards-container {
+    gap: 1.5rem;
+    top: 25%;
+  }
+  .team-card {
+    width: 22%;
+  }
+  .card-text-title {
+    font-size: 14px;
+  }
+  .card-text-subtitle {
+    font-size: 12px;
+  }
+}
+
+/* lg tablets & sm laptops */
+@media (max-width: 992px) {
+  .team-container {
+    height: 400px;
+    padding: var(--lg-container-pad);
+    margin: 3rem 0 !important;
+  }
+  .team-title {
+    font-size: 20px;
+  }
+  .team-title span {
+    font-size: 20px;
+  }
+  .team-cards-container {
+    gap: 1rem;
+  }
+  .team-card {
+    width: 22%;
+  }
+  .card-text-title {
+    font-size: 13px;
+  }
+  .card-text-subtitle {
+    font-size: 11px;
+  }
+}
+
+/* tablets */
+@media (max-width: 768px) {
+  .team-container {
+    padding: var(--md-container-pad);
+    height: max-content;
+  }
+  .team-cards-container {
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .team-title {
+    font-size: 18px;
+  }
+  .team-title span {
+    font-size: 18px;
+  }
+  .team-card {
+    width: 70%;
+  }
+  .team-top-box,
+  .team-bottom-box {
+    height: 120px;
+  }
+}
+
+/* mobile */
+@media (max-width: 576px) {
+  .team-container {
+    padding: var(--sm-container-pad);
+  }
+  .team-title {
+    font-size: 16px;
+    text-align: center;
+  }
+  .team-title span {
+    font-size: 16px;
+  }
+  .team-card {
+    padding: 0.5rem;
+  }
+  .card-text-title {
+    font-size: 12px;
+  }
+  .card-text-subtitle {
+    font-size: 10px;
+  }
+  .team-top-box,
+  .team-bottom-box {
+    height: 110px;
+  }
+}
+
+/* small mobile */
+@media (max-width: 300px) {
+  .team-container {
+    height: 500px;
+  }
+  .team-title {
+    font-size: 14px;
+  }
+  .team-title span {
+    font-size: 14px;
+  }
+  .team-cards-container {
+    gap: 1rem;
+    padding: 1rem 0;
+    flex-direction: column;
+    top: 11%;
+  }
+  .team-card {
+    width: 50%;
+  }
+  .card-text-title {
+    font-size: 11px;
+  }
+  .card-text-subtitle {
+    font-size: 9px;
+  }
+}

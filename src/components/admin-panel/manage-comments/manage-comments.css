@@ -1,0 +1,546 @@
+.panel-content {
+  padding: 30px;
+  min-height: 100vh;
+  font-family: "Vazir", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.panel-content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 30px !important;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.panel-content h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-light));
+  border-radius: 2px;
+}
+
+/* بخش آمار کامنت‌ها */
+.comments-count {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px !important;
+  border: 1px solid var(--gray-200);
+  transition: var(--transition);
+  width: 800px;
+  margin: 0 auto 2rem auto !important;
+}
+
+.comments-count:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.comments-count span:first-child {
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--primary-light)
+  );
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.3rem;
+}
+
+.comments-count span:last-child {
+  font-weight: 600;
+  color: var(--gray-700);
+  font-size: 1.1rem;
+}
+
+/* کانتینر اصلی کامنت‌ها */
+.all-comments-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto !important;
+}
+
+/* کارت کامنت */
+.manage-comment-container {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+}
+
+.manage-comment-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+  .user-info-img {
+    border-color: var(--primary-blue);
+    transform: scale(1.05);
+  }
+}
+
+.manage-comment-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-light));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.manage-comment-container:hover::before {
+  transform: scaleX(1);
+}
+
+/* بخش کاربر */
+.user-comment-wrapper {
+  padding: 25px;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px !important;
+  gap: 15px;
+}
+
+.user-info > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.user-info-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--primary-lighter);
+  transition: var(--transition);
+}
+
+.user-info-img:hover {
+  border-color: var(--primary-blue);
+  transform: scale(1.05);
+}
+
+.user-info-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-info-name p:first-child {
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 5px !important;
+  font-size: 1.1rem;
+}
+
+.user-info-name p:last-child {
+  color: var(--gray-500);
+  font-size: 0.85rem;
+}
+
+/* دکمه‌های مدیریت */
+.manage-comments-btn {
+  display: flex;
+  gap: 10px;
+}
+
+.comment-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.comment-btn.reply button {
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--primary-light)
+  );
+  color: var(--white);
+  padding: 8px 12px;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+}
+
+.comment-btn.remove button {
+  background: linear-gradient(135deg, var(--error-red), #dc2626);
+  color: var(--white);
+  outline: none;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50%;
+}
+
+.comment-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* متن کامنت کاربر */
+.manage-user-comment {
+  background: var(--gray-50);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--gray-200);
+  margin-top: 15px !important;
+  position: relative;
+}
+
+/* .user-comment::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 30px;
+  width: 16px;
+  height: 16px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-right: none;
+  border-bottom: none;
+  transform: rotate(45deg);
+} */
+
+.manage-user-comment p {
+  color: var(--gray-700);
+  line-height: 1.6;
+  margin: 0 !important;
+  font-size: 1rem;
+}
+
+/* فرم پاسخ ادمین */
+.reply-form {
+  padding: 25px;
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+}
+
+.reply-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid var(--gray-300);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 100px;
+  transition: var(--transition);
+  background: var(--white);
+}
+
+.reply-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  transform: translateY(-2px);
+}
+
+.reply-err-msg {
+  color: var(--error-red);
+  font-size: 0.9rem;
+  margin: 10px 0 !important;
+  padding: 10px;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.reply-form > div {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px !important;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.95rem;
+  min-width: 120px;
+}
+
+.reply-form .btn[type="submit"] {
+  background: linear-gradient(135deg, var(--success-green), #059669);
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.reply-form .btn[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.cancel-reply-btn {
+  background: var(--white);
+  color: var(--gray-700);
+  border: 2px solid var(--gray-300);
+}
+
+.cancel-reply-btn:hover {
+  background: var(--gray-100);
+  border-color: var(--gray-400);
+  transform: translateY(-2px);
+}
+
+/* پاسخ ادمین */
+.admin-reply-wrapper {
+  padding: 25px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-lighter),
+    rgba(219, 234, 254, 0.5)
+  );
+  border-top: 1px solid var(--gray-200);
+  position: relative;
+}
+
+.admin-reply-wrapper::before {
+  content: "پاسخ ادمین";
+  position: absolute;
+  top: -12px;
+  right: 25px;
+  background: var(--primary-blue);
+  color: var(--white);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.admin-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px !important;
+}
+
+.admin-info-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-info-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-info-name p:first-child {
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 5px !important;
+  font-size: 1rem;
+}
+
+.admin-info-name p:last-child {
+  color: var(--gray-500);
+  font-size: 0.8rem;
+}
+
+.admin-answer {
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--primary-lighter);
+  position: relative;
+}
+
+.admin-answer::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 30px;
+  width: 16px;
+  height: 16px;
+  background: var(--white);
+  border: 1px solid var(--primary-lighter);
+  border-right: none;
+  border-bottom: none;
+  transform: rotate(45deg);
+}
+
+.admin-answer p {
+  color: var(--gray-700);
+  line-height: 1.6;
+  margin: 0 !important;
+  font-size: 1rem;
+}
+
+/* رسپانسیو */
+@media (max-width: 768px) {
+  .panel-content {
+    padding: 20px;
+  }
+
+  .panel-content h3 {
+    font-size: 1.6rem;
+    margin-bottom: 25px !important;
+  }
+
+  .comments-count {
+    padding: 15px;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .all-comments-container {
+    padding-bottom: 5rem;
+  }
+
+  .user-info {
+    align-items: center;
+  }
+
+  .user-info > div:first-child {
+    width: 100%;
+  }
+
+  .admin-reply-wrapper::before {
+    font-weight: unset;
+  }
+
+  .reply-form > div {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .manage-user-comment,
+  .admin-answer {
+    padding: 15px;
+  }
+
+  .user-comment-wrapper,
+  .reply-form,
+  .admin-reply-wrapper {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .panel-content {
+    padding: 15px;
+  }
+
+  .panel-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .manage-comment-container::before {
+    height: 2px;
+  }
+
+  .comments-count span:first-child {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .user-info-img {
+    width: 55px;
+    height: 55px;
+    border: 2px solid var(--primary-lighter);
+  }
+
+  .admin-info-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .comment-btn {
+    width: 35px;
+    height: 35px;
+  }
+
+  .comment-btn.remove button {
+    padding: 6px 9px;
+  }
+
+  .manage-user-comment::before,
+  .admin-answer::before {
+    right: 20px;
+  }
+
+  .admin-reply-wrapper::before {
+    right: 15px;
+  }
+}
+
+/* وضعیت خالی */
+.all-comments-container:empty::after {
+  content: "هیچ کامنتی برای نمایش وجود ندارد";
+  display: block;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--gray-500);
+  font-size: 1.1rem;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px dashed var(--gray-300);
+}
+
+/* پشتیبانی از کاهش حرکت */
+@media (prefers-reduced-motion: reduce) {
+  .manage-comment-container,
+  .comments-count,
+  .comment-btn,
+  .btn,
+  .user-info-img {
+    transition: none;
+  }
+
+  .manage-comment-container:hover {
+    transform: none;
+  }
+
+  .comment-btn:hover {
+    transform: none;
+  }
+}

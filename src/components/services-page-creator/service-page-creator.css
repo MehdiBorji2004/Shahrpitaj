@@ -1,0 +1,1175 @@
+/* ServiceDetailPage.css */
+.service-detail-page {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--gray-50) 0%,
+    var(--primary-lighter) 100%
+  );
+  font-family: "Vazir", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container-xl {
+  max-width: 1200px;
+  margin: 0 auto !important;
+  padding: 0 16px;
+}
+
+/* هدر صفحه */
+.service-hero {
+  position: relative;
+  padding: 120px 0 80px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue) 0%,
+    var(--primary-dark) 100%
+  );
+  color: var(--white);
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(37, 99, 235, 0.9),
+    rgba(30, 64, 175, 0.9)
+  );
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.service-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.service-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px !important;
+  font-size: 0.95rem;
+  flex-wrap: wrap;
+}
+
+.service-breadcrumb a {
+  color: var(--gray-200);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.service-breadcrumb a:hover {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.breadcrumb-separator {
+  color: var(--gray-300);
+  font-size: 0.8rem;
+}
+
+.service-hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 24px !important;
+  background: linear-gradient(45deg, var(--white), var(--gray-100));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service-hero-description {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto 48px !important;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.service-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto !important;
+}
+
+.service-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 24px 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.service-stat-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-stat-icon {
+  flex-shrink: 0;
+  svg {
+    font-size: 25px;
+    color: var(--white);
+  }
+}
+
+.service-stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.service-stat-label {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--gray-100) !important;
+}
+
+/* محتوای اصلی */
+.service-detail-content {
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto !important;
+  gap: 80px;
+}
+
+/* بخش رزرو */
+.service-booking-section {
+  margin-top: -120px !important;
+  position: relative;
+  z-index: 10;
+}
+
+.booking-card {
+  background: var(--white);
+  padding: clamp(30px, 4vw, 48px);
+  border-radius: 24px;
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(24px, 3vw, 40px);
+  border: 1px solid var(--gray-200);
+  position: relative;
+  overflow: hidden;
+}
+
+.price-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.price-label {
+  color: var(--gray-600);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.price-value {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--primary-blue);
+  line-height: 1.1;
+}
+
+.price-note {
+  color: var(--gray-500);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.booking-action {
+  flex-shrink: 0;
+}
+
+.booking-action :global(.reserve-btn) {
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--primary-light)
+  );
+  border: none;
+  padding: clamp(14px, 2vw, 18px) clamp(28px, 3vw, 36px);
+  border-radius: 50px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  min-width: 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+.booking-action :global(.reserve-btn::before) {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.booking-action :global(.reserve-btn:hover::before) {
+  left: 100%;
+}
+
+.booking-action :global(.reserve-btn:hover) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+  background: linear-gradient(
+    135deg,
+    var(--primary-light),
+    var(--primary-blue)
+  );
+}
+
+/* بخش نمونه کارها */
+.portfolio-section {
+  background: var(--white);
+  padding: clamp(40px, 5vw, 60px);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+}
+
+.service-section-header {
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px !important;
+  flex-wrap: wrap;
+
+  h2 {
+    font-size: var(--title-fontsize) !important;
+    margin-bottom: 0 !important;
+  }
+
+  svg {
+    font-size: 2.2rem;
+    color: var(--primary-blue);
+    flex-shrink: 0;
+  }
+}
+
+.portfolio-section-icon {
+  font-size: 2.2rem;
+  color: var(--primary-blue);
+  flex-shrink: 0;
+}
+
+.portfolio-section-title {
+  /* font-size: clamp(1.5rem, 3vw, 2.2rem); */
+  color: var(--gray-800);
+  margin: 0 !important;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.portfolio-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(20px, 3vw, 28px);
+  margin-bottom: 48px !important;
+}
+
+.portfolio-item {
+  width: clamp(250px, 30%, 300px);
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.4s ease;
+  background: var(--white);
+}
+
+.portfolio-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
+
+.portfolio-image-container {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--gray-100);
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-image {
+  transform: scale(1.1);
+}
+
+.delete-portfolio-btn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border: none;
+  border-radius: 50%;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: scale(0.8);
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.portfolio-item:hover .delete-portfolio-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.delete-portfolio-btn:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
+/* صفحه‌بندی */
+.portfolio-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 20px);
+  flex-wrap: wrap;
+}
+
+.pagination-btn {
+  width: clamp(44px, 5vw, 52px);
+  height: clamp(44px, 5vw, 52px);
+  border: 2px solid var(--gray-300);
+  background: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--gray-600);
+  font-size: 1.1rem;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  border-color: var(--primary-blue);
+  background: var(--primary-blue);
+  color: var(--white);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pagination-numbers {
+  display: flex;
+  gap: clamp(6px, 1vw, 12px);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pagination-number {
+  width: clamp(40px, 4vw, 48px);
+  height: clamp(40px, 4vw, 48px);
+  border: 2px solid var(--gray-300);
+  background: var(--white);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: var(--gray-700);
+  font-size: 0.95rem;
+}
+
+.pagination-number:hover {
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+  transform: translateY(-2px);
+}
+
+.pagination-number.active {
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+  color: var(--white);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* بخش جزئیات */
+.service-details-section {
+  background: var(--white);
+  padding: clamp(40px, 5vw, 60px);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+  margin: 4rem 0 !important;
+}
+
+.features-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+  div {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* استایل کامپوننت Features */
+.features-container :global(.features-container) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(20px, 3vw, 28px);
+}
+
+.features-container :global(.feature-item) {
+  background: var(--gray-50);
+  padding: clamp(24px, 3vw, 32px);
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  transition: all 0.4s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.features-container :global(.feature-item::before) {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-light));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.features-container :global(.feature-item:hover::before) {
+  transform: scaleX(1);
+}
+
+.features-container :global(.feature-item:hover) {
+  background: var(--white);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-lighter);
+}
+
+.features-container .feature-icon {
+  font-size: 2.2rem;
+  color: var(--primary-blue);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.features-container .feature-item:hover .feature-icon {
+  transform: scale(1.1);
+}
+
+.features-container .feature-content {
+  flex: 1;
+}
+
+.features-container .feature-name {
+  font-size: 1.2rem;
+  color: var(--gray-800);
+  margin-bottom: 8px !important;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.features-container .feature-subname {
+  color: var(--gray-600);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* بخش نظرات */
+.comments-section {
+  background: var(--white);
+  padding: clamp(40px, 5vw, 60px);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+}
+
+.comment-head {
+  font-size: 25px;
+}
+
+/* حالت‌های خالی */
+.no-portfolio,
+.no-details {
+  text-align: center;
+  padding: clamp(60px, 8vw, 80px) 20px;
+  color: var(--gray-500);
+  background: var(--gray-50);
+  border-radius: 20px;
+  border: 2px dashed var(--gray-300);
+}
+
+.no-portfolio-icon {
+  font-size: 4rem;
+  margin-bottom: 24px !important;
+  opacity: 0.5;
+  color: var(--gray-400);
+}
+
+.no-portfolio p,
+.no-details p {
+  font-size: 1.1rem;
+  margin: 0 !important;
+  font-weight: 500;
+}
+
+/* صفحه خطا */
+.service-not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.not-found-content h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--gray-800);
+  margin-bottom: 16px !important;
+  font-weight: 700;
+}
+
+.not-found-content p {
+  color: var(--gray-600);
+  margin-bottom: 32px !important;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.back-to-services {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--primary-light)
+  );
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  font-size: 1rem;
+}
+
+.back-to-services:hover {
+  background: linear-gradient(
+    135deg,
+    var(--primary-light),
+    var(--primary-blue)
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+  gap: 12px;
+}
+
+/* Features Grid Section */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15);
+  border-color: var(--bs-color);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: var(--bs-color);
+  margin-bottom: 1rem;
+  display: inline-block;
+  background: rgba(37, 99, 235, 0.1);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  svg {
+    font-size: 25px;
+  }
+}
+
+.feature-card:hover .feature-icon {
+  background: rgba(37, 99, 235, 0.2);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.feature-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--bs-text-black-color);
+  margin: 1rem 0 0.5rem;
+}
+
+.feature-description {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    width: 70px;
+    height: 70px;
+  }
+
+  .feature-title {
+    font-size: 1.1rem;
+  }
+
+  .feature-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .features-grid {
+    gap: 1rem;
+  }
+
+  .feature-card {
+    padding: 1.25rem 1rem;
+    border-radius: 10px;
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+  }
+
+  .feature-title {
+    font-size: 1rem;
+  }
+
+  .feature-description {
+    font-size: 0.85rem;
+  }
+}
+
+/* رسپانسیو برای دستگاه‌های کوچک */
+@media (max-width: 1024px) {
+  .service-detail-content {
+    padding: 80px 40px;
+  }
+
+  .service-hero {
+    padding: 100px 0 60px;
+  }
+
+  .booking-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .booking-action {
+    .reserve-btn {
+      width: 150px;
+      font-size: 14px;
+      padding: 14px;
+
+      svg {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .service-hero-stats {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .service-hero {
+    padding: 80px 0 40px;
+  }
+
+  .service-booking-section {
+    margin-top: -80px !important;
+  }
+
+  .service-hero-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 300px;
+  }
+
+  .stat-item {
+    padding: 20px 16px;
+  }
+
+  .stat-icon {
+    font-size: 2rem;
+  }
+
+  .stat-value {
+    font-size: 1.3rem;
+  }
+
+  .service-section-header {
+    text-align: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px !important;
+
+    h2 {
+      font-size: 20px !important;
+    }
+
+    svg {
+      font-size: 20px;
+    }
+  }
+
+  .comments-section {
+    .comment-form {
+      .comment-head {
+        font-size: 18px;
+        text-align: center;
+      }
+    }
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .portfolio-pagination {
+    gap: 8px;
+  }
+
+  .pagination-numbers {
+    order: -1;
+    width: 100%;
+    margin-bottom: 16px !important;
+  }
+
+  .booking-action {
+    .reserve-btn {
+      width: max-content;
+      padding: 12px 20px;
+      font-size: 12px;
+
+      svg {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .features-container .feature-icon {
+    width: 50px !important;
+    height: 50px;
+
+    svg {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .service-section-header {
+    margin-bottom: 25px !important;
+
+    h2,
+    svg {
+      font-size: 14px !important;
+    }
+  }
+
+  .container-xl {
+    padding: 0 12px;
+  }
+
+  .service-hero {
+    padding: 60px 0 30px;
+  }
+
+  .service-booking-section {
+    margin-top: -60px !important;
+  }
+
+  .booking-action {
+    width: 35%;
+    button {
+      width: 100%;
+      padding: 10px 0;
+      border-radius: 50px;
+      font-size: 10px;
+
+      svg {
+        font-size: 9px;
+      }
+    }
+  }
+
+  .booking-card {
+    padding: 24px 20px;
+    border-radius: 20px;
+    margin: 0 8px !important;
+  }
+
+  .service-detail-content {
+    padding: 60px 0;
+    gap: 60px;
+  }
+
+  .portfolio-section,
+  .service-details-section,
+  .comments-section {
+    padding: 24px 20px;
+    border-radius: 20px;
+    margin: 0 8px !important;
+  }
+
+  .comment-head {
+    font-size: 16px !important;
+    text-align: center;
+  }
+
+  .comment-textarea-label {
+    font-size: 14px;
+  }
+
+  .service-breadcrumb {
+    font-size: 0.9rem;
+    gap: 8px;
+  }
+
+  .service-hero-description {
+    margin-bottom: 32px !important;
+    padding: 0 4rem;
+  }
+
+  .stat-item {
+    padding: 16px 12px;
+    border-radius: 16px;
+  }
+
+  .stat-icon {
+    font-size: 1.8rem;
+  }
+
+  .stat-content {
+    gap: 2px;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+  }
+
+  .features-container {
+    flex-direction: column;
+
+    div {
+      width: 100%;
+      column-gap: 1rem;
+
+      .feature-text .feature-text-subtitle {
+        text-align: start;
+      }
+    }
+  }
+
+  .features-container .feature-item {
+    padding: 20px 16px;
+    border-radius: 16px;
+    gap: 16px;
+  }
+
+  .features-container .feature-name {
+    font-size: 1.1rem;
+  }
+
+  .delete-portfolio-btn {
+    width: 40px;
+    height: 40px;
+    top: 12px;
+    left: 12px;
+    font-size: 1rem;
+  }
+
+  .pagination-number {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .pagination-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .portfolio-item {
+    width: 50%;
+  }
+}
+
+@media (max-width: 360px) {
+  .service-section-header {
+    margin-bottom: 25px !important;
+
+    h2,
+    svg {
+      font-size: 12px !important;
+    }
+  }
+
+  .service-hero-title {
+    font-size: 1.8rem;
+  }
+
+  .service-hero-stats {
+    width: 80%;
+  }
+
+  .service-stat-item {
+    padding: 1rem;
+  }
+
+  .service-stat-icon svg {
+    font-size: 18px;
+  }
+
+  .service-stat-value {
+    font-size: 13px;
+  }
+
+  .service-hero-description {
+    font-size: 1rem;
+    text-align: justify;
+    line-height: 1.5;
+  }
+
+  .booking-card {
+    padding: 20px 16px;
+  }
+
+  .price-value {
+    font-size: 1.8rem;
+  }
+
+  .portfolio-section,
+  .service-details-section,
+  .comments-section {
+    padding: 20px 16px;
+    margin: 0 4px !important;
+  }
+
+  .service-breadcrumb {
+    font-size: 0.85rem;
+  }
+
+  .booking-card {
+    gap: 22px;
+  }
+
+  .booking-action {
+    width: 40%;
+
+    .reserve-btn {
+      padding: 8px 14px;
+      font-size: 9px;
+      width: 100%;
+
+      svg {
+        font-size: 8px;
+      }
+    }
+  }
+
+  .back-to-services {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+
+  .portfolio-item {
+    width: 60%;
+  }
+
+  .features-container .feature-icon {
+    width: 30px !important;
+    height: 30px;
+
+    svg {
+      font-size: 12px;
+    }
+  }
+
+  .comment-head {
+    font-size: 12px !important;
+  }
+
+  .comment-textarea-label {
+    font-size: 13px;
+  }
+}
+
+/* پشتیبانی از حالت landscape موبایل */
+@media (max-height: 500px) and (orientation: landscape) {
+  .service-hero {
+    padding: 60px 0 40px;
+  }
+
+  .service-hero-title {
+    font-size: 2rem;
+    margin-bottom: 16px !important;
+  }
+
+  .service-hero-description {
+    margin-bottom: 24px !important;
+    font-size: 1rem;
+  }
+
+  .service-hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .stat-item {
+    padding: 12px 8px;
+    gap: 8px;
+  }
+
+  .stat-icon {
+    font-size: 1.5rem;
+  }
+
+  .stat-value {
+    font-size: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+  }
+}
+
+/* پشتیبانی از دستگاه‌های با DPI بالا */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .portfolio-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}

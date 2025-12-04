@@ -1,0 +1,267 @@
+/* ReservePage.css */
+.reservation-disabled {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  direction: rtl;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.disabled-container {
+  width: 100%;
+  max-width: 500px;
+  perspective: 1000px;
+}
+
+.disabled-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-header {
+  text-align: center;
+  position: relative;
+}
+
+.pulse-animation {
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.icon {
+  font-size: 80px;
+  display: block;
+  filter: grayscale(0.3);
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 10px !important;
+  background-clip: text;
+}
+
+.card-body {
+  margin-bottom: 30px !important;
+}
+
+.main-message {
+  font-size: 18px;
+  color: var(--error-red);
+  text-align: center;
+  margin-bottom: 15px !important;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.description {
+  font-size: 14px;
+  color: #7f8c8d;
+  text-align: center;
+  line-height: 1.8;
+  margin-bottom: 25px !important;
+}
+
+.info-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 25px !important;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(52, 152, 219, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+.info-icon {
+  font-size: 18px;
+}
+
+.info-text {
+  font-size: 13px;
+  color: #3498db;
+  font-weight: 600;
+}
+
+.card-footer {
+  border-top: 1px solid rgba(52, 152, 219, 0.2);
+  padding-top: 25px;
+}
+
+.contact-info {
+  text-align: center;
+}
+
+.contact-text {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin-bottom: 20px !important;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2980b9, #3498db);
+  background-size: 200% 100%;
+  animation: waveFlow 3s ease-in-out infinite;
+}
+
+@keyframes waveFlow {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ریسپانسیو برای تبلت */
+@media (max-width: 768px) {
+  .reservation-disabled {
+    padding: 15px;
+  }
+  
+  .disabled-card {
+    padding: 30px 20px;
+  }
+  
+  .icon {
+    font-size: 60px;
+  }
+  
+  .title {
+    font-size: 24px;
+  }
+  
+  .main-message {
+    font-size: 16px;
+  }
+  
+  .info-section {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .info-item {
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+  }
+  
+  .contact-buttons {
+    flex-direction: column;
+  }
+  
+  .contact-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ریسپانسیو برای موبایل */
+@media (max-width: 480px) {
+  .disabled-card {
+    padding: 25px 15px;
+    border-radius: 20px;
+  }
+  
+  .icon {
+    font-size: 50px;
+  }
+  
+  .title {
+    font-size: 22px;
+  }
+  
+  .status-badge {
+    font-size: 12px;
+    padding: 6px 16px;
+  }
+  
+  .main-message {
+    font-size: 15px;
+  }
+  
+  .description {
+    font-size: 13px;
+  }
+
+  .contact-info p {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+/* انیمیشن ورود */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.disabled-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* افکت شیشه‌ای پیشرفته */
+.disabled-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 100%);
+  border-radius: 24px;
+  pointer-events: none;
+}

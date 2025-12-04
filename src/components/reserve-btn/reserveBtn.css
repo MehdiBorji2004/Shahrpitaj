@@ -1,0 +1,51 @@
+.reserve-btn {
+  width: 150px;
+  padding: 0.5rem;
+  background-color: var(--bs-color);
+  font-size: var(--fontsize-subtitle);
+  border: none;
+  border-radius: var(--bs-btn-radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  gap: 7px;
+  color: whitesmoke;
+}
+
+.reserve-btn:hover {
+  transform: scale(var(--btn-scale));
+  background-color: var(--bs-hover-color);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .reserve-btn {
+    width: 120px;
+    font-size: 12px;
+  }
+}
+
+/* Tablet size */
+@media (max-width: 768px) {
+  .reserve-btn {
+    width: 40%;
+    padding: 3px 0px;
+    font-size: 7px;
+    gap: 3px;
+  }
+  .reserve-btn svg {
+    font-size: 6px;
+  }
+}
+
+/* Mobile size */
+@media (max-width: 425px) {
+  .reserve-btn {
+    font-size: 6px;
+  }
+  .reserve-btn svg {
+    font-size: 5px;
+  }
+}

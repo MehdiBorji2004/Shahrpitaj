@@ -1,0 +1,63 @@
+.time-picker {
+  background: white;
+  border-radius: 8px;
+  min-width: 100%;
+}
+
+.time-picker-title {
+  text-align: start;
+  font-size: 18px;
+  color: var(--bs-text-gray-color);
+  padding-bottom: 1rem;
+}
+.time-picker-title b {
+  color: var(--bs-color);
+}
+
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.time-slot {
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.time-slot:hover {
+  background-color: #e9ecef;
+}
+
+.time-slot.selected {
+  background-color: var(--bs-color);
+  color: white;
+}
+
+.end-time-alert {
+  min-width: max-content;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--err-bg-color);
+  color: var(--err-text-color);
+  font-weight: bold;
+}
+
+.selected-time-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.selected-time {
+  min-width: max-content;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-weight: bold;
+}

@@ -1,0 +1,68 @@
+.header-nav-link {
+  color: var(--bs-text-gray-color);
+  display: flex;
+  align-items: start;
+  gap: 5px;
+}
+.nav-link-icon svg {
+  font-size: 20px;
+}
+
+/* ________________ Responsive _________________ */
+/* lg laptops */
+@media (max-width: 1199px) {
+  .header-nav-link {
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-link-icon svg {
+    font-size: 18px;
+  }
+  .nav-link-title {
+    font-size: 12px;
+  }
+}
+
+/* sm laptops */
+@media (max-width: 1024px) {
+  .header-nav-link {
+    align-items: center;
+    gap: 5px;
+  }
+  .nav-link-icon svg {
+    font-size: 15px;
+  }
+  .nav-link-title {
+    font-size: 10px;
+  }
+}
+
+/* horizantal tablets & sm laptops */
+@media (max-width: 992px) {
+  .header-nav-link {
+    align-items: center;
+    /* gap: 6px; */
+  }
+  .nav-link-icon svg {
+    font-size: 12px;
+  }
+  .nav-link-title {
+    font-size: 11px;
+    min-width: max-content;
+  }
+}
+
+
+/* vertical tablet size */
+@media (max-width: 768px) {
+  .header-nav-link {
+    align-items: center;
+    gap: 2px;
+  }
+  .nav-link-icon svg {
+    font-size: 10px;
+  }
+  .nav-link-title {
+    font-size: 10px;
+  }
+}

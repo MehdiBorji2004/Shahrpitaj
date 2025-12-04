@@ -1,0 +1,154 @@
+/* ________________ Responsive _________________ */
+
+/* xl laptops */
+@media (max-width: 1199px) {
+  .work-time-container {
+    padding: var(--xl-container-pad);
+  }
+  .work-time-text {
+    width: 55%;
+  }
+  .work-time-img {
+    width: 45%;
+  }
+  .work-time-title {
+    font-size: 25px;
+  }
+  .work-time-subtitle {
+    font-size: 13px;
+    padding-bottom: 1.8rem;
+  }
+  .week-days {
+    font-size: 11px;
+    min-width: max-content;
+  }
+}
+
+/* lg tablets & sm laptops */
+@media (max-width: 992px) {
+  .work-time-container {
+    height: 400px;
+    padding: var(--lg-container-pad);
+  }
+  .work-time-text {
+    width: 65%;
+  }
+  .work-time-img {
+    width: 35%;
+  }
+  .work-time-title {
+    font-size: 20px;
+  }
+  .work-time-subtitle {
+    font-size: 12px;
+    padding-bottom: 1.5rem;
+  }
+  .week-days {
+    font-size: 12px;
+    padding: 8px;
+    width: 85%;
+  }
+}
+
+/* tablets size */
+@media (max-width: 768px) {
+  .work-time-container {
+    height: 350px;
+    padding: var(--md-container-pad);
+  }
+  .work-time-text {
+    width: 60%;
+  }
+  .work-time-img {
+    width: 40%;
+  }
+  .work-time-title {
+    font-size: 18px;
+    padding-bottom: 0.8rem;
+  }
+  .work-time-subtitle {
+    font-size: 10px;
+    padding-bottom: 1.2rem;
+  }
+  .week-days {
+    font-size: 8px;
+    padding: 8px;
+    width: 80%;
+  }
+}
+
+/* mobile size */
+@media (max-width: 576px) {
+  .work-time-container {
+    height: auto;
+    padding: 2rem 1rem 1rem 1rem;
+    margin-bottom: 0.5 !important;
+  }
+  .work-time-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding-top: 4rem;
+  }
+  .work-time-img {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .work-time-img img {
+    width: 60%;
+  }
+  .work-time-title {
+    font-size: 16px;
+    text-align: center;
+  }
+  .work-time-subtitle {
+    font-size: 10px;
+    text-align: justify;
+    padding-bottom: 1rem;
+    width: 80%;
+  }
+  .week-days-container {
+    width: 50%;
+  }
+  .week-days {
+    font-size: 10px;
+    padding: 6px;
+    width: 90%;
+  }
+}
+
+/* small mobile size */
+@media (max-width: 300px) {
+  .work-time-container {
+    height: auto;
+    margin: 0 !important;
+  }
+  .work-time-title {
+    font-size: 14px;
+  }
+  .work-time-subtitle {
+    font-size: 8px;
+  }
+  .week-days-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .week-days-container > * {
+    width: 100%;
+  }
+  .week-days {
+    font-size: 8px;
+    padding: 5px;
+    width: 90%;
+    margin: 0 auto 7px auto !important;
+  }
+  .work-time-img img {
+    width: 50%;
+  }
+}

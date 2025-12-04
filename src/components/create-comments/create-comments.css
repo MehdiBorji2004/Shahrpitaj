@@ -1,0 +1,75 @@
+.comment-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto !important;
+  padding: 3rem 0;
+}
+
+.comment-head {
+  color: var(--bs-title-gray-color);
+  font-size: var(--title-fontsize);
+  font-family: "Vazir-Bold";
+  font-weight: bold;
+  margin-bottom: 1.5rem !important;
+}
+
+.comment-textarea-label {
+  font-size: 18px;
+  color: var(--bs-text-gray-color);
+}
+
+.comment-textarea-label b {
+  color: var(--bs-color);
+}
+
+.comment-textarea {
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  padding: 1rem;
+  background-color: var(--inputs-bg-color);
+  color: var(--bs-text-gray-color);
+  font-size: var(--subtitle-fontsize);
+}
+
+.comment-textarea:focus {
+  border: 1px solid var(--bs-color);
+}
+
+.comment-send-btn {
+  background-color: var(--bs-color);
+  color: white;
+  width: max-content;
+  padding: 0.5rem 1.5rem;
+}
+
+.comment-send-btn:hover {
+  transform: scale(var(--btn-scale));
+  background-color: var(--bs-hover-color);
+  color: white;
+}
+
+.comment-err-msg {
+  text-align: start;
+  font-size: 16px;
+  color: var(--err-text-color);
+  padding-right: 10px;
+}
+
+@media (max-width: 576px) {
+  .comment-head {
+    font-size: 20px !important;
+  }
+  .comment-textarea-label {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 350px) {
+  .comment-head {
+    font-size: 14px !important;
+  }
+
+}
