@@ -10,9 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.1
 
-      - name: Delete Previous Process Silently
-        continue-on-error: true
+      - name: Delete pm2 process
         run: pm2 delete shahrpitaj
+        continue-on-error: true
 
       - name: Install Dependencies
         run: npm i
