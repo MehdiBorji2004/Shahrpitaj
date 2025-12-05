@@ -17,9 +17,9 @@ jobs:
       - name: Install Dependencies
         run: npm i
 
-      - name: Build
-        continue-on-error: true
-        run: npm run build
+      # - name: Build
+      #   continue-on-error: true
+      #   run: npm run build
 
       - name: Start a New Process
         run: pm2 start build/app.js --name shahrpitaj
