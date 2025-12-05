@@ -21,8 +21,8 @@ jobs:
       #   continue-on-error: true
       #   run: npm run build
 
-      - name: Start a New Process
-        run: pm2 start build/app.js --name shahrpitaj
+      # - name: Start a New Process
+      #   run: pm2 start build/app.js --name shahrpitaj
 
       - name: Create Deploy Folder
         run: mkdir -p /var/www/shahrpitaj.ir/
