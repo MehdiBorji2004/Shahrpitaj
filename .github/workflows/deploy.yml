@@ -25,7 +25,7 @@ jobs:
         run: pm2 delete shahrpitaj || true
 
       - name: Start a New Process
-        run: pm2 start build/app.js --name shahrpitaj
+        run: pm2 start app.js --name shahrpitaj
 
       - name: Save Current Process List
         run: pm2 save
