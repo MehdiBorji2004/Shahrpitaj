@@ -10,9 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.1
 
-      - name: Delete Previous Process Silently
-        continue-on-error: true
-        run: pm2 delete shahrpitaj || true
+      - name: Install PM2 globally
+        run: npm install -g pm2
 
       - name: Install Dependencies
         run: npm i
@@ -21,11 +20,12 @@ jobs:
         continue-on-error: true
         run: npm run build
 
+      - name: Delete Previous Process Silently
+        continue-on-error: true
+        run: pm2 delete shahrpitaj || true
+
       - name: Start a New Process
         run: pm2 start build/app.js --name shahrpitaj
 
-      - name: Create Deploy Folder
-        run: mkdir -p /var/www/shahrpitaj.ir
-
-      - name: Save Current Procces List
+      - name: Save Current Process List
         run: pm2 save
