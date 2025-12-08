@@ -5,17 +5,6 @@
   .header {
     padding-right: 1rem;
   }
-  /* .header-logo-img {
-    width: 35px;
-    height: 35px;
-    flex-grow: 1;
-  }
-  .header-logo-title {
-    font-size: 12px;
-  }
-  .header-logo-subtitle {
-    font-size: 12px;
-  } */
   .header-nav-list {
     gap: 1rem;
     flex-grow: 1;
@@ -31,18 +20,6 @@
 
 /* lg tablets & sm laptops */
 @media (max-width: 992px) {
-  /* .header-logo-img {
-    width: 30px;
-    height: 30px;
-  }
-  .header-logo-title {
-    font-size: 10px;
-    min-width: max-content;
-  }
-  .header-logo-subtitle {
-    font-size: 10px;
-    min-width: max-content;
-  } */
   .header-nav-list {
     gap: 10px;
     padding: 0 10px;
@@ -69,16 +46,6 @@
   .header {
     gap: 3px;
   }
-  /* .header-logo-img {
-    width: 20px;
-    height: 20px;
-  }
-  .header-logo-title {
-    font-size: 8px;
-  }
-  .header-logo-subtitle {
-    font-size: 8px;
-  } */
   .header-nav-list {
     gap: 0.8rem;
   }
@@ -104,23 +71,18 @@
   .header {
     gap: 5px;
   }
-  /* .header-logo-link {
-    align-items: center;
-  }
-  .header-logo-img {
-    width: 20px;
-    height: 20px;
-  }
-  .header-logo-title {
-    font-size: 9px;
-  }
-  .header-logo-subtitle {
-    font-size: 9px;
-  } */
   .header-reserve-box {
     min-width: 25%;
     height: 40px;
     border-radius: 0 0 20px 0;
+
+    .reserve-btn {
+      padding: 7px !important;
+
+      svg {
+        font-size: 7px !important;
+      }
+    }
   }
 }
 
@@ -129,16 +91,6 @@
   .header {
     gap: 3px;
   }
-  /* .header-logo-img {
-    width: 15px;
-    height: 15px;
-  }
-  .header-logo-title {
-    font-size: 6px;
-  }
-  .header-logo-subtitle {
-    font-size: 6px;
-  } */
   .header-reserve-box {
     min-width: 20%;
     height: 35px;

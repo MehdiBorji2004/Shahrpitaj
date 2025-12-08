@@ -169,6 +169,12 @@
   align-items: center;
   justify-content: center;
   gap: 30px;
+
+}
+
+.no-services {
+  box-shadow: unset !important;
+  border: unset !important;
 }
 
 .service-item {

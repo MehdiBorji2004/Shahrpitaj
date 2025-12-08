@@ -150,9 +150,9 @@
     width: 100%;
   }
   .banner-subtitle {
-    text-align: justify;
+    text-align: center;
     line-height: 1.7;
-    font-size: 10px;
+    font-size: 11px;
     margin-bottom: 1rem !important;
   }
   .banner-address {

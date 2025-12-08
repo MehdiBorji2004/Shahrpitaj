@@ -334,6 +334,8 @@
   .create-new-comment-btn {
     padding: 10px 25px;
     font-size: 1rem;
+    width: 40% !important;
+    font-weight: unset !important;
   }
 }
 
