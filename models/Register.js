@@ -1,13 +1,14 @@
 require("dotenv").config();
 const User = require("./schemas/registerSchema.js");
 const jwt = require("jsonwebtoken");
+const axios = require("axios");
 const PersianDate = require("persian-date");
 
 // ایجاد تاریخ فعلی ایران
 const persianDate = new PersianDate()
   .toLocale("en") // اعداد انگلیسی
   .format("YYYY-MM-DD");
-  
+
 // ایجاد ساعت فعلی ایران
 const persianTime = new PersianDate()
   .toLocale("en") // اعداد انگلیسی
@@ -22,6 +23,19 @@ const generateOtpExpires = () => {
   return new Date(Date.now() + 3 * 60 * 1000);
 };
 
+// دریافت کد تایید از پنل پیامکی sms.ir
+const getOTP = async (data) => {
+  const res = await axios.post("https://api.sms.ir/v1/send/verify", data, {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "x-api-key": process.env.SMSIR_API_KEY,
+    },
+  });
+
+  return res;
+};
+
 // add new user
 const signupUser = async (userData) => {
   const { first_name, last_name, phone } = userData;
@@ -31,21 +45,39 @@ const signupUser = async (userData) => {
     if (isUserExists && isUserExists.isVerified) {
       return {
         success: false,
-        status: 409, // Conflict - کاربر قبلاً وجود دارد
+        status: 409,
         message: "کاربری با این اطلاعات از قبل وجود دارد. لطفا وارد شوید.",
       };
     } else if (isUserExists && !isUserExists.isVerified) {
-      const otp = generateOTP();
-      const otpExpiresAt = generateOtpExpires();
+      // دیتای لازم برای ارسال به پنل پیامکی sms.ir برای دریافت کد تایید
+      const dateToSend = {
+        Mobile: isUserExists.phone,
+        TemplateId: Number(process.env.SMSIR_TEMPLATE_ID),
+        Parameters: [
+          {
+            name: "CODE",
+            value: "12345",
+          },
+        ],
+      };
 
-      isUserExists.otp = otp;
-      isUserExists.otpExpiresAt = otpExpiresAt;
+      try {
+        const response = await getOTP(dateToSend);
+        console.log(response.data);
+      } catch (error) {
+        console.log("error in getting OTP code!");
+      }
+
+      // const otp = generateOTP();
+      // const otpExpiresAt = generateOtpExpires();
+      // isUserExists.otp = otp;
+      // isUserExists.otpExpiresAt = otpExpiresAt;
       isUserExists.attempts = 0;
       await isUserExists.save();
 
-      console.log(
-        `*verification code for signup sent to the ${phone}* --code: ${otp}`
-      );
+      // console.log(
+      //   `*verification code for signup sent to the ${phone}* --code: ${otp}`
+      // );
 
       return {
         success: true,
