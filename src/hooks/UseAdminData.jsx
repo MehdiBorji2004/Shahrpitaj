@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 
 const UseAdminData = () => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || 'https://api-shahrpitaj.liara.run';
 
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
@@ -321,6 +321,8 @@ const UseAdminData = () => {
 
   const getGeneralSettingsInfo = async () => {
     try {
+      console.log("VITE_BASE_URL:", import.meta.env.VITE_BASE_URL);
+
       const res = await axios.get(`${baseUrl}/api/general-settings-info`, {
         withCredentials: true,
       });
