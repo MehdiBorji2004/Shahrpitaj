@@ -53,7 +53,9 @@ const UseAdminData = () => {
 
   const getUsersCount = async () => {
     try {
-      const res = await axios.get(`${baseUrl}/api/users-count`);
+      const res = await axios.get(`${baseUrl}/api/users-count`, {
+        withCredentials: true,
+      });
       if (res.status === 200) {
         setUsersCount(res.data.data || 0);
       }
@@ -319,7 +321,9 @@ const UseAdminData = () => {
 
   const getGeneralSettingsInfo = async () => {
     try {
-      const res = await axios.get(`${baseUrl}/api/general-settings-info`);
+      const res = await axios.get(`${baseUrl}/api/general-settings-info`, {
+        withCredentials: true,
+      });
       if (res.status === 200) {
         setGeneralSettingsInfo(res.data.data || []);
       }
