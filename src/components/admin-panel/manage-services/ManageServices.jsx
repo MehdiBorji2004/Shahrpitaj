@@ -15,9 +15,7 @@ import { CgArrowsExchangeAlt } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
 const ManageServices = () => {
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const [deleteMsg, setDeleteMsg] = useState("");
   const [addMsg, setAddMsg] = useState("");
   const [uploadMsg, setUploadMsg] = useState("");

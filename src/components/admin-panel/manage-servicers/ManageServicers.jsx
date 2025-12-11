@@ -11,9 +11,7 @@ import axios from "axios";
 import ManageButtons from "../manage-buttons/ManageButtons";
 
 const ManageServicers = () => {
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const { getServicers, servicersList, errors, setErrors, role, token } =
     UseAdminData();
   const [showServicerForm, setShowServicerForm] = useState(false);

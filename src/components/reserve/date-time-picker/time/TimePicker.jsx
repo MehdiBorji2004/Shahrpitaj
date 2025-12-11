@@ -9,9 +9,7 @@ const TimePicker = ({
   validateErrors,
   servicerName,
 }) => {
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const [availableTimes, setAvailableTimes] = useState([]);
   const [selectedTime, setSelectedTime] = useState(null);
   const [reservedTimes, setReservedTimes] = useState([]);

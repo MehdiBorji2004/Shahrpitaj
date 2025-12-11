@@ -10,9 +10,7 @@ import { LiaUserEditSolid } from "react-icons/lia";
 
 const VerifyCode = ({ type }) => {
   const currentData = RegisterData.find((item) => item.type === type);
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const navigate = useNavigate();
   let intervalID = useRef(null);
   let timeoutID = useRef(null);

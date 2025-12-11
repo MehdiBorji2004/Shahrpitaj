@@ -8,9 +8,7 @@ import UseAdminData from "../../hooks/UseAdminData.jsx";
 import AlertMessage from "../alert-messages/AlertMessage.jsx";
 
 const Navbar = ({ closeMenu }) => {
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const [isClicked, setIsClicked] = useState(false);
   const [shouldRedirect, setShouldRedirect] = useState(false);
   const [role, setRole] = useState("");

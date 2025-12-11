@@ -2,9 +2,8 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 
 const UseAdminData = () => {
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
   const [errors, setErrors] = useState("");
@@ -45,9 +44,7 @@ const UseAdminData = () => {
         setUsersList(res.data?.data || []);
       }
     } catch (error) {
-      setErrors(
-        error.response?.data?.message || "خطا در دریافت لیست کاربران"
-      );
+      setErrors(error.response?.data?.message || "خطا در دریافت لیست کاربران");
       timeoutID.current = setTimeout(() => {
         setErrors("");
       }, 3000);
@@ -61,9 +58,7 @@ const UseAdminData = () => {
         setUsersCount(res.data.data || 0);
       }
     } catch (error) {
-      setErrors(
-        error.response?.data?.message || "خطا در دریافت تعداد کاربران"
-      );
+      setErrors(error.response?.data?.message || "خطا در دریافت تعداد کاربران");
       timeoutID.current = setTimeout(() => {
         setErrors("");
       }, 3000);
@@ -82,9 +77,7 @@ const UseAdminData = () => {
         setAdminsList(res.data?.data || []);
       }
     } catch (error) {
-      setErrors(
-        error.response?.data?.message || "خطا در دریافت لیست ادمین ها"
-      );
+      setErrors(error.response?.data?.message || "خطا در دریافت لیست ادمین ها");
       timeoutID.current = setTimeout(() => {
         setErrors("");
       }, 3000);
@@ -103,9 +96,7 @@ const UseAdminData = () => {
         setAllReserves(res.data.data || []);
       }
     } catch (error) {
-      setErrors(
-        error.response?.data?.message || "خطا در دریافت لیست رزرو ها"
-      );
+      setErrors(error.response?.data?.message || "خطا در دریافت لیست رزرو ها");
       timeoutID.current = setTimeout(() => {
         setErrors("");
       }, 3000);
@@ -129,9 +120,7 @@ const UseAdminData = () => {
         }));
       }
     } catch (error) {
-      setErrors(
-        error.response?.data?.message || "خطا در دریافت رزرو های فعال"
-      );
+      setErrors(error.response?.data?.message || "خطا در دریافت رزرو های فعال");
       timeoutID.current = setTimeout(() => {
         setErrors("");
       }, 3000);
@@ -235,9 +224,7 @@ const UseAdminData = () => {
         setCommentsList(res.data.data || []);
       }
     } catch (error) {
-      setErrors(
-        error.response?.data?.message || "خطا در دریافت لیست کامنت ها"
-      );
+      setErrors(error.response?.data?.message || "خطا در دریافت لیست کامنت ها");
       timeoutID.current = setTimeout(() => {
         setErrors("");
       }, 3000);
@@ -337,9 +324,7 @@ const UseAdminData = () => {
         setGeneralSettingsInfo(res.data.data || []);
       }
     } catch (error) {
-      setErrors(
-        error.response?.data?.message || "خطا در دریافت اطلاعات سایت"
-      );
+      setErrors(error.response?.data?.message || "خطا در دریافت اطلاعات سایت");
       timeoutID.current = setTimeout(() => {
         setErrors("");
       }, 3000);

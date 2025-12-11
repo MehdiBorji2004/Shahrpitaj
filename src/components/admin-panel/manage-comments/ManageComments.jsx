@@ -13,9 +13,7 @@ const replySchema = Yup.object().shape({
 });
 
 const ManageComments = () => {
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const { getComments, commentsList, errors, setErrors, token, role } =
     UseAdminData();
   const [activeReplyBox, setActiveReplyBox] = useState(null);
@@ -139,7 +137,9 @@ const ManageComments = () => {
                   <div>
                     <div className="user-info-img">
                       <img
-                        src={comment.user_profile || "/images/user-default-img.jpg"}
+                        src={
+                          comment.user_profile || "/images/user-default-img.jpg"
+                        }
                         alt="img"
                       />
                     </div>

@@ -11,9 +11,7 @@ import registerSchema from "../../schemas/registerSchema";
 const Signup = ({ type }) => {
   const currentData = RegisterData.find((item) => item.type === type);
   const { signupSchema, loginSchema } = registerSchema;
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const navigate = useNavigate();
   const [registerErr, setRegisterErr] = useState(false);
   const [registerErrMsg, setRegisterErrMsg] = useState("");

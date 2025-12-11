@@ -13,9 +13,7 @@ const EditInfoModal = ({
   setEditMessage,
   setErrEditMsg,
 }) => {
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const { signupSchema } = registerSchema;
   const [validateErr, setValidateErr] = useState({});
   let timeouID = useRef(null);

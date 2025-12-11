@@ -2,9 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const UseAppUtils = () => {
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const [reserveStartHour, setReserveStartHour] = useState(null);
   const [reserveEndHour, setReserveEndHour] = useState(null);
   const [durationTime, setDurationTime] = useState(null);

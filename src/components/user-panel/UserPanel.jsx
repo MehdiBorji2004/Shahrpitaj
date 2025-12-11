@@ -12,9 +12,7 @@ import UseAdminData from "../../hooks/UseAdminData";
 import { Spinner } from "react-bootstrap";
 
 const UserPanel = ({ dataKey }) => {
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const [userData, setUserData] = useState({});
   const [reservesData, setReservesData] = useState([]);

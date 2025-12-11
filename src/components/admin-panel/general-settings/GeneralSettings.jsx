@@ -8,9 +8,7 @@ import "./general-settings.css";
 import { generalSettingsData } from "../adminPanelData.jsx";
 
 const GeneralSettings = () => {
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const { errors, setErrors, role, token } = UseAdminData();
   const [saveMsg, setSaveMsg] = useState("");
   const [isLoading, setIsLoading] = useState(false);

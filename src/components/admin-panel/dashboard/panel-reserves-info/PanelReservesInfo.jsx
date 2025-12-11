@@ -11,9 +11,7 @@ import { IoCloseCircle } from "react-icons/io5";
 
 const PanelReservesInfo = ({ dataKey }) => {
   const { convertedDate } = useContext(dateContext);
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const {
     token,
@@ -69,7 +67,7 @@ const PanelReservesInfo = ({ dataKey }) => {
         setSuccessMsg(
           res.data?.message || "خدمات مربوطه با موفقیت به اتمام رسید ✅"
         );
-        
+
         timeoutID.current = setTimeout(() => {
           setSuccessMsg("");
         }, 3000);

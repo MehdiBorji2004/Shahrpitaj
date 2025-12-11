@@ -10,9 +10,8 @@ import * as HiIcons from "react-icons/hi2";
 import { IoCloseCircle } from "react-icons/io5";
 
 const PanelNewUsersInfo = ({ dataKey, showStats }) => {
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+  
   const {
     getUsers,
     getActiveUsers,
@@ -64,13 +63,10 @@ const PanelNewUsersInfo = ({ dataKey, showStats }) => {
       if (!token || role !== "admin")
         return console.log("invalid token or role");
 
-      const res = await axios.delete(
-        `${baseUrl}/admin/delete-user`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-          params: { userID },
-        }
-      );
+      const res = await axios.delete(`${baseUrl}/admin/delete-user`, {
+        headers: { Authorization: `Bearer ${token}` },
+        params: { userID },
+      });
       if (res.status === 200) {
         fetchData(); // Refresh the user list after upgrade
         setDeleteMsg(res.data?.message || "کاربر با موفقیت حذف شد ✅");

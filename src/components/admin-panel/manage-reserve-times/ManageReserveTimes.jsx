@@ -6,9 +6,7 @@ import axios from "axios";
 import UseAdminData from "../../../hooks/UseAdminData";
 
 const ManageReserveTimes = () => {
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const { token, errors, setErrors } = UseAdminData();
   const [changeMsg, setChangeMsg] = useState("");
   const timeoutID = useRef(null);

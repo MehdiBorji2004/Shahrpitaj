@@ -10,9 +10,7 @@ import AlertMessage from "../alert-messages/AlertMessage";
 import reservationSchema from "../../schemas/reservationSchema.jsx";
 
 const Reserve = () => {
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(true);

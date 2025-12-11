@@ -96,9 +96,7 @@ const servicesPageData = [
 ];
 
 const ServicesPageCreator = ({ url }) => {
-  const baseUrl = `${import.meta.env.VITE_BASE_URL}${
-    import.meta.env.VITE_PORT
-  }`;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const [deleteMsg, setDeleteMsg] = useState("");
   let timeoutID = useRef(null);
 
