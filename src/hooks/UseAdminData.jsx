@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 
 const UseAdminData = () => {
-  const baseUrl = import.meta.env.VITE_BASE_URL || 'https://api-shahrpitaj.liara.run';
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
 
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
