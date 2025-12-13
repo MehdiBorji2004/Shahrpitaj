@@ -7,6 +7,10 @@ const servicerController = require("../controllers/servicerController.js");
 const reserveController = require("../controllers/reserveController.js");
 const adminPanelController = require("../controllers/adminPanelController.js");
 
+router.get("/", (req, res) => {
+  return res.json({ messsage: "hello this is home page" });
+});
+
 // services routes🛠
 router.get("/services-list", serviceController.getServices);
 router.post("/new-service", serviceController.createService);

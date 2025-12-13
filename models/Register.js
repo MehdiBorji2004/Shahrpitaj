@@ -114,7 +114,7 @@ const signupUser = async (userData) => {
 
       return {
         success: true,
-        status: 200, // Success - کاربر با موفقیت ایجاد شد
+        status: 200,
         message: "کد تایید ارسال شد",
       };
     }
