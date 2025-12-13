@@ -11,15 +11,19 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4.2.1
+        uses: actions/checkout@v4
+
+      - name: Sync backend files to /var/www
+        run: |
+          rsync -av --delete ./shahrpitaj.ir-backend/ /var/www/shahrpitaj.ir-backend/
 
       - name: Install backend dependencies
         run: |
-          cd shahrpitaj.ir-backend
+          cd /var/www/shahrpitaj.ir-backend
           npm install --production
 
       - name: Restart backend with PM2
         run: |
-          cd shahrpitaj.ir-backend
+          cd /var/www/shahrpitaj.ir-backend
           pm2 restart shahrpitaj-backend || pm2 start app.js --name shahrpitaj-backend
           pm2 save
