@@ -22,6 +22,8 @@ app.use(
   })
 );
 
+console.log("API ENV TEST:", process.env.NODE_ENV);
+
 // Body Parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
