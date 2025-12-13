@@ -22,7 +22,7 @@ app.use(
   })
 );
 
-console.log("API ENV TEST:", process.env.NODE_ENV);
+// console.log("API ENV TEST:", process.env.NODE_ENV);
 
 // Body Parser
 app.use(express.json());
