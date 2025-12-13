@@ -96,7 +96,7 @@ const servicesPageData = [
 ];
 
 const ServicesPageCreator = ({ url }) => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const [deleteMsg, setDeleteMsg] = useState("");
   let timeoutID = useRef(null);
 

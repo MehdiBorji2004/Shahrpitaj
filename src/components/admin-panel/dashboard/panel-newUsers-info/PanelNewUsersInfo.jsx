@@ -10,7 +10,7 @@ import * as HiIcons from "react-icons/hi2";
 import { IoCloseCircle } from "react-icons/io5";
 
 const PanelNewUsersInfo = ({ dataKey, showStats }) => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   
   const {
     getUsers,

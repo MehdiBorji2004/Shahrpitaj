@@ -11,7 +11,7 @@ import { IoCloseCircle } from "react-icons/io5";
 
 const PanelReservesInfo = ({ dataKey }) => {
   const { convertedDate } = useContext(dateContext);
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
 
   const {
     token,

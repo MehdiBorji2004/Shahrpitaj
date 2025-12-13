@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Navigate } from "react-router-dom";
 
 const AdminRoutes = ({ children }) => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const [role, setRole] = useState(null);
   const [errMessage, setErrMessage] = useState("");
   const [shouldRedirect, setShouldRedirect] = useState(false);

@@ -13,7 +13,7 @@ const replySchema = Yup.object().shape({
 });
 
 const ManageComments = () => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const { getComments, commentsList, errors, setErrors, token, role } =
     UseAdminData();
   const [activeReplyBox, setActiveReplyBox] = useState(null);

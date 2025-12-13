@@ -6,7 +6,7 @@ import axios from "axios";
 import UseAdminData from "../../../hooks/UseAdminData";
 
 const ManageReserveTimes = () => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const { token, errors, setErrors } = UseAdminData();
   const [changeMsg, setChangeMsg] = useState("");
   const timeoutID = useRef(null);

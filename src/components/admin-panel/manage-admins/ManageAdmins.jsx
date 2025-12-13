@@ -7,7 +7,7 @@ import axios from "axios";
 import AlertMessage from "../../alert-messages/AlertMessage";
 
 const ManageAdmins = () => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const { getAdmins, adminsList, token, role, errors, setErrors } =
     UseAdminData();
   const adminPhone = import.meta.env.VITE_ADMIN_PHONE;

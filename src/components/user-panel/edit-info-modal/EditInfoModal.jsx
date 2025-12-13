@@ -13,7 +13,7 @@ const EditInfoModal = ({
   setEditMessage,
   setErrEditMsg,
 }) => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const { signupSchema } = registerSchema;
   const [validateErr, setValidateErr] = useState({});
   let timeouID = useRef(null);

@@ -15,7 +15,7 @@ import { CgArrowsExchangeAlt } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
 const ManageServices = () => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const [deleteMsg, setDeleteMsg] = useState("");
   const [addMsg, setAddMsg] = useState("");
   const [uploadMsg, setUploadMsg] = useState("");

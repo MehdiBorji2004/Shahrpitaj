@@ -8,7 +8,7 @@ import UseAdminData from "../../hooks/UseAdminData.jsx";
 import AlertMessage from "../alert-messages/AlertMessage.jsx";
 
 const Navbar = ({ closeMenu }) => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const [isClicked, setIsClicked] = useState(false);
   const [shouldRedirect, setShouldRedirect] = useState(false);
   const [role, setRole] = useState("");

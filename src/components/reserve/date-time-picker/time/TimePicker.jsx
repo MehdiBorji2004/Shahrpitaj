@@ -9,7 +9,7 @@ const TimePicker = ({
   validateErrors,
   servicerName,
 }) => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const [availableTimes, setAvailableTimes] = useState([]);
   const [selectedTime, setSelectedTime] = useState(null);
   const [reservedTimes, setReservedTimes] = useState([]);

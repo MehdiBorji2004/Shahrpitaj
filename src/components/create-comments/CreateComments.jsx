@@ -5,7 +5,7 @@ import commentSchema from "../../schemas/commentSchema";
 import axios from "axios";
 
 const CreateComments = ({ titleName }) => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   let timeouID = useRef();
   const token = localStorage.getItem("token");
   const [loginMessage, setLoginMessage] = useState(false);
