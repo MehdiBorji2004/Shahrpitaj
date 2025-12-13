@@ -10,20 +10,18 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout repository
+      - name: Checkout backend branch
         uses: actions/checkout@v4
 
-      - name: Sync backend files to /var/www
+      - name: Sync backend files to VPS
         run: |
-          rsync -av --delete ./shahrpitaj.ir-backend/ /var/www/shahrpitaj.ir-backend/
+          rsync -av --delete \
+            --exclude .git \
+            ./ /var/www/shahrpitaj.ir-backend/
 
-      - name: Install backend dependencies
+      - name: Install dependencies and restart backend
         run: |
           cd /var/www/shahrpitaj.ir-backend
           npm install --production
-
-      - name: Restart backend with PM2
-        run: |
-          cd /var/www/shahrpitaj.ir-backend
           pm2 restart shahrpitaj-backend || pm2 start app.js --name shahrpitaj-backend
           pm2 save
