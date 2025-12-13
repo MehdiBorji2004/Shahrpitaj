@@ -321,7 +321,7 @@ const UseAdminData = () => {
 
   const getGeneralSettingsInfo = async () => {
     try {
-      console.log("VITE_BASE_URL:", import.meta.env.VITE_BASE_URL);
+      // console.log("VITE_BASE_URL:", import.meta.env.VITE_BASE_URL);
 
       const res = await axios.get(`${baseUrl}/api/general-settings-info`, {
         withCredentials: true,
