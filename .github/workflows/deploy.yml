@@ -1,31 +1,25 @@
-name: Deploy
+name: Deploy Backend
+
 on:
   push:
-    branches: [master]
+    branches:
+      - master
 
 jobs:
   deploy:
     runs-on: self-hosted
 
     steps:
-      - uses: actions/checkout@v4.2.1
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.1
 
-      - name: Install PM2 globally
-        run: npm install -g pm2
+      - name: Install backend dependencies
+        run: |
+          cd shahrpitaj.ir-backend
+          npm install --production
 
-      - name: Install Dependencies
-        run: npm i
-
-      - name: Build
-        continue-on-error: true
-        run: npm run build
-
-      - name: Delete Previous Process Silently
-        continue-on-error: true
-        run: pm2 delete shahrpitaj || true
-
-      - name: Start a New Process
-        run: pm2 start app.js --name shahrpitaj
-
-      - name: Save Current Process List
-        run: pm2 save
+      - name: Restart backend with PM2
+        run: |
+          cd shahrpitaj.ir-backend
+          pm2 restart shahrpitaj-backend || pm2 start app.js --name shahrpitaj-backend
+          pm2 save
