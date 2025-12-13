@@ -11,8 +11,7 @@ import registerSchema from "../../schemas/registerSchema";
 const Signup = ({ type }) => {
   const currentData = RegisterData.find((item) => item.type === type);
   const { signupSchema, loginSchema } = registerSchema;
-  const baseUrl =
-    import.meta.env.VITE_BASE_URL || "https://api-shahrpitaj.liara.run";
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const navigate = useNavigate();
   const [registerErr, setRegisterErr] = useState(false);
   const [registerErrMsg, setRegisterErrMsg] = useState("");

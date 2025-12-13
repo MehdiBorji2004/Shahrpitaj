@@ -2,8 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const UseAppUtils = () => {
-  const baseUrl =
-    import.meta.env.VITE_BASE_URL || "https://api-shahrpitaj.liara.run";
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const [reserveStartHour, setReserveStartHour] = useState(null);
   const [reserveEndHour, setReserveEndHour] = useState(null);
   const [durationTime, setDurationTime] = useState(null);

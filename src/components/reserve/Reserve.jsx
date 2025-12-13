@@ -10,7 +10,7 @@ import AlertMessage from "../alert-messages/AlertMessage";
 import reservationSchema from "../../schemas/reservationSchema.jsx";
 
 const Reserve = () => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(true);

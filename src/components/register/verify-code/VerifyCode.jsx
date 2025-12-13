@@ -10,8 +10,7 @@ import { LiaUserEditSolid } from "react-icons/lia";
 
 const VerifyCode = ({ type }) => {
   const currentData = RegisterData.find((item) => item.type === type);
-  const baseUrl =
-    import.meta.env.VITE_BASE_URL || "https://api-shahrpitaj.liara.run";
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const navigate = useNavigate();
   let intervalID = useRef(null);
   let timeoutID = useRef(null);
