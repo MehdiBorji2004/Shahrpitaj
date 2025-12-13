@@ -1,4 +1,5 @@
-name: Deploy
+name: Deploy Frontend
+
 on:
   push:
     branches: [main]
@@ -8,19 +9,21 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - uses: actions/checkout@v4.2.1
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Install Dependencies
-        run: npm i
+      - name: Install dependencies
+        run: npm install
 
-      - name: Build
+      - name: Build frontend
         run: npm run build
 
-      - name: Remove Previous Deploy Folder
-        run: rm -rf /var/www/shahrpitaj.ir
+      - name: Deploy build to nginx directory
+        run: |
+          rm -rf /var/www/shahrpitaj.ir/*
+          cp -r dist/* /var/www/shahrpitaj.ir/
 
-      - name: Create Deploy Folder
-        run: mkdir -p /var/www/shahrpitaj.ir
-
-      - name: Move Built Files to Deploy Folder
-        run: mv dist/* /var/www/shahrpitaj.ir
+      - name: Fix permissions
+        run: |
+          chown -R www-data:www-data /var/www/shahrpitaj.ir
+          chmod -R 755 /var/www/shahrpitaj.ir
