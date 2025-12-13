@@ -7,7 +7,6 @@ const UseAppUtils = () => {
   const [reserveEndHour, setReserveEndHour] = useState(null);
   const [durationTime, setDurationTime] = useState(null);
 
-  // get start and end hour of worktime
   const getWorkTimes = async () => {
     try {
       const res = await axios.get(`${baseUrl}/api/get-work-times`);
