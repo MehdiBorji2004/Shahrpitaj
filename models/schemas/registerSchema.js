@@ -22,7 +22,7 @@ const registerSchema = new mongoose.Schema({
   imageUrl: { type: String, trim: true },
   role: { type: String, enum: ["admin", "user"], default: "User" },
   isVerified: { type: Boolean, default: false },
-  otp: { type: String, minlength: 4, maxlength: 4 },
+  otp: { type: String, minlength: 6, maxlength: 6 },
   otpExpiresAt: { type: Date },
   attempts: { type: Number, default: 0 },
   activeReserves: {
