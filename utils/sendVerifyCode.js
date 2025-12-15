@@ -19,9 +19,6 @@ const sendVerifyCode = async (mobile, code) => {
       },
     }
   );
-
-  console.log(res);
-  console.log("data:", mobile, code);
 };
 
 module.exports = { sendVerifyCode };

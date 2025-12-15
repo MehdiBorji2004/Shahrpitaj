@@ -16,7 +16,7 @@ const persianTime = new PersianDate()
 
 // تولید کد تصادفی
 const generateOTP = () => {
-  return Math.floor(1000 + Math.random() * 9000).toString();
+  return Math.floor(100000 + Math.random() * 9000).toString();
 };
 // تولید زمان انقضای کد
 const generateOtpExpires = () => {
@@ -45,9 +45,8 @@ const signupUser = async (userData) => {
 
       try {
         const res = await sendVerifyCode(isUserExists.phone, otp);
-        console.log(res);
       } catch (error) {
-        console.log("error in send OTP code!");
+        console.log("error in send OTP code for signup!");
       }
 
       return {
@@ -80,9 +79,8 @@ const signupUser = async (userData) => {
 
       try {
         const res = await sendVerifyCode(newUser.phone, otp);
-        console.log(res);
       } catch (error) {
-        console.log("error in getting OTP code!");
+        console.log("error in send OTP code for signup!");
       }
 
       return {
@@ -92,7 +90,6 @@ const signupUser = async (userData) => {
       };
     }
   } catch (error) {
-    console.log(error.message);
     throw error;
   }
 };
@@ -110,7 +107,6 @@ const loginUser = async (phone) => {
 
     try {
       const res = await sendVerifyCode(existedUser.phone, otp);
-      console.log(res);
     } catch (error) {
       console.log("error in send OTP code for login!", error);
     }
@@ -248,7 +244,6 @@ const resend = async (phone) => {
 
       try {
         const res = await sendVerifyCode(user.phone, otp);
-        console.log(res);
       } catch (error) {
         console.log("error in getting OTP code!");
       }
