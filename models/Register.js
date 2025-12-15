@@ -16,7 +16,7 @@ const persianTime = new PersianDate()
 
 // تولید کد تصادفی
 const generateOTP = () => {
-  return Math.floor(100000 + Math.random() * 9000).toString();
+  return Math.floor(100000 + Math.random() * 900000).toString();
 };
 // تولید زمان انقضای کد
 const generateOtpExpires = () => {
