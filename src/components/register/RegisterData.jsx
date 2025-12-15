@@ -52,7 +52,7 @@ const RegisterData = [
       {
         name: "otp",
         type: "tel",
-        maxLength: 4,
+        maxLength: 6,
       },
     ],
   },
@@ -63,7 +63,7 @@ const RegisterData = [
       {
         name: "otp",
         type: "tel",
-        maxLength: 4,
+        maxLength: 6,
       },
     ],
   },
