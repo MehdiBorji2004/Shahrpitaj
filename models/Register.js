@@ -112,7 +112,7 @@ const loginUser = async (phone) => {
       const res = await sendVerifyCode(existedUser.phone, otp);
       console.log(res);
     } catch (error) {
-      console.log("error in getting OTP code!");
+      console.log("error in send OTP code for login!", error);
     }
 
     return {
