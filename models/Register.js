@@ -36,13 +36,6 @@ const signupUser = async (userData) => {
         message: "کاربری با این اطلاعات از قبل وجود دارد. لطفا وارد شوید.",
       };
     } else if (isUserExists && !isUserExists.isVerified) {
-      try {
-        const res = await getOTP(isUserExists.phone);
-        console.log(res.data);
-      } catch (error) {
-        console.log("error in getting OTP code!");
-      }
-
       const otp = generateOTP();
       const otpExpiresAt = generateOtpExpires();
       isUserExists.otp = otp;
@@ -50,8 +43,12 @@ const signupUser = async (userData) => {
       isUserExists.attempts = 0;
       await isUserExists.save();
 
-      const res = await sendVerifyCode(isUserExists.phone, otp)
-      console.log(res);
+      try {
+        const res = await sendVerifyCode(isUserExists.phone, otp);
+        console.log(res);
+      } catch (error) {
+        console.log("error in send OTP code!");
+      }
 
       return {
         success: true,
@@ -81,10 +78,12 @@ const signupUser = async (userData) => {
         },
       });
 
-      // send code to user
-      console.log(
-        `*verification code for signup sent to the ${phone}* --code: ${otp}`
-      );
+      try {
+        const res = await sendVerifyCode(newUser.phone, otp);
+        console.log(res);
+      } catch (error) {
+        console.log("error in getting OTP code!");
+      }
 
       return {
         success: true,
@@ -102,7 +101,6 @@ const signupUser = async (userData) => {
 const loginUser = async (phone) => {
   const existedUser = await User.findOne({ phone });
   if (existedUser) {
-    //  generate random otp code & expires in 3 minute
     const otp = generateOTP();
     const otpExpiresAt = generateOtpExpires();
 
@@ -110,10 +108,12 @@ const loginUser = async (phone) => {
     existedUser.otpExpiresAt = otpExpiresAt;
     await existedUser.save();
 
-    // send code to user
-    console.log(
-      `*verification code for login sent to the ${phone}* --code: ${otp}`
-    );
+    try {
+      const res = await sendVerifyCode(existedUser.phone, otp);
+      console.log(res);
+    } catch (error) {
+      console.log("error in getting OTP code!");
+    }
 
     return {
       success: true,
@@ -246,11 +246,12 @@ const resend = async (phone) => {
       user.attempts = 0;
       await user.save();
 
-      // resend code to user
-      console.log(
-        `*verification code send again to the ${phone}* --code: ${otp}`
-      );
-
+      try {
+        const res = await sendVerifyCode(user.phone, otp);
+        console.log(res);
+      } catch (error) {
+        console.log("error in getting OTP code!");
+      }
       return {
         success: true,
         status: 200,
