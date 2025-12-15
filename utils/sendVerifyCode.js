@@ -1,7 +1,7 @@
 require("dotenv").config();
 const axios = require("axios");
 
-const sendVerifyCode = async (mobile, code) => {
+export const sendVerifyCode = async (mobile, code) => {
   const res = await axios.post(
     "https://api.sms.ir/v1/send/verify",
     {
@@ -23,5 +23,3 @@ const sendVerifyCode = async (mobile, code) => {
   console.log(res);
   console.log("data:", mobile, code);
 };
-
-module.exports = { sendVerifyCode };
