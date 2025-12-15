@@ -3,6 +3,7 @@ import "./select-box.css";
 import axios from "axios";
 
 const SelectBox = ({ type, changeState }) => {
+  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const [selectedOption, setSelectedOption] = useState("");
   const [services, setServices] = useState([]);
   const [servicers, setServicers] = useState([]);
@@ -10,9 +11,9 @@ const SelectBox = ({ type, changeState }) => {
   const handleChange = (e) => {
     const selectedValue = e.target.value;
     setSelectedOption(selectedValue);
-    
+
     let servicePrice;
-    
+
     if (type === "service_type") {
       // پیدا کردن سرویس انتخاب شده بر اساس نام
       const selectedService = services.find(
@@ -20,13 +21,13 @@ const SelectBox = ({ type, changeState }) => {
       );
       servicePrice = selectedService?.servicePrice;
     }
-    
+
     changeState(selectedValue, servicePrice);
   };
 
   const getServices = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/services-list");
+      const res = await axios.get(`${baseUrl}/api/services-list`);
       if (res.status === 200) {
         setServices(res.data?.data || []);
       }
@@ -37,7 +38,7 @@ const SelectBox = ({ type, changeState }) => {
 
   const getServicers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/servicers-list");
+      const res = await axios.get(`${baseUrl}/api/services-list`);
       if (res.status === 200) {
         setServicers(res.data?.data || []);
       }
@@ -81,7 +82,10 @@ const SelectBox = ({ type, changeState }) => {
             })
           : servicers.map((item, index) => {
               return (
-                <option key={index} value={`${item.first_name} ${item.last_name}`}>
+                <option
+                  key={index}
+                  value={`${item.first_name} ${item.last_name}`}
+                >
                   {item.first_name} {item.last_name}
                 </option>
               );
