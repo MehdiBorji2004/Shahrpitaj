@@ -2,7 +2,7 @@ require("dotenv").config();
 const User = require("./schemas/registerSchema.js");
 const jwt = require("jsonwebtoken");
 const PersianDate = require("persian-date");
-const sendVerifyCode = require("../utils/sendVerifyCode.js");
+const { sendVerifyCode } = require("../utils/sendVerifyCode.js");
 
 // ایجاد تاریخ فعلی ایران
 const persianDate = new PersianDate()
