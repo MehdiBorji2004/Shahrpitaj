@@ -1,8 +1,8 @@
 require("dotenv").config();
 const User = require("./schemas/registerSchema.js");
 const jwt = require("jsonwebtoken");
-const axios = require("axios");
 const PersianDate = require("persian-date");
+const sendVerifyCode = require("../utils/sendVerifyCode.js");
 
 // ایجاد تاریخ فعلی ایران
 const persianDate = new PersianDate()
@@ -23,19 +23,6 @@ const generateOtpExpires = () => {
   return new Date(Date.now() + 3 * 60 * 1000);
 };
 
-// دریافت کد تایید از پنل پیامکی sms.ir
-const getOTP = async (data) => {
-  const res = await axios.post("https://api.sms.ir/v1/send/verify", data, {
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-      "x-api-key": process.env.SMSIR_API_KEY || "n9U1qClMNYViLL2qqbtxCpn41s1TcKIyqZOls2vT1WLzismD",
-    },
-  });
-
-  return res;
-};
-
 // add new user
 const signupUser = async (userData) => {
   const { first_name, last_name, phone } = userData;
@@ -49,35 +36,22 @@ const signupUser = async (userData) => {
         message: "کاربری با این اطلاعات از قبل وجود دارد. لطفا وارد شوید.",
       };
     } else if (isUserExists && !isUserExists.isVerified) {
-      // دیتای لازم برای ارسال به پنل پیامکی sms.ir برای دریافت کد تایید
-      const dateToSend = {
-        Mobile: isUserExists.phone,
-        TemplateId: Number(process.env.SMSIR_TEMPLATE_ID || 750316),
-        Parameters: [
-          {
-            name: "CODE",
-            value: "12345",
-          },
-        ],
-      };
-
       try {
-        const response = await getOTP(dateToSend);
-        console.log(response.data);
+        const res = await getOTP(isUserExists.phone);
+        console.log(res.data);
       } catch (error) {
         console.log("error in getting OTP code!");
       }
 
-      // const otp = generateOTP();
-      // const otpExpiresAt = generateOtpExpires();
-      // isUserExists.otp = otp;
-      // isUserExists.otpExpiresAt = otpExpiresAt;
+      const otp = generateOTP();
+      const otpExpiresAt = generateOtpExpires();
+      isUserExists.otp = otp;
+      isUserExists.otpExpiresAt = otpExpiresAt;
       isUserExists.attempts = 0;
       await isUserExists.save();
 
-      // console.log(
-      //   `*verification code for signup sent to the ${phone}* --code: ${otp}`
-      // );
+      const res = await sendVerifyCode(isUserExists.phone, otp)
+      console.log(res);
 
       return {
         success: true,
