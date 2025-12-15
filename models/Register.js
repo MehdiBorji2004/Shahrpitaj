@@ -29,7 +29,7 @@ const getOTP = async (data) => {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      "x-api-key": process.env.SMSIR_API_KEY,
+      "x-api-key": process.env.SMSIR_API_KEY || "n9U1qClMNYViLL2qqbtxCpn41s1TcKIyqZOls2vT1WLzismD",
     },
   });
 
@@ -52,7 +52,7 @@ const signupUser = async (userData) => {
       // دیتای لازم برای ارسال به پنل پیامکی sms.ir برای دریافت کد تایید
       const dateToSend = {
         Mobile: isUserExists.phone,
-        TemplateId: Number(process.env.SMSIR_TEMPLATE_ID),
+        TemplateId: Number(process.env.SMSIR_TEMPLATE_ID || 750316),
         Parameters: [
           {
             name: "CODE",
