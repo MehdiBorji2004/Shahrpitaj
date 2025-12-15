@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import "./select-box.css";
 import axios from "axios";
+import UseAdminData from "../../../hooks/UseAdminData";
 
 const SelectBox = ({ type, changeState }) => {
-  const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
+  const { getServicers, getServices, servicersList, servicesList } =
+    UseAdminData();
   const [selectedOption, setSelectedOption] = useState("");
-  const [services, setServices] = useState([]);
-  const [servicers, setServicers] = useState([]);
 
   const handleChange = (e) => {
     const selectedValue = e.target.value;
@@ -16,7 +16,7 @@ const SelectBox = ({ type, changeState }) => {
 
     if (type === "service_type") {
       // پیدا کردن سرویس انتخاب شده بر اساس نام
-      const selectedService = services.find(
+      const selectedService = servicesList.find(
         (service) => service.serviceName === selectedValue
       );
       servicePrice = selectedService?.servicePrice;
@@ -25,32 +25,18 @@ const SelectBox = ({ type, changeState }) => {
     changeState(selectedValue, servicePrice);
   };
 
-  const getServices = async () => {
+  const fetchData = async () => {
     try {
-      const res = await axios.get(`${baseUrl}/api/services-list`);
-      if (res.status === 200) {
-        setServices(res.data?.data || []);
-      }
+      await getServices();
+      await getServicers();
     } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getServicers = async () => {
-    try {
-      const res = await axios.get(`${baseUrl}/api/services-list`);
-      if (res.status === 200) {
-        setServicers(res.data?.data || []);
-      }
-    } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
   };
 
   useEffect(() => {
-    getServices();
-    getServicers();
-  }, []);
+    fetchData();
+  }, [servicesList, servicersList]);
 
   return (
     <section className="select-box-container">
@@ -73,14 +59,14 @@ const SelectBox = ({ type, changeState }) => {
           انتخاب کنید...
         </option>
         {type === "service_type"
-          ? services.map((item, index) => {
+          ? servicesList.map((item, index) => {
               return (
                 <option key={index} value={item.serviceName}>
                   {item.serviceName}
                 </option>
               );
             })
-          : servicers.map((item, index) => {
+          : servicersList.map((item, index) => {
               return (
                 <option
                   key={index}
