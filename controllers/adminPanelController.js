@@ -261,7 +261,7 @@ const addNewService = async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: "لطفاً یک عکس آپلود کنید" });
   }
-  const imageUrl = `${process.env.BASE_URL}${process.env.PORT}/uploads/${req.file.filename}`;
+  const imageUrl = `${process.env.BASE_URL || "https://shahrpitaj.ir"}/uploads/${req.file.filename}`;
 
   const { serviceName, serviceDetails, servicePrice, servicePath } = req.body;
   if (
@@ -297,7 +297,7 @@ const addNewService = async (req, res) => {
 
 const addNewServicer = async (req, res) => {
   const imageUrl = req.file
-    ? `${process.env.BASE_URL}${process.env.PORT}/uploads/${req.file.filename}`
+    ? `${process.env.BASE_URL || "https://shahrpitaj.ir"}/uploads/${req.file.filename}`
     : "";
 
   const servicerData = req.body;
@@ -518,7 +518,7 @@ const changeServiceImg = async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: "لطفاً یک عکس آپلود کنید" });
   }
-  const imageUrl = `${process.env.BASE_URL}${process.env.PORT}/uploads/${req.file.filename}`;
+  const imageUrl = `${process.env.BASE_URL || "https://shahrpitaj.ir"}/uploads/${req.file.filename}`;
   const { serviceID } = req.body;
   if (imageUrl && serviceID) {
     const changeResult = await adminPanelModel.changeServiceImg(
@@ -618,7 +618,7 @@ const uploadServicerImg = async (req, res) => {
 
   const { servicerID } = req.body;
   const imageUrl = req.file
-    ? `${process.env.BASE_URL}${process.env.PORT}/uploads/${req.file.filename}`
+    ? `${process.env.BASE_URL || "https://shahrpitaj.ir"}/uploads/${req.file.filename}`
     : "";
 
   if (servicerID && imageUrl) {

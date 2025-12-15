@@ -70,7 +70,6 @@ const editInfo = async (id, userNewData) => {
       user.last_name = last_name;
       user.phone = phone;
       user.towel_code = towel_code;
-      // user.imageUrl = imageUrl;
       await user.save();
 
       // ویرایش اطلاعات کاربر در رزرو آن با مشخصات جدید

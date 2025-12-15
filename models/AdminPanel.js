@@ -659,9 +659,6 @@ const addServicer = async (servicerData, imageUrl) => {
       };
     } else {
       const newServicer = await Servicer.create({
-        // first_name,
-        // last_name,
-        // role,
         ...servicerData,
         imageUrl: imageUrl || "",
         createdAt: {
@@ -1029,7 +1026,6 @@ const deleteServicePortfolio = async (serviceID, imageUrl) => {
       // حذف فایل از سیستم فایل
       if (fs.existsSync(filePath)) {
         fs.unlinkSync(filePath);
-        console.log(filename, "removed successfully");
       } else {
         console.log(filename, "not found");
       }
