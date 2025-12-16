@@ -1,7 +1,7 @@
 /* بخش کاروسل */
 .services-carousel-section {
   padding: 80px 0;
-  background: var(--white);
+  /* background: var(--white); */
   margin-top: 2rem !important;
 }
 
