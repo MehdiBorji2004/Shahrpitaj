@@ -388,9 +388,9 @@
   }
 
   .manage-btns-container {
-    position: static;
-    top: 0%;
-    left: 0%;
+    position: static !important;
+    /* top: 0%;
+    left: 0%; */
 
     button {
       font-size: 11px;
