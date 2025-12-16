@@ -121,7 +121,7 @@ const CreateComments = ({ titleName }) => {
       {loginMessage && (
         <AlertMessage
           type={"error"}
-          message={"برای ثبت نظر ابتدا باید وارد حساب کاربری خود شوید ❌"}
+          message={"برای ثبت نظر ابتدا باید وارد حساب کاربری خود شوید"}
         />
       )}
       {successMessage && (
