@@ -762,7 +762,7 @@
   }
 
   .modal-dialog modal-dialog-centered {
-    width: 100%;
+    width: 100% !important;
     margin: 0% !important;
   }
 
