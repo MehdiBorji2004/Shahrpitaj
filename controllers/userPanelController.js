@@ -62,7 +62,7 @@ const uploadImage = async (req, res) => {
     return res.status(400).json({ message: "لطفاً یک عکس آپلود کنید" });
   }
   const userID = req.user.id;
-  const imageUrl = `https://api.shahrpitaj.ir/uploads/${req.file.filename}`;
+  const imageUrl = `https://shahrpitaj.ir/uploads/${req.file.filename}`;
 
   if (imageUrl && userID) {
     const uploadResult = await userPanelModel.uploadImage(imageUrl, userID);
