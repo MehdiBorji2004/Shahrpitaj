@@ -259,7 +259,7 @@
     right: 10px;
     max-width: 40%;
     width: 40%;
-    padding: 1.5rem 1rem;
+    padding: 2.5rem 1rem;
     border-radius: 9px;
     gap: 0.85rem;
   }
@@ -289,7 +289,7 @@
     min-width: auto;
     max-width: max-content;
     width: max-content;
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
     border-radius: 8px;
     gap: 0.75rem;
   }
