@@ -121,7 +121,10 @@ const Carousel = () => {
                       >
                         <div className="service-image-container">
                           <img
-                            src={service.imageUrl}
+                            src={
+                              service.imageUrl ||
+                              "/images/site-logo/site-logo.png"
+                            }
                             alt={service.serviceName}
                             className="service-image"
                           />
