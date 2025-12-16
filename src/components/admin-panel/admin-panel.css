@@ -50,14 +50,14 @@
 .panel-sidebar-list {
   padding: 1rem !important;
   li {
-    padding: 0.9rem 1rem;
+    padding: 0.6rem 1rem;
     margin-bottom: 0.5rem !important;
     border-radius: 0.5rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 13px;
+    font-size: 14px;
 
     &:hover {
       background-color: #eee;
@@ -301,6 +301,13 @@
     right: 0%;
     z-index: 9;
     background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .panel-sidebar-list {
+    li {
+      padding: 0.6rem 1rem;
+      font-size: 14px;
+    }
   }
 
   .show-panel-sidebar {
