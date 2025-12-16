@@ -1,8 +1,8 @@
 /* بخش کاروسل */
 .services-carousel-section {
-  padding: 80px 0;
   background: #fff;
-  margin-top: 2rem !important;
+  padding: 80px 0 40px 0;
+  margin: 2rem !important;
 }
 
 .container-xl {
