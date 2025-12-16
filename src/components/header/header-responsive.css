@@ -70,11 +70,10 @@
 @media (max-width: 576px) {
   .header {
     gap: 5px;
-    height: 50px;
   }
   .header-reserve-box {
     min-width: 25%;
-    height: 100%;
+    height: 40px;
     border-radius: 0 0 20px 0;
 
     .reserve-btn {
