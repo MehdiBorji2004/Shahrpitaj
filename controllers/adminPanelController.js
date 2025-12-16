@@ -293,7 +293,7 @@ const addNewService = async (req, res) => {
   } else {
     return res
       .status(400)
-      .json({ message: "اطلاعات کامل برای خدمات جدید ارسال نشده است ❌" });
+      .json({ message: "اطلاعات کامل برای خدمات جدید ارسال نشده است" });
   }
 };
 
@@ -317,7 +317,7 @@ const addNewServicer = async (req, res) => {
     }
   } else {
     return res.status(400).json({
-      message: "اطلاعات کامل برای خدمات دهنده جدید ارسال نشده است ❌",
+      message: "اطلاعات کامل برای خدمات دهنده جدید ارسال نشده است",
     });
   }
 };
@@ -363,7 +363,7 @@ const changeWorkTimes = async (req, res) => {
   } else {
     return res
       .status(400)
-      .json({ message: "لطفا مقادیر را به درستی وارد نمایید ❌" });
+      .json({ message: "لطفا مقادیر را به درستی وارد نمایید" });
   }
 };
 
@@ -390,7 +390,7 @@ const replyComment = async (req, res) => {
   } else {
     return res
       .status(400)
-      .json({ message: "آیدی کاربر یا پاسخ ارسال نشده است ❌" });
+      .json({ message: "آیدی کاربر یا پاسخ ارسال نشده است" });
   }
 };
 
@@ -409,20 +409,18 @@ const deleteComment = async (req, res) => {
       });
     }
   } else {
-    return res.status(400).json({ message: "آیدی کامنت ارسال نشده است ❌" });
+    return res.status(400).json({ message: "آیدی کامنت ارسال نشده است" });
   }
 };
 
 const setPortfolioImages = async (req, res) => {
   if (!req.files || req.files.length === 0) {
-    return res
-      .status(400)
-      .json({ message: "لطفاً حداقل یک عکس آپلود کنید ❌" });
+    return res.status(400).json({ message: "لطفاً حداقل یک عکس آپلود کنید" });
   }
   const { serviceID } = req.body;
   const files = req.files;
   const imagesUrl = files.map((file) => {
-    return `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+    return `${req.protocol}://${req.get("host")}/uploads/${file.filename}`;
   });
 
   const setResult = await adminPanelModel.setPortfolio(serviceID, imagesUrl);
@@ -453,7 +451,7 @@ const getPortfolioImages = async (req, res) => {
     }
   } else {
     return res.status(400).json({
-      message: "آیدی خدمات ارسال نشده است ❌",
+      message: "آیدی خدمات ارسال نشده است",
     });
   }
 };
@@ -558,9 +556,7 @@ const deleteServicePortfolio = async (req, res) => {
         .json({ message: deleteResult.message });
     }
   } else {
-    return res
-      .status(400)
-      .json({ message: "آیدی نمونه کار ارسال نشده است ❌" });
+    return res.status(400).json({ message: "آیدی نمونه کار ارسال نشده است" });
   }
 };
 
@@ -610,7 +606,7 @@ const editServicerInfo = async (req, res) => {
   } else {
     return res.status(400).json({
       success: false,
-      message: "اطلاعات خدمات دهنده ارسال نشده است ❌",
+      message: "اطلاعات خدمات دهنده ارسال نشده است",
     });
   }
 };
