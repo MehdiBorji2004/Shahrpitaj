@@ -8,7 +8,7 @@
 .menu-sidebar {
   background-color: var(--bs-ghost-white-color);
   height: 100vh;
-  width: 30vw;
+  width: 50vw;
   position: fixed;
   top: 0%;
   right: 0%;
