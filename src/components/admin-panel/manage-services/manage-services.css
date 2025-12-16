@@ -570,7 +570,7 @@
 
 .service-form-modal .modal-dialog {
   max-width: 850px;
-  margin: 1.75rem auto !important;
+  /* margin: 1.75rem auto !important; */
 }
 
 .service-form-modal .modal-content {
@@ -724,9 +724,9 @@
     width: 100%;
   }
 
-  .service-form-modal .modal-dialog {
+  /* .service-form-modal .modal-dialog {
     margin: 1rem !important;
-  }
+  } */
 
   .service-form-modal .modal-content {
     border-radius: 12px;
@@ -734,6 +734,7 @@
 
   .service-form-modal .modal-footer {
     flex-direction: column;
+    gap: 1.5rem;
   }
 
   .service-form-modal .btn {
@@ -760,9 +761,31 @@
     }
   }
 
+  .modal-dialog modal-dialog-centered {
+    width: 100%;
+    margin: 0% !important;
+  }
+
   .service-form-modal .modal-content {
     width: 85%;
     margin: 0 auto !important;
+  }
+
+  .action-btn.edit-btn {
+    svg {
+      font-size: 16px;
+    }
+  }
+
+  .action-btn.change-img-btn,
+  .action-btn.delete-btn {
+    svg {
+      font-size: 20px;
+    }
+
+    span {
+      font-size: 13px;
+    }
   }
 
   .service-data-form {
