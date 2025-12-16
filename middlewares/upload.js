@@ -5,7 +5,7 @@ const path = require("path");
 // تنظیم محل ذخیره فایل‌ها
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/"); // مسیر ذخیره
+    cb(null, "/var/www/shahrpitaj.ir-backend/uploads"); // مسیر ذخیره
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + path.extname(file.originalname)); // اسم فایل یکتا
