@@ -499,8 +499,9 @@
     height: 35px;
   }
 
-  .comment-btn.remove button {
-    padding: 6px 9px;
+  .comment-btn.remove button,
+  .comment-btn.reply button {
+    padding: 10px 13px;
   }
 
   .manage-user-comment::before,
