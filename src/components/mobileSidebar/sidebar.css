@@ -47,7 +47,7 @@
   padding: 0.5rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 }
 .menu-sidebar-list li a {
   display: flex;
@@ -65,6 +65,6 @@
   justify-content: end;
 
   svg {
-    font-size: 14px;
+    font-size: 17px;
   }
 }
