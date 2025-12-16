@@ -20,11 +20,6 @@
 /* ServicesPage.css */
 .services-page {
   min-height: 100vh;
-  background: linear-gradient(
-    135deg,
-    var(--gray-50) 0%,
-    var(--primary-lighter) 100%
-  );
   font-family: "Vazir", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
