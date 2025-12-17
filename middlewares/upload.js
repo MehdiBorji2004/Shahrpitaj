@@ -1,6 +1,7 @@
 // middleware/upload.js
 const multer = require("multer");
 const path = require("path");
+const crypto = require("crypto");
 
 // تنظیم محل ذخیره فایل‌ها
 const storage = multer.diskStorage({
@@ -8,7 +9,7 @@ const storage = multer.diskStorage({
     cb(null, "/var/www/shahrpitaj.ir-backend/uploads"); // مسیر ذخیره
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname)); // اسم فایل یکتا
+    cb(null, crypto.randomUUID() + path.extname(file.originalname)); // اسم فایل یکتا
   },
 });
 
