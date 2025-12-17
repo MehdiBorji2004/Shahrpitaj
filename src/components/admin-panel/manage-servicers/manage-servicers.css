@@ -260,7 +260,7 @@
 }
 
 .service-form-modal .modal-dialog {
-  min-width: 100%;
+  min-width: 850px;
 }
 
 .modal-body .service-data-container {
@@ -454,6 +454,10 @@
 
   .panel-content h3 {
     font-size: 1.4rem;
+  }
+  
+  .service-form-modal .modal-dialog {
+    min-width: 100%;
   }
 
   .servicers-item {
