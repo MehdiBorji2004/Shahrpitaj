@@ -179,7 +179,7 @@ const ManageServices = () => {
 
         if (res.status === 201) {
           getServices();
-          setAddMsg(res.data.message || "خدمات جدید با موفقیت ایجاد شد ✅");
+          setAddMsg(res.data.message || "خدمات جدید با موفقیت ایجاد شد");
           setFormData({
             serviceName: "",
             serviceDetails: "",
@@ -193,7 +193,7 @@ const ManageServices = () => {
         }
       }
     } catch (error) {
-      setErrors(error.response?.data?.message || "خطا در ایجاد خدمات جدید ❌");
+      setErrors(error.response?.data?.message || "خطا در ایجاد خدمات جدید");
       timeoutID.current = setTimeout(() => {
         setErrors("");
       }, 3000);
@@ -210,14 +210,14 @@ const ManageServices = () => {
         params: { serviceID },
       });
       if (res.status === 200) {
-        setDeleteMsg(res.data.message || "خدمات مورد نظر با موفقیت حذف شد ✅");
+        setDeleteMsg(res.data.message || "خدمات مورد نظر با موفقیت حذف شد");
         timeoutID.current = setTimeout(() => {
           setDeleteMsg("");
         }, 3000);
         getServices();
       }
     } catch (error) {
-      setErrors(error.response?.data?.message || "خطای سرور در حذف خدمات ❌");
+      setErrors(error.response?.data?.message || "خطای سرور در حذف خدمات");
       timeoutID.current = setTimeout(() => {
         setErrors("");
       }, 3000);
@@ -260,7 +260,7 @@ const ManageServices = () => {
         );
         if (res.status === 200) {
           setEditMsg(
-            res.data.message || "خدمات مورد نظر با موفقیت ویرایش شد ✅"
+            res.data.message || "خدمات مورد نظر با موفقیت ویرایش شد"
           );
           timeoutID.current = setTimeout(() => {
             setEditMsg("");
@@ -270,7 +270,7 @@ const ManageServices = () => {
         }
       }
     } catch (error) {
-      setErrors(error.response?.data?.message || "خطا در ویرایش خدمات ❌");
+      setErrors(error.response?.data?.message || "خطا در ویرایش خدمات");
       timeoutID.current = setTimeout(() => {
         setErrors("");
       }, 3000);
@@ -299,7 +299,7 @@ const ManageServices = () => {
       );
 
       if (res.status === 200) {
-        setUploadMsg(res.data.message || "عکس خدمات با موفقیت تغییر یافت ✅");
+        setUploadMsg(res.data.message || "عکس خدمات با موفقیت تغییر یافت");
         setImageFile(null);
         setShowChangeServiceImg(false);
         getServices();
@@ -308,7 +308,7 @@ const ManageServices = () => {
         }, 3000);
       }
     } catch (error) {
-      setErrors(error.response?.data?.message || "خطا در تغییر عکس خدمات ❌");
+      setErrors(error.response?.data?.message || "خطا در تغییر عکس خدمات");
       timeoutID.current = setTimeout(() => {
         setErrors("");
       }, 3000);

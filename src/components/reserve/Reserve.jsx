@@ -97,7 +97,7 @@ const Reserve = () => {
     } catch (error) {
       setReserveErr(
         error.response.data.message ||
-          "در یک روز فقط مجاز به رزرو یک نوبت هستید ❌"
+          "در یک روز فقط مجاز به رزرو یک نوبت هستید"
       );
       timeoutID.current = setTimeout(() => {
         setReserveErr("");
@@ -135,7 +135,7 @@ const Reserve = () => {
         >
           {isReserved && (
             <AlertMessage
-              message={"رزرو شما با موفقیت انجام شد ✅"}
+              message={"رزرو شما با موفقیت انجام شد"}
               type={"success"}
             />
           )}

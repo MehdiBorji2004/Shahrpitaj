@@ -68,7 +68,7 @@ const Services = () => {
     if (servicesList && servicesList.length > 0) {
       setErrors(null);
     }
-  }, [servicesList]);
+  }, []);
 
   if (isLoading) {
     return (

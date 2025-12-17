@@ -36,7 +36,7 @@ const SelectBox = ({ type, changeState }) => {
 
   useEffect(() => {
     fetchData();
-  }, [servicesList, servicersList]);
+  }, []);
 
   return (
     <section className="select-box-container">
