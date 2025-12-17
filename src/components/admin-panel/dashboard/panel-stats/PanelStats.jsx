@@ -32,7 +32,7 @@ const PanelStats = () => {
     };
 
     fetchData();
-  }, []);
+  }, [convertedDate.startDate, convertedDate.endDate]);
 
   return (
     <div className="row site-info-container">
