@@ -312,7 +312,7 @@
 /* Modal Portfolio Form Styles */
 .modal-dialog {
   margin: 0 auto !important;
-  width: 100%;
+  width: 50%;
 }
 
 .portfolio-modal .modal-content {
@@ -764,6 +764,10 @@
   .modal-dialog modal-dialog-centered {
     width: 100% !important;
     margin: 0% !important;
+  }
+
+  .service-form-modal .modal-dialog {
+    width: 100%;
   }
 
   .service-form-modal .modal-content {
