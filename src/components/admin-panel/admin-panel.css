@@ -51,13 +51,13 @@
   padding: 1rem !important;
   li {
     padding: 0.6rem 1rem;
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0.3rem !important;
     border-radius: 0.5rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 14px;
+    font-size: 16px;
 
     &:hover {
       background-color: #eee;
@@ -79,7 +79,7 @@
     }
 
     svg {
-      font-size: 13px;
+      font-size: 16px;
     }
   }
 }
@@ -307,6 +307,11 @@
     li {
       padding: 0.9rem 1rem;
       font-size: 14px;
+      margin-bottom: 0.5rem !important;
+
+      svg {
+        font-size: 13px;
+      }
     }
   }
 
