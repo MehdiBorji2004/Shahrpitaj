@@ -32,7 +32,7 @@ const PanelStats = () => {
     };
 
     fetchData();
-  }, [convertedDate, activeReserves]);
+  }, []);
 
   return (
     <div className="row site-info-container">

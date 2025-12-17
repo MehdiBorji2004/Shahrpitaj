@@ -174,7 +174,7 @@ const PanelReservesInfo = ({ dataKey }) => {
   useEffect(() => {
     fetchData();
     if (timeoutID.current) clearTimeout(timeoutID.current);
-  }, []);
+  }, [convertedDate.startDate, convertedDate.endDate]);
 
   return (
     <div className="reserves-info-continer">
