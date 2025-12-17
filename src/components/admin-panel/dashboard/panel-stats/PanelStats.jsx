@@ -16,20 +16,21 @@ const PanelStats = () => {
     getTotalRevenue,
   } = UseAdminData();
 
-  const fetchData = async () => {
-    try {
-      if (convertedDate.startDate && convertedDate.endDate) {
-        await getUsers(convertedDate.startDate, convertedDate.endDate);
-        await getActiveReserves(convertedDate.startDate, convertedDate.endDate);
-        await getDoneReserves(convertedDate.startDate, convertedDate.endDate);
-        await getTotalRevenue(convertedDate.startDate, convertedDate.endDate);
-      }
-    } catch (error) {
-      throw new Error("error in fetching data:", error);
-    }
-  };
-
+  
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (convertedDate.startDate && convertedDate.endDate) {
+          await getUsers(convertedDate.startDate, convertedDate.endDate);
+          await getActiveReserves(convertedDate.startDate, convertedDate.endDate);
+          await getDoneReserves(convertedDate.startDate, convertedDate.endDate);
+          await getTotalRevenue(convertedDate.startDate, convertedDate.endDate);
+        }
+      } catch (error) {
+        throw new Error("error in fetching data:", error);
+      }
+    };
+
     fetchData();
   }, [convertedDate, activeReserves]);
 
