@@ -158,7 +158,6 @@ const ManageServices = () => {
       const validateData = await validateFormData();
 
       if (validateData) {
-        // تولید path فارسی
         const servicePath = generatePersianPath(validateData.serviceName);
 
         const formDataToSend = new FormData();
