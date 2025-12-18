@@ -9,6 +9,8 @@ const WorkTimes = require("./schemas/workTimesSchema");
 const Comment = require("./schemas/commentSchema");
 const generalSettings = require("./schemas/generalSettingsSchema");
 
+const UPLOADS_DIR = "/var/www/uploads";
+
 const persianDate = new PersianDate()
   .toLocale("en") // اعداد انگلیسی
   .format("YYYY-MM-DD");
@@ -16,7 +18,7 @@ const persianDate = new PersianDate()
 const persianTime = new PersianDate()
   .toLocale("en") // اعداد انگلیسی
   .format("HH:mm:ss");
-  
+
 const usersList = async (startDate, endDate) => {
   try {
     // ساخت شرط جستجو بر اساس وجود یا عدم وجود پارامترها
@@ -573,6 +575,17 @@ const deleteService = async (serviceID) => {
   try {
     const service = await Service.findByIdAndDelete(serviceID);
     if (service) {
+      if (service.imageUrl) {
+        const filename = service.imageUrl.split("/uploads/").pop();
+        const imagePath = path.join(UPLOADS_DIR, filename);
+
+        try {
+          await fs.promises.unlink(imagePath);
+        } catch (err) {
+          if (err.code !== "ENOENT") console.error(err);
+        }
+      }
+
       return {
         success: true,
         status: 200,
@@ -687,6 +700,17 @@ const deleteServicer = async (servicerID) => {
   try {
     const servicer = await Servicer.findByIdAndDelete(servicerID);
     if (servicer) {
+      if (servicer.imageUrl) {
+        const filename = servicer.imageUrl.split("/uploads/").pop();
+        const imagePath = path.join(UPLOADS_DIR, filename);
+
+        try {
+          await fs.promises.unlink(imagePath);
+        } catch (err) {
+          if (err.code !== "ENOENT") console.error(err);
+        }
+      }
+
       return {
         success: true,
         status: 200,
@@ -1012,23 +1036,22 @@ const deleteServicePortfolio = async (serviceID, imageUrl) => {
   try {
     const service = await Service.findById(serviceID);
     if (service) {
+      const filename = service.imageUrl.split("/uploads/").pop();
+      const imagePath = path.join(UPLOADS_DIR, filename);
+
+      try {
+        await fs.promises.unlink(imagePath);
+      } catch (err) {
+        if (err.code !== "ENOENT") console.error(err);
+      }
+
       // حذف فایل از دیتابیس
       const filteredPortfolio = service.servicePortfolio.filter(
         (item) => item !== imageUrl
       );
+
       service.servicePortfolio = filteredPortfolio;
       await service.save();
-
-      // استخراج نام فایل از URL
-      const filename = path.basename(imageUrl);
-      // مسیر کامل فایل در پوشه uploads
-      const filePath = path.join(__dirname, "../uploads", filename);
-      // حذف فایل از سیستم فایل
-      if (fs.existsSync(filePath)) {
-        fs.unlinkSync(filePath);
-      } else {
-        console.log(filename, "not found");
-      }
 
       return {
         success: true,
@@ -1182,7 +1205,16 @@ const deleteServicerImg = async (id) => {
   try {
     const servicer = await Servicer.findById(id);
 
-    if (servicer) {
+    if (servicer && servicer.imageUrl) {
+      const filename = servicer.imageUrl.split("/uploads/").pop();
+      const imagePath = path.join(UPLOADS_DIR, filename);
+
+      try {
+        await fs.promises.unlink(imagePath);
+      } catch (err) {
+        if (err.code !== "ENOENT") console.error(err);
+      }
+
       servicer.imageUrl = "";
       await servicer.save();
 

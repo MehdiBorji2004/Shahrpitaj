@@ -1,5 +1,8 @@
+const fs = require("fs");
 const User = require("../models/schemas/registerSchema");
 const Reserve = require("./schemas/reserveSchema");
+
+const UPLOADS_DIR = "/var/www/uploads";
 
 const userRole = async (id) => {
   try {
@@ -134,6 +137,15 @@ const deleteProfile = async (userID) => {
   try {
     const user = await User.findById(userID);
     if (user && user.imageUrl) {
+      const filename = user.imageUrl.split("/uploads/").pop();
+      const imagePath = path.join(UPLOADS_DIR, filename);
+
+      try {
+        await fs.promises.unlink(imagePath);
+      } catch (err) {
+        if (err.code !== "ENOENT") console.error(err);
+      }
+
       user.imageUrl = "";
       await user.save();
       return {
