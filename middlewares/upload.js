@@ -6,7 +6,7 @@ const crypto = require("crypto");
 // تنظیم محل ذخیره فایل‌ها
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "/var/www/shahrpitaj.ir-backend/uploads"); // مسیر ذخیره
+    cb(null, "/var/www/uploads"); // مسیر ذخیره
   },
   filename: function (req, file, cb) {
     cb(null, crypto.randomUUID() + path.extname(file.originalname)); // اسم فایل یکتا
