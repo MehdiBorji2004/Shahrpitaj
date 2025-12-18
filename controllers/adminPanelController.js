@@ -298,6 +298,7 @@ const addNewService = async (req, res) => {
 };
 
 const addNewServicer = async (req, res) => {
+  console.log(req.file.filename);
   const imageUrl = req.file
     ? `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`
     : "";
