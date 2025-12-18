@@ -9,7 +9,7 @@ import { CiCirclePlus } from "react-icons/ci";
 import { RiImageAiLine } from "react-icons/ri";
 import { MdEdit } from "react-icons/md";
 import { RxCrossCircled } from "react-icons/rx";
-import { CloseButton, Modal } from "react-bootstrap";
+import { CloseButton, Modal, Spinner } from "react-bootstrap";
 import { IoCloudUpload } from "react-icons/io5";
 import { CgArrowsExchangeAlt } from "react-icons/cg";
 import { Link } from "react-router-dom";
@@ -25,6 +25,7 @@ const ManageServices = () => {
   const [showChangeServiceImg, setShowChangeServiceImg] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [service_id, setService_id] = useState(null);
+  const [loading, setLoading] = useState(false);
   let timeoutID = useRef(null);
   const [validateErr, setValidateErr] = useState({});
   const [imageFile, setImageFile] = useState(null);
@@ -136,6 +137,7 @@ const ManageServices = () => {
         setUploadMsg(res.data.message || "تصاویر با موفقیت آپلود شد");
         setPortfolioFiles([]);
         setShowModal(false);
+        setLoading(false);
         timeoutID.current = setTimeout(() => {
           setUploadMsg("");
         }, 3000);
@@ -259,9 +261,7 @@ const ManageServices = () => {
           }
         );
         if (res.status === 200) {
-          setEditMsg(
-            res.data.message || "خدمات مورد نظر با موفقیت ویرایش شد"
-          );
+          setEditMsg(res.data.message || "خدمات مورد نظر با موفقیت ویرایش شد");
           timeoutID.current = setTimeout(() => {
             setEditMsg("");
           }, 3000);
@@ -586,8 +586,21 @@ const ManageServices = () => {
                 type="submit"
                 className="portfolio-form-btn submit-portfolio"
                 disabled={portfolioFiles.length === 0}
+                onClick={() => setLoading(true)}
               >
-                آپلود تصاویر
+                {loading ? (
+                  <>
+                    <Spinner
+                      animation="grow"
+                      role="status"
+                      variant="primary"
+                      size="sm"
+                    ></Spinner>
+                    در حال آپلود...
+                  </>
+                ) : (
+                  "آپلود تصاویر"
+                )}
               </button>
               <button
                 type="button"
