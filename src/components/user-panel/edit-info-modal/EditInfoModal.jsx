@@ -3,6 +3,7 @@ import registerSchema from "../../../schemas/registerSchema";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import "./edit-info-modal.css";
+import { Spinner } from "react-bootstrap";
 
 const EditInfoModal = ({
   modalTitle,
@@ -16,6 +17,7 @@ const EditInfoModal = ({
   const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const { signupSchema } = registerSchema;
   const [validateErr, setValidateErr] = useState({});
+  const [loading, setLoading] = useState(false);
   let timeouID = useRef(null);
   const [imageFile, setImageFile] = useState(null);
   const token = localStorage.getItem("token");
@@ -99,15 +101,15 @@ const EditInfoModal = ({
       );
 
       if (res.status === 200) {
-        getUserData();
+        setLoading(false);
         showModal(false);
-        setEditMessage(res.data?.message || "عکس شما با موفقیت آپلود شد ✅");
+        setEditMessage(res.data?.message || "عکس شما با موفقیت آپلود شد");
+        await getUserData();
       }
     } catch (error) {
       console.log(error);
       setErrEditMsg(
-        error.reponse?.data?.message ||
-          "خطا در آپلود عکس لطفا بعدا امتحان کنید ❌"
+        error.reponse?.data?.message || "خطا در آپلود عکس لطفا بعدا امتحان کنید"
       );
     }
   };
@@ -210,11 +212,25 @@ const EditInfoModal = ({
               />
             </div>
             <div className="modal-buttons">
-              <input
+              <button
                 type="submit"
-                className="btn submit-btn"
-                value={"آپلود عکس"}
-              />
+                className="portfolio-form-btn submit-portfolio"
+                onClick={() => setLoading(true)}
+              >
+                {loading ? (
+                  <>
+                    <Spinner
+                      animation="border"
+                      role="status"
+                      variant="light"
+                      size="sm"
+                    ></Spinner>{" "}
+                    در حال آپلود ...
+                  </>
+                ) : (
+                  "آپلود تصویر"
+                )}
+              </button>
               <button onClick={handleCloseModal} className="btn cancel-btn">
                 انصراف
               </button>

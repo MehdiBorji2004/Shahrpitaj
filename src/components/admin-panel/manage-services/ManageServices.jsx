@@ -298,10 +298,11 @@ const ManageServices = () => {
       );
 
       if (res.status === 200) {
+        setLoading(false);
         setUploadMsg(res.data.message || "عکس خدمات با موفقیت تغییر یافت");
         setImageFile(null);
         setShowChangeServiceImg(false);
-        getServices();
+        await getServices();
         timeoutID.current = setTimeout(() => {
           setUploadMsg("");
         }, 3000);
@@ -590,12 +591,12 @@ const ManageServices = () => {
                 {loading ? (
                   <>
                     <Spinner
-                      animation="grow"
+                      animation="border"
                       role="status"
-                      variant="primary"
+                      variant="light"
                       size="sm"
-                    ></Spinner>
-                    در حال آپلود...
+                    ></Spinner>{" "}
+                    در حال آپلود ...
                   </>
                 ) : (
                   "آپلود تصاویر"
@@ -721,11 +722,25 @@ const ManageServices = () => {
               </div>
 
               <Modal.Footer className="form-footer">
-                <input
+                <button
                   type="submit"
-                  value={"تغییر عکس"}
-                  className="btn submit-btn"
-                />
+                  className="portfolio-form-btn submit-portfolio"
+                  onClick={() => setLoading(true)}
+                >
+                  {loading ? (
+                    <>
+                      <Spinner
+                        animation="border"
+                        role="status"
+                        variant="light"
+                        size="sm"
+                      ></Spinner>{" "}
+                      در حال آپلود ...
+                    </>
+                  ) : (
+                    "آپلود تصاویر"
+                  )}
+                </button>
                 <button
                   type="button"
                   className="btn cancel-btn"
