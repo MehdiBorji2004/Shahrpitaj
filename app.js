@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-require("./jobs/cleanup.js");
 const cors = require("cors");
 const path = require("path");
 const connectDB = require("./configs/database/db.js");
