@@ -1,5 +1,4 @@
 require("dotenv").config();
-console.log("ENV TEST:", process.env.SMSIR_API_KEY);
 const express = require("express");
 require("./jobs/cleanup.js");
 const cors = require("cors");
