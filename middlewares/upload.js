@@ -1,7 +1,12 @@
 // middleware/upload.js
+const fs = require("fs");
 const multer = require("multer");
 const path = require("path");
 const crypto = require("crypto");
+
+if (!fs.existsSync("/var/www/uploads")) {
+  fs.mkdirSync("/var/www/uploads", { recursive: true });
+}
 
 // تنظیم محل ذخیره فایل‌ها
 const storage = multer.diskStorage({
