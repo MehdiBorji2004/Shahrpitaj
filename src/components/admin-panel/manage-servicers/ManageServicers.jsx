@@ -4,7 +4,7 @@ import { servicersInputData } from "../adminPanelData";
 import { useEffect, useRef, useState } from "react";
 import AlertMessage from "../../alert-messages/AlertMessage";
 import { CiCirclePlus } from "react-icons/ci";
-import { CloseButton, Modal } from "react-bootstrap";
+import { CloseButton, Modal, Spinner } from "react-bootstrap";
 import { RiImageAiLine } from "react-icons/ri";
 import servicersSchema from "../../../schemas/servicersSchema";
 import axios from "axios";
@@ -20,6 +20,7 @@ const ManageServicers = () => {
   const [deleteMsg, setDeleteMsg] = useState("");
   const [addMsg, setAddMsg] = useState("");
   const [editMsg, setEditMsg] = useState("");
+  const [loading, setLoading] = useState(false);
   let timeoutID = useRef(null);
   const [validateErr, setValidateErr] = useState({});
   const [imageFile, setImageFile] = useState(null);
@@ -45,13 +46,13 @@ const ManageServicers = () => {
 
       if (res.status === 200) {
         getServicers();
-        setDeleteMsg(res.data.message || "خدمات دهنده با موفقیت حذف شد ✅");
+        setDeleteMsg(res.data.message || "خدمات دهنده با موفقیت حذف شد");
         timeoutID.current = setTimeout(() => {
           setDeleteMsg("");
         }, 3000);
       }
     } catch (error) {
-      setErrors(error.response?.data?.message || "خطا در حذف خدمات دهنده ❌");
+      setErrors(error.response?.data?.message || "خطا در حذف خدمات دهنده");
       timeoutID.current = setTimeout(() => {
         setErrors("");
       }, 3000);
@@ -98,7 +99,7 @@ const ManageServicers = () => {
 
         if (res.status === 200) {
           setEditMsg(
-            res.data.message || "خدمات دهنده مورد نظر با موفقیت ویرایش شد ✅"
+            res.data.message || "خدمات دهنده مورد نظر با موفقیت ویرایش شد"
           );
           getServicers();
           setShowEditServicerForm(false);
@@ -118,7 +119,7 @@ const ManageServicers = () => {
       }
     } catch (error) {
       setErrors(
-        error.response?.data?.message || "خطای سرور در ویرایش خدمات دهنده ❌"
+        error.response?.data?.message || "خطای سرور در ویرایش خدمات دهنده"
       );
       timeoutID.current = setTimeout(() => {
         setErrors("");
@@ -149,18 +150,15 @@ const ManageServicers = () => {
 
       if (res.status === 200) {
         fetchData();
+        setLoading(false);
         setShowUploadServicerImg(false);
-        setAddMsg(
-          res.data.message || "تصویر خدمات دهنده با موفقیت آپلود شد ✅"
-        );
+        setAddMsg(res.data.message || "تصویر خدمات دهنده با موفقیت آپلود شد");
         timeoutID.current = setTimeout(() => {
           setAddMsg("");
         }, 3000);
       }
     } catch (error) {
-      setErrors(
-        error.response?.data?.message || " خطای سرور در آپلود تصویر ❌"
-      );
+      setErrors(error.response?.data?.message || " خطای سرور در آپلود تصویر");
       timeoutID.current = setTimeout(() => {
         setErrors("");
       }, 3000);
@@ -182,13 +180,13 @@ const ManageServicers = () => {
 
       if (res.status === 200) {
         fetchData();
-        setDeleteMsg(res.data.message || "تصویر با موفقیت حذف شد ✅");
+        setDeleteMsg(res.data.message || "تصویر با موفقیت حذف شد");
         timeoutID.current = setTimeout(() => {
           setDeleteMsg("");
         }, 3000);
       }
     } catch (error) {
-      setErrors(error.response?.data?.message || " خطای سرور در حذف تصویر ❌");
+      setErrors(error.response?.data?.message || " خطای سرور در حذف تصویر");
       timeoutID.current = setTimeout(() => {
         setErrors("");
       }, 3000);
@@ -252,11 +250,10 @@ const ManageServicers = () => {
         );
 
         if (res.status === 201) {
-          getServicers();
+          setLoading(false);
+          await getServicers();
           setShowServicerForm(false);
-          setAddMsg(
-            res.data.message || "خدمات دهنده جدید با موفقیت ایجاد شد ✅"
-          );
+          setAddMsg(res.data.message || "خدمات دهنده جدید با موفقیت ایجاد شد");
           setFormData({
             first_name: "",
             last_name: "",
@@ -270,7 +267,7 @@ const ManageServicers = () => {
       }
     } catch (error) {
       setErrors(
-        error.response?.data?.message || "خطا در ایجاد خدمات دهنده جدید ❌"
+        error.response?.data?.message || "خطا در ایجاد خدمات دهنده جدید"
       );
       timeoutID.current = setTimeout(() => {
         setErrors("");
@@ -371,7 +368,7 @@ const ManageServicers = () => {
 
         <div className="add-service-btn-wrapper">
           <button className="btn" onClick={() => setShowServicerForm(true)}>
-            افزودن خدمات دهنده <CiCirclePlus />
+            ایجاد خدمات دهنده <CiCirclePlus />
           </button>
         </div>
 
@@ -429,8 +426,24 @@ const ManageServicers = () => {
                   <RiImageAiLine />
                 </div>
                 <Modal.Footer className="servicer-modal-footer">
-                  <button type="submit" className="btn submit-btn">
-                    افزودن خدمات دهنده
+                  <button
+                    type="submit"
+                    className="portfolio-form-btn submit-portfolio"
+                    onClick={() => setLoading(true)}
+                  >
+                    {loading ? (
+                      <>
+                        <Spinner
+                          animation="border"
+                          role="status"
+                          variant="light"
+                          size="sm"
+                        ></Spinner>{" "}
+                        در حال ایجاد ...
+                      </>
+                    ) : (
+                      "ایجاد خدمات دهنده"
+                    )}
                   </button>
                   <button
                     type="button"
@@ -541,11 +554,25 @@ const ManageServicers = () => {
                 </div>
 
                 <Modal.Footer className="form-footer">
-                  <input
+                  <button
                     type="submit"
-                    value={"تغییر عکس"}
-                    className="btn submit-btn"
-                  />
+                    className="portfolio-form-btn submit-portfolio"
+                    onClick={() => setLoading(true)}
+                  >
+                    {loading ? (
+                      <>
+                        <Spinner
+                          animation="border"
+                          role="status"
+                          variant="light"
+                          size="sm"
+                        ></Spinner>{" "}
+                        در حال آپلود ...
+                      </>
+                    ) : (
+                      "آپلود تصاویر"
+                    )}
+                  </button>
                   <button
                     type="button"
                     className="btn cancel-btn"
