@@ -182,10 +182,6 @@
   transition: all 0.3s ease;
 }
 
-.action-btn {
-  min-width: 140px;
-}
-
 .submit-btn {
   opacity: 1;
   margin: 0px !important;
