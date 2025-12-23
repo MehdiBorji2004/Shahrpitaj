@@ -163,6 +163,10 @@
   right: 1px;
   display: flex;
   gap: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .manage-service-actions .action-btn {
@@ -176,6 +180,10 @@
   gap: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.action-btn {
+  min-width: 140px;
 }
 
 .submit-btn {
@@ -703,6 +711,16 @@
 .file-input-wrapper input[type="file"]::file-selector-button:hover {
   background: var(--bs-hover-color);
   transform: translateY(-1px);
+}
+
+@media (max-width: 1370px) {
+  .site-info-container {
+    gap: 1rem;
+  }
+
+  .site-info-item {
+    width: 240px;
+  }
 }
 
 @media (max-width: 768px) {
