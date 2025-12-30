@@ -4,27 +4,41 @@ import { useContext, useEffect } from "react";
 import { dateContext } from "../../AdminPanel";
 
 const PanelStats = () => {
-  const { convertedDate } = useContext(dateContext);
+  const { convertedDate } = useContext();
 
   const {
     panelData,
-    activeReserves,
+    setPanelData,
     formatPrice,
     getUsers,
     getActiveReserves,
     getDoneReserves,
     getTotalRevenue,
+    usersList,
+    activeReserves,
+    doneReserves,
+    revenue,
   } = UseAdminData();
 
-  
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (convertedDate.startDate && convertedDate.endDate) {
           await getUsers(convertedDate.startDate, convertedDate.endDate);
-          await getActiveReserves(convertedDate.startDate, convertedDate.endDate);
+          await getActiveReserves(
+            convertedDate.startDate,
+            convertedDate.endDate
+          );
           await getDoneReserves(convertedDate.startDate, convertedDate.endDate);
           await getTotalRevenue(convertedDate.startDate, convertedDate.endDate);
+
+          setPanelData((prev) => ({
+            ...prev,
+            users: usersList.length,
+            activeReserves,
+            doneReserves,
+            totalRevenue: revenue,
+          }));
         }
       } catch (error) {
         throw new Error("error in fetching data:", error);
