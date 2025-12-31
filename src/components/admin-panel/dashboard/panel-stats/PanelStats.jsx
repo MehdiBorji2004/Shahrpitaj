@@ -8,16 +8,11 @@ const PanelStats = () => {
 
   const {
     panelData,
-    setPanelData,
     formatPrice,
     getUsers,
     getActiveReserves,
     getDoneReserves,
     getTotalRevenue,
-    usersList,
-    activeReserves,
-    doneReserves,
-    revenue,
   } = UseAdminData();
 
   useEffect(() => {
@@ -31,14 +26,6 @@ const PanelStats = () => {
           );
           await getDoneReserves(convertedDate.startDate, convertedDate.endDate);
           await getTotalRevenue(convertedDate.startDate, convertedDate.endDate);
-
-          // setPanelData((prev) => ({
-          //   ...prev,
-          //   users: usersList.length,
-          //   activeReserves,
-          //   doneReserves,
-          //   totalRevenue: revenue,
-          // }));
         }
       } catch (error) {
         throw new Error("error in fetching data:", error);
