@@ -1,7 +1,7 @@
-import { createContext, StrictMode } from "react";
+import { StrictMode } from "react";
 import AppRoutes from "./routes/AppRoutes";
 
-export const reserveTimes = createContext();
+// export const reserveTimes = createContext();
 
 const App = () => {
   return (
