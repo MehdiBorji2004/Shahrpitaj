@@ -21,7 +21,7 @@ const UseAdminData = () => {
   const [activeUsersList, setActiveUsersList] = useState([]);
   const [inactiveUsersList, setInactiveUsersList] = useState([]);
   const [newUsersList, setNewUsersList] = useState([]);
-  const [revenue, setRevenue] = useState(null);
+  // const [revenue, setRevenue] = useState(null);
   const [generalSettingsInfo, setGeneralSettingsInfo] = useState([]);
   const timeoutID = useRef(null);
   const [panelData, setPanelData] = useState({
@@ -187,7 +187,7 @@ const UseAdminData = () => {
           ...prevData,
           totalRevenue: res.data.data,
         }));
-        setRevenue(res.data.data)
+        // setRevenue(res.data.data)
       }
     } catch (error) {
       // console.log(error);
@@ -358,8 +358,8 @@ const UseAdminData = () => {
     doneReserves,
     canceledReserves,
     panelData,
-    revenue,
-    setPanelData,
+    // revenue,
+    // setPanelData,
     servicesList,
     servicersList,
     commentsList,

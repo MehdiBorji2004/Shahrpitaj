@@ -8,7 +8,7 @@ const PanelStats = () => {
 
   const {
     panelData,
-    setPanelData,
+    // setPanelData,
     formatPrice,
     getUsers,
     getActiveReserves,
@@ -17,7 +17,7 @@ const PanelStats = () => {
     usersList,
     activeReserves,
     doneReserves,
-    revenue,
+    // revenue,
   } = UseAdminData();
 
   useEffect(() => {
