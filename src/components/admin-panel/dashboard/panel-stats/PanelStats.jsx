@@ -4,11 +4,11 @@ import { useContext, useEffect } from "react";
 import { dateContext } from "../../AdminPanel";
 
 const PanelStats = () => {
-  const { convertedDate } = useContext();
+  const { convertedDate } = useContext(dateContext);
 
   const {
     panelData,
-    // setPanelData,
+    setPanelData,
     formatPrice,
     getUsers,
     getActiveReserves,
@@ -17,7 +17,7 @@ const PanelStats = () => {
     usersList,
     activeReserves,
     doneReserves,
-    // revenue,
+    revenue,
   } = UseAdminData();
 
   useEffect(() => {
@@ -32,13 +32,13 @@ const PanelStats = () => {
           await getDoneReserves(convertedDate.startDate, convertedDate.endDate);
           await getTotalRevenue(convertedDate.startDate, convertedDate.endDate);
 
-          // setPanelData((prev) => ({
-          //   ...prev,
-          //   users: usersList.length,
-          //   activeReserves,
-          //   doneReserves,
-          //   totalRevenue: revenue,
-          // }));
+          setPanelData((prev) => ({
+            ...prev,
+            users: usersList.length,
+            activeReserves,
+            doneReserves,
+            totalRevenue: revenue,
+          }));
         }
       } catch (error) {
         throw new Error("error in fetching data:", error);
