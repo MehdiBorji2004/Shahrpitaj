@@ -21,10 +21,8 @@ const persianTime = new PersianDate()
 
 const usersList = async (startDate, endDate) => {
   try {
-    // ساخت شرط جستجو بر اساس وجود یا عدم وجود پارامترها
     let query = { role: "user" };
 
-    // اگر هر دو پارامتر تاریخ وجود داشتند
     if (startDate && endDate) {
       query["createdAt.solarDate"] = {
         $gte: startDate,
