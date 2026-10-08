@@ -12,7 +12,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@vitalets/google-translate-api": "^9.2.1",
-    "axios": "^1.11.0",
+    "axios": "^1.20.0",
     "bootstrap": "^5.3.7",
     "date-fns": "^4.1.0",
     "dotenv": "^17.2.0",
@@ -27,14 +27,15 @@
     "react-id-swiper": "^4.0.0",
     "react-multi-date-picker": "^4.5.2",
     "react-owl-carousel": "^2.3.3",
-    "react-router-dom": "^7.6.3",
+    "react-router-dom": "^7.18.4",
     "slugify": "^1.6.6",
-    "swiper": "^11.2.10",
+    "swiper": "^14.3.0",
     "translate": "^3.0.1",
     "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
+    "@testing-library/react": "^16.3.3",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
@@ -42,6 +43,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
-    "vite": "^7.0.4"
+    "jsdom": "^29.1.1",
+    "vite": "^7.0.4",
+    "vitest": "^5.0.3"
   }
 }
