@@ -2,6 +2,7 @@ const registerModel = require("../models/Register.js");
 
 const signup = async (req, res) => {
   const userData = req.body;
+  console.log(userData)
   if (userData) {
     const addResult = await registerModel.signupUser(userData);
     if (addResult.success) {
