@@ -24,63 +24,47 @@ const generateOtpExpires = () => {
 };
 
 // add new user
+
 const signupUser = async (userData) => {
   const { first_name, last_name, phone } = userData;
 
   try {
-    const isUserExists = await User.findOne({ first_name, last_name });
-    if (isUserExists || isUserExists.phone == phone || isUserExists.isVerified) {
-      return {
-        success: false,
-        status: 409,
-        message: "کاربری با این اطلاعات از قبل وجود دارد. لطفا وارد شوید.",
-      };
-    } else if (isUserExists && !isUserExists.isVerified) {
+    const isUserExists = await User.findOne({
+      $or: [{ phone }, { first_name, last_name }],
+    });
+
+    if (isUserExists) {
+      if (isUserExists.phone !== phone) {
+        return {
+          success: false,
+          status: 409,
+          message: "کاربری با این نام و نام خانوادگی از قبل وجود دارد.",
+        };
+      }
+
+      if (isUserExists.isVerified) {
+        return {
+          success: false,
+          status: 409,
+          message: "کاربری با این شماره موبایل از قبل وجود دارد. لطفا وارد شوید.",
+        };
+      }
+
       const otp = generateOTP();
       const otpExpiresAt = generateOtpExpires();
+
+      isUserExists.first_name = first_name;
+      isUserExists.last_name = last_name;
       isUserExists.otp = otp;
       isUserExists.otpExpiresAt = otpExpiresAt;
       isUserExists.attempts = 0;
+
       await isUserExists.save();
 
       try {
-        const res = await sendVerifyCode(isUserExists.phone, otp);
+        await sendVerifyCode(isUserExists.phone, otp);
       } catch (error) {
-        console.log("error in send OTP code for signup!");
-      }
-
-      return {
-        success: true,
-        status: 200,
-        message: "کد تایید ارسال شد",
-      };
-    } else {
-      const usersCount = await User.countDocuments();
-      const role =
-        usersCount === 0 && phone === process.env.ADMIN_PHONE
-          ? "admin"
-          : "user";
-
-      const otp = generateOTP();
-      const otpExpiresAt = generateOtpExpires();
-      const newUser = await User.create({
-        first_name,
-        last_name,
-        phone,
-        role,
-        otp,
-        otpExpiresAt,
-        createdAt: {
-          gregorianDate: new Date(),
-          solarDate: persianDate,
-          time: persianTime,
-        },
-      });
-
-      try {
-        const res = await sendVerifyCode(newUser.phone, otp);
-      } catch (error) {
-        console.log("error in send OTP code for signup!");
+        console.log("error in send OTP code for signup!", error);
       }
 
       return {
@@ -89,10 +73,47 @@ const signupUser = async (userData) => {
         message: "کد تایید ارسال شد",
       };
     }
+
+    const usersCount = await User.countDocuments();
+
+    const role =
+      usersCount === 0 && phone === process.env.ADMIN_PHONE
+        ? "admin"
+        : "user";
+
+    const otp = generateOTP();
+    const otpExpiresAt = generateOtpExpires();
+
+    const newUser = await User.create({
+      first_name,
+      last_name,
+      phone,
+      role,
+      otp,
+      otpExpiresAt,
+      createdAt: {
+        gregorianDate: new Date(),
+        solarDate: persianDate,
+        time: persianTime,
+      },
+    });
+
+    try {
+      await sendVerifyCode(newUser.phone, otp);
+    } catch (error) {
+      console.log("error in send OTP code for signup!", error);
+    }
+
+    return {
+      success: true,
+      status: 200,
+      message: "کد تایید ارسال شد",
+    };
   } catch (error) {
     throw error;
   }
 };
+
 
 // login user
 const loginUser = async (phone) => {
