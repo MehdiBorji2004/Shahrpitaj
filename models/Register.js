@@ -29,7 +29,7 @@ const signupUser = async (userData) => {
 
   try {
     const isUserExists = await User.findOne({ first_name, last_name });
-    if (isUserExists || isUserExists.phone === phone || isUserExists.isVerified) {
+    if (isUserExists || isUserExists.phone == phone || isUserExists.isVerified) {
       return {
         success: false,
         status: 409,

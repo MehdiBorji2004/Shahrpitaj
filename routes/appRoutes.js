@@ -11,6 +11,10 @@ router.get("/", (req, res) => {
   return res.json({ messsage: "hello this is home page" });
 });
 
+// router.get("/test", (req, res) => {
+//   return res.json({ message: "test api response" });
+// });
+
 // services routes🛠
 router.get("/services-list", serviceController.getServices);
 router.post("/new-service", serviceController.createService);
@@ -44,7 +48,7 @@ router.post("/resend-otp", registerController.resendOtp);
 // general settings routes⚙️
 router.get(
   "/general-settings-info",
-  adminPanelController.getGeneralSettingsInfo
+  adminPanelController.getGeneralSettingsInfo,
 );
 
 module.exports = router;
