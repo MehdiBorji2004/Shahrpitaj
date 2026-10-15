@@ -104,6 +104,21 @@
   .team-bottom-box {
     height: 110px;
   }
+
+  .member-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .member-image {
+    height: 50%;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 }
 
 /* small mobile */
