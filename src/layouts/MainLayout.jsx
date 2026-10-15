@@ -4,11 +4,11 @@ import Header from "../components/header/Header";
 import BottomNavigation from "../components/bottom-navigation/BottomNavigation";
 
 const MainLayout = ({ children }) => {
-  const [isMobileSize, setIsMobileSize] = useState(window.innerWidth <= 430);
+  const [isMobileSize, setIsMobileSize] = useState(window.innerWidth <= 576);
   const [isFixed, setIsFixed] = useState(false);
 
   const handleResize = () => {
-    if (window.innerWidth <= 430) {
+    if (window.innerWidth <= 576) {
       setIsMobileSize(true);
     } else {
       setIsMobileSize(false);
