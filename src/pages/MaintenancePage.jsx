@@ -27,8 +27,8 @@ const MaintenancePage = () => {
       }
     };
 
-    fetchData();
-  }, []);
+    void fetchData();
+  }, [getGeneralSettingsInfo, getWorkTimes]);
 
   useEffect(() => {
     if (generalSettingsInfo?.[0]) {

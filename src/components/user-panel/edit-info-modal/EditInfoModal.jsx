@@ -1,6 +1,6 @@
 import RegisterData from "../../register/RegisterData";
 import registerSchema from "../../../schemas/registerSchema";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "./edit-info-modal.css";
 import { Spinner } from "react-bootstrap";
@@ -18,7 +18,6 @@ const EditInfoModal = ({
   const { signupSchema } = registerSchema;
   const [validateErr, setValidateErr] = useState({});
   const [loading, setLoading] = useState(false);
-  let timeouID = useRef(null);
   const [imageFile, setImageFile] = useState(null);
   const token = localStorage.getItem("token");
   const [formData, setFormData] = useState({
@@ -130,12 +129,7 @@ const EditInfoModal = ({
       }));
     }
 
-    return () => {
-      if (timeouID.current) {
-        clearTimeout(timeouID.current);
-      }
-    };
-  }, []);
+  }, [data]);
 
   return (
     <div className="user-panel-modal-container">

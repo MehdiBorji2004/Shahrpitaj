@@ -88,8 +88,9 @@ const About = () => {
         console.error("Error fetching data:", error);
       }
     };
-    fetchData();
-  }, []);
+
+    void fetchData();
+  }, [getUsersCount, getServices, getServicers, getGeneralSettingsInfo]);
 
   return (
     <MainLayout>
@@ -227,13 +228,17 @@ const About = () => {
                       <div className="member-details">
                         <span>
                           {" "}
-                          {`سن ${servicer.age} سال` || "تنظیم نشده"}{" "}
+                          {servicer.age ? `سن ${servicer.age} سال` : "تنظیم نشده"}{" "}
                         </span>
                         <span className="experience">
-                          {`${servicer.experience} تجربه کاری` || "تنظیم نشده"}
+                          {servicer.experience
+                            ? `${servicer.experience} تجربه کاری`
+                            : "تنظیم نشده"}
                         </span>
                         <span className="specialty">
-                          {`تخصص : ${servicer.specialty}` || "تنظیم نشده"}
+                          {servicer.specialty
+                            ? `تخصص : ${servicer.specialty}`
+                            : "تنظیم نشده"}
                         </span>
                       </div>
                     </div>

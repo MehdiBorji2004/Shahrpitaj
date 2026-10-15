@@ -36,7 +36,7 @@ const Team = () => {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [getServicers, getGeneralSettingsInfo]);
 
   return (
     <>
@@ -75,12 +75,20 @@ const Team = () => {
                     </h3>
                     <p className="member-role">{servicer.role}</p>
                     <div className="member-details">
-                      <span> {`سن ${servicer.age} سال` || "تنظیم نشده"} </span>
+                      <span>
+                        {servicer.age
+                          ? `سن ${servicer.age} سال`
+                          : "تنظیم نشده"}
+                      </span>
                       <span className="experience">
-                        {`${servicer.experience} تجربه کاری` || "تنظیم نشده"}
+                        {servicer.experience
+                          ? `${servicer.experience} تجربه کاری`
+                          : "تنظیم نشده"}
                       </span>
                       <span className="specialty">
-                        {`تخصص : ${servicer.specialty}` || "تنظیم نشده"}
+                        {servicer.specialty
+                          ? `تخصص : ${servicer.specialty}`
+                          : "تنظیم نشده"}
                       </span>
                     </div>
                   </div>

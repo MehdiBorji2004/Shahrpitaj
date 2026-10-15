@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import DateTimePicker from "./date-time-picker/DateTimePicker";
 import SelectBox from "./select-box/SelectBox";
@@ -40,19 +40,22 @@ const Reserve = () => {
     price: service_price,
   };
 
-  const changeState = (childDateState, childTimeState) => {
+  const changeState = useCallback((childDateState, childTimeState) => {
     setDate(childDateState);
     setTime(childTimeState);
-  };
+  }, []);
 
-  const change_ServiceType_State = (child_ServiceType_State, service_price) => {
+  const change_ServiceType_State = useCallback(
+    (child_ServiceType_State, service_price) => {
     setService_type(child_ServiceType_State);
     setService_price(service_price);
-  };
+    },
+    []
+  );
 
-  const change_ServicerName_State = (child_ServicerName_State) => {
+  const change_ServicerName_State = useCallback((child_ServicerName_State) => {
     setServicer_name(child_ServicerName_State);
-  };
+  }, []);
 
   const validateData = async () => {
     try {

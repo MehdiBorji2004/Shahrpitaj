@@ -188,13 +188,13 @@ const ServicesPageCreator = ({ url }) => {
 
   useEffect(() => {
     getServices();
-  }, []);
+  }, [getServices]);
 
   useEffect(() => {
     if (currentService && currentService._id) {
       getPortfolio(currentService._id);
     }
-  }, [currentService]);
+  }, [currentService, getPortfolio]);
 
   return (
     <MainLayout>

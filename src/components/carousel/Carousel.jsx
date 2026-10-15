@@ -33,6 +33,7 @@ const Carousel = () => {
         setIsLoading(true);
         await getServices();
       } catch (error) {
+        console.error("Error loading carousel services:", error);
         setErrors("خطا در بارگذاری خدمات");
       } finally {
         setIsLoading(false);
@@ -40,7 +41,7 @@ const Carousel = () => {
     };
 
     fetchData();
-  }, []);
+  }, [getServices, setErrors]);
 
   useEffect(() => {
     if (servicesList && servicesList.length > 0) {
@@ -48,7 +49,7 @@ const Carousel = () => {
       setRepeated_services(repeated);
       setErrors(null);
     }
-  }, [servicesList]);
+  }, [servicesList, setErrors]);
 
   if (isLoading) {
     return (

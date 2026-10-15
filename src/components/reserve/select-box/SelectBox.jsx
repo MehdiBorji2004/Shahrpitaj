@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./select-box.css";
-import axios from "axios";
 import UseAdminData from "../../../hooks/UseAdminData";
 
 const SelectBox = ({ type, changeState }) => {
@@ -25,18 +24,17 @@ const SelectBox = ({ type, changeState }) => {
     changeState(selectedValue, servicePrice);
   };
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
-      await getServices();
-      await getServicers();
+      await Promise.all([getServices(), getServicers()]);
     } catch (error) {
-      throw new Error(error);
+      console.error("Error fetching select box data:", error);
     }
-  };
+  }, [getServices, getServicers]);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    void fetchData();
+  }, [fetchData]);
 
   return (
     <section className="select-box-container">

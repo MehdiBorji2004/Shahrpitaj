@@ -1,5 +1,6 @@
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./admin-panel.css";
+import { DateContext } from "./dateContext";
 import PanelSidebar from "./panel-sidebar/PanelSidebar";
 import Dashboard from "./dashboard/Dashboard";
 import ManageUsers from "./manage-users/ManageUsers";
@@ -12,8 +13,6 @@ import ManageComments from "./manage-comments/ManageComments";
 import GeneralSettings from "./general-settings/GeneralSettings";
 import UserPanel from "../user-panel/UserPanel";
 import { HiBars3 } from "react-icons/hi2";
-
-export const dateContext = createContext();
 
 const AdminPanel = () => {
   const [showDashboard, setShowDashboard] = useState(true);
@@ -49,7 +48,7 @@ const AdminPanel = () => {
   }, []);
 
   return (
-    <dateContext.Provider value={contextValue}>
+    <DateContext.Provider value={contextValue}>
       <section className="admin-panel-container">
         {mobileMenu && (
           <div className={mobileMenu ? "mobile-menu" : ""}>
@@ -82,7 +81,7 @@ const AdminPanel = () => {
         {showGeneralSettings && <GeneralSettings />}
         {showMyPanel && <UserPanel dataKey={"admin-panel"} />}
       </section>
-    </dateContext.Provider>
+    </DateContext.Provider>
   );
 };
 

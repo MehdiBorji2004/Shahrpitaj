@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../navbar/Navbar";
 import Sidebar from "../mobileSidebar/Sidebar";
 import ReserveBtn from "../reserve-btn/ReserveBtn";

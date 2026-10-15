@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import RegisterData from "../RegisterData";
 import SiteLogo from "../../site-logo/SiteLogo";
 import otpSchema from "../../../schemas/OtpSchema";
@@ -125,12 +125,14 @@ const VerifyCode = ({ type }) => {
     }
   };
 
+  const stopInterval = useCallback(() => {
+    if (intervalID.current) clearInterval(intervalID.current);
+  }, []);
+
   // اینترول برای ایجاد تایمر ارسال مجدد بعد از 1 دقیقه
-  const startInterval = () => {
+  const startInterval = useCallback(() => {
     stopInterval();
-    if (timer <= 0) {
-      setTimer(59);
-    }
+    setTimer((currentTimer) => (currentTimer <= 0 ? 59 : currentTimer));
     intervalID.current = setInterval(() => {
       setTimer((prev) => {
         if (prev <= 1) {
@@ -142,11 +144,7 @@ const VerifyCode = ({ type }) => {
         return prev - 1;
       });
     }, 1000);
-  };
-
-  const stopInterval = () => {
-    if (intervalID.current) clearInterval(intervalID.current);
-  };
+  }, [stopInterval]);
 
   useEffect(() => {
     // ذخیره شماره کاربر از لوکیشن
@@ -170,7 +168,7 @@ const VerifyCode = ({ type }) => {
       stopInterval();
       if (timeoutID.current) clearTimeout(timeoutID.current);
     };
-  }, []);
+  }, [location.state?.phone, startInterval, stopInterval]);
 
   return (
     <section className="register-page-container">

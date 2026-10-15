@@ -114,7 +114,7 @@ const ManageComments = () => {
     return () => {
       if (timeoutID.current) clearTimeout(timeoutID.current);
     };
-  }, []);
+  }, [getComments]);
 
   return (
     <section className="panel-content">

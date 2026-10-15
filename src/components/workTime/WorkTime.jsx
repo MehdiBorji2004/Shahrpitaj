@@ -28,8 +28,8 @@ const WorkTime = () => {
         console.error("Error fetching data:", error);
       }
     };
-    fetchData();
-  }, []);
+    void fetchData();
+  }, [getGeneralSettingsInfo, getWorkTimes]);
 
   return (
     <div className="row container-xl work-time-container">

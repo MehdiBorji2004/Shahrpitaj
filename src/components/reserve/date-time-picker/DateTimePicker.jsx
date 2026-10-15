@@ -23,7 +23,7 @@ const DateTimePicker = ({ changeState, validateErrors, servicerName }) => {
 
   useEffect(() => {
     changeState(selectedDate, selectedTime);
-  }, [selectedDate, selectedTime]);
+  }, [selectedDate, selectedTime, changeState]);
 
   return (
     <div className="date-time-picker">

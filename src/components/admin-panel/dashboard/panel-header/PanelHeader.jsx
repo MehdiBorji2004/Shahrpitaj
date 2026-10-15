@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { startDateItems, endDateItems } from "../../adminPanelData";
 import UseGenerateDates from "../../../../hooks/UseGenerateDates";
 import UseAdminData from "../../../../hooks/UseAdminData";
@@ -8,10 +8,10 @@ import {
   DropdownMenu,
   DropdownToggle,
 } from "react-bootstrap";
-import { dateContext } from "../../AdminPanel";
+import { DateContext } from "../../dateContext";
 
 const PanelHeader = ({ title }) => {
-  const { setConvertedDate } = useContext(dateContext);
+  const { setConvertedDate } = useContext(DateContext);
 
   const [dropdownStartValue, setDropdownStartValue] = useState("فیلتر تاریخ");
   const [dropdownEndValue, setDropdownEndValue] = useState("فیلتر تاریخ");
@@ -94,7 +94,7 @@ const PanelHeader = ({ title }) => {
     }
   };
 
-  const getStartEndDate = (start, end) => {
+  const getStartEndDate = useCallback((start, end) => {
     setConvertedDate({
       startDate: start,
       endDate: end,
@@ -103,14 +103,20 @@ const PanelHeader = ({ title }) => {
     getActiveReserves(start, end);
     getDoneReserves(start, end);
     getTotalRevenue(start, end);
-  };
+  }, [
+    getUsers,
+    getActiveReserves,
+    getDoneReserves,
+    getTotalRevenue,
+    setConvertedDate,
+  ]);
 
   useEffect(() => {
     const today = getToday();
     getStartEndDate(today, today);
     setDropdownEndValue("امروز");
     setDropdownStartValue("امروز");
-  }, []);
+  }, [getStartEndDate, getToday, setConvertedDate]);
 
   return (
     <div className="content-header">

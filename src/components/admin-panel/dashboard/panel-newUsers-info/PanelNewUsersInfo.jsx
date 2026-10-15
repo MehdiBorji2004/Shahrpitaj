@@ -1,8 +1,8 @@
 import axios from "axios";
 import "./panel-newUsers-info.css";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import UseAdminData from "../../../../hooks/UseAdminData";
-import { dateContext } from "../../AdminPanel";
+import { DateContext } from "../../dateContext";
 import { usersStats } from "../../adminPanelData";
 import UsersAccordion from "../../../accordion-users/UsersAccordion";
 import AlertMessage from "../../../alert-messages/AlertMessage";
@@ -23,10 +23,9 @@ const PanelNewUsersInfo = ({ dataKey, showStats }) => {
     newUsersList,
     role,
     token,
-    errors,
     setErrors,
   } = UseAdminData();
-  const { convertedDate } = useContext(dateContext);
+  const { convertedDate } = useContext(DateContext);
   const [upgradeMsg, setUpgradeMsg] = useState("");
   const [deleteMsg, setDeleteMsg] = useState("");
   const timeoutID = useRef(null);
@@ -124,7 +123,7 @@ const PanelNewUsersInfo = ({ dataKey, showStats }) => {
     }
   };
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       if (dataKey && dataKey === "manage-users") {
         await getUsers();
@@ -137,7 +136,15 @@ const PanelNewUsersInfo = ({ dataKey, showStats }) => {
     } catch (error) {
       console.log("error in fetching data:", error);
     }
-  };
+  }, [
+    dataKey,
+    convertedDate.startDate,
+    convertedDate.endDate,
+    getUsers,
+    getActiveUsers,
+    getInactiveUsers,
+    getNewUsers,
+  ]);
 
   useEffect(() => {
     fetchData();
@@ -145,7 +152,7 @@ const PanelNewUsersInfo = ({ dataKey, showStats }) => {
     return () => {
       if (timeoutID.current) clearTimeout(timeoutID.current);
     };
-  }, [convertedDate]);
+  }, [convertedDate, fetchData]);
 
   return (
     <div className="new-users-container">

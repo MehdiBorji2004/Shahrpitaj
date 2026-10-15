@@ -11,12 +11,12 @@ const ReservePage = () => {
       try {
         await getGeneralSettingsInfo();
       } catch (error) {
-        throw new Error("error in fetching data!", error);
+        console.error("error in fetching data!", error);
       }
     };
 
-    fetchData();
-  }, []);
+    void fetchData();
+  }, [getGeneralSettingsInfo]);
 
   return (
     <MainLayout>

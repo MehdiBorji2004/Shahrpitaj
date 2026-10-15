@@ -1,16 +1,16 @@
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Navigate } from "react-router-dom";
 
 const AdminRoutes = ({ children }) => {
   const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const [role, setRole] = useState(null);
-  const [errMessage, setErrMessage] = useState("");
   const [shouldRedirect, setShouldRedirect] = useState(false);
-  const token = localStorage.getItem("token");
+  const token =
+    typeof window !== "undefined" ? window.localStorage.getItem("token") : null;
   let timeoutID = useRef(null);
 
-  const isAdmin = async () => {
+  const isAdmin = useCallback(async () => {
     try {
       if (!token) {
         setRole("guest");
@@ -23,16 +23,17 @@ const AdminRoutes = ({ children }) => {
         setRole(res.data.data || "guest");
       }
     } catch (error) {
+      console.error("Error verifying admin access:", error);
       timeoutID.current = setTimeout(() => setShouldRedirect(true), 2000);
     }
-  };
+  }, [baseUrl, token]);
 
   useEffect(() => {
-    isAdmin();
+    void isAdmin();
     return () => {
       if (timeoutID.current) clearTimeout(timeoutID.current);
     };
-  }, []);
+  }, [isAdmin]);
 
   if (shouldRedirect) {
     return <Navigate to={"/"} />;

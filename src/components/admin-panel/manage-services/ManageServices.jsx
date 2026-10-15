@@ -321,7 +321,7 @@ const ManageServices = () => {
     return () => {
       if (timeoutID) clearTimeout(timeoutID);
     };
-  }, []);
+  }, [getServices]);
 
   return (
     <section className="panel-content">

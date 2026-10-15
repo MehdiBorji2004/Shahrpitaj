@@ -68,7 +68,7 @@ const Contact = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [getWorkTimes, getGeneralSettingsInfo]);
 
   return (
     <MainLayout>

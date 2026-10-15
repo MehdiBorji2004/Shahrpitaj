@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useCallback, useState, useEffect, useRef } from "react";
 import UseAdminData from "../../../hooks/UseAdminData";
 import AlertMessage from "../../alert-messages/AlertMessage";
 import { FaSave, FaUndo } from "react-icons/fa";
@@ -35,7 +35,7 @@ const GeneralSettings = () => {
     },
   });
 
-  const updateSettingsState = () => {
+  const updateSettingsState = useCallback(() => {
     if (generalSettingsInfo.length > 0) {
       const { baseInfo, contactInfo, socialMediaInfo, systemInfo } =
         generalSettingsInfo[0];
@@ -59,7 +59,7 @@ const GeneralSettings = () => {
         },
       });
     }
-  };
+  }, [generalSettingsInfo]);
 
   const handleInputChange = (section, field, value, type = "text") => {
     setSettings((prev) => ({
@@ -113,18 +113,15 @@ const GeneralSettings = () => {
     }, 3000);
   };
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     await getGeneralSettingsInfo();
-  };
+  }, [getGeneralSettingsInfo]);
 
   useEffect(() => {
     const initializeSettings = async () => {
       try {
         await fetchData();
 
-        if (generalSettingsInfo?.length > 0) {
-          updateSettingsState();
-        }
       } catch (error) {
         console.error("Error initializing settings:", error);
         setErrors("خطا در بارگذاری تنظیمات");
@@ -136,13 +133,13 @@ const GeneralSettings = () => {
     return () => {
       if (timeoutID.current) clearTimeout(timeoutID.current);
     };
-  }, []);
+  }, [fetchData, setErrors]);
 
   useEffect(() => {
     if (generalSettingsInfo?.length > 0) {
       updateSettingsState();
     }
-  }, [generalSettingsInfo]);
+  }, [generalSettingsInfo?.length, updateSettingsState]);
 
   return (
     <section className="panel-content general-settings">

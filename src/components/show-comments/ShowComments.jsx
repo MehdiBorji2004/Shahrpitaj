@@ -24,7 +24,7 @@ const Comments = () => {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 
-  let alertTimerID;
+  const alertTimerID = useRef(null);
   const handleClick = () => {
     if (token) {
       setIsClicked(true);
@@ -32,7 +32,7 @@ const Comments = () => {
       setShowLoginAlert(true);
     }
 
-    alertTimerID = setTimeout(() => {
+    alertTimerID.current = setTimeout(() => {
       setShowLoginAlert(false);
     }, 4000);
   };
@@ -46,14 +46,14 @@ const Comments = () => {
         console.error("Error fetching data:", error);
       }
     };
-    fetchData();
+    void fetchData();
 
     return () => {
-      if (alertTimerID) {
-        clearTimeout(alertTimerID);
+      if (alertTimerID.current) {
+        clearTimeout(alertTimerID.current);
       }
     };
-  }, []);
+  }, [alertTimerID, getComments, getGeneralSettingsInfo]);
 
   return (
     <section className="container comments-container">

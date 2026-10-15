@@ -1,11 +1,13 @@
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const UseAdminData = () => {
   const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
 
-  const token = localStorage.getItem("token");
-  const role = localStorage.getItem("role");
+  const token =
+    typeof window !== "undefined" ? window.localStorage.getItem("token") : null;
+  const role =
+    typeof window !== "undefined" ? window.localStorage.getItem("role") : null;
   const [errors, setErrors] = useState("");
   const [usersList, setUsersList] = useState([]);
   const [usersCount, setUsersCount] = useState(0);
@@ -30,7 +32,7 @@ const UseAdminData = () => {
     totalRevenue: 0,
   });
 
-  const getUsers = async (startDate = null, endDate = null) => {
+  const getUsers = useCallback(async (startDate = null, endDate = null) => {
     try {
       const res = await axios.get(`${baseUrl}/admin/users`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -49,9 +51,9 @@ const UseAdminData = () => {
         setErrors("");
       }, 3000);
     }
-  };
+  }, [baseUrl, token]);
 
-  const getUsersCount = async () => {
+  const getUsersCount = useCallback(async () => {
     try {
       const res = await axios.get(`${baseUrl}/api/users-count`, {
         withCredentials: true,
@@ -65,9 +67,9 @@ const UseAdminData = () => {
         setErrors("");
       }, 3000);
     }
-  };
+  }, [baseUrl]);
 
-  const getAdmins = async () => {
+  const getAdmins = useCallback(async () => {
     try {
       if (!token || role !== "admin")
         return console.log("invalid token or role");
@@ -84,9 +86,9 @@ const UseAdminData = () => {
         setErrors("");
       }, 3000);
     }
-  };
+  }, [baseUrl, token, role]);
 
-  const getAllReserves = async (startDate = null, endDate = null) => {
+  const getAllReserves = useCallback(async (startDate = null, endDate = null) => {
     try {
       if (!token || role !== "admin")
         return console.log("invalid token or role");
@@ -103,9 +105,9 @@ const UseAdminData = () => {
         setErrors("");
       }, 3000);
     }
-  };
+  }, [baseUrl, token, role]);
 
-  const getActiveReserves = async (startDate, endDate = null) => {
+  const getActiveReserves = useCallback(async (startDate, endDate = null) => {
     try {
       if (!token || role !== "admin")
         return console.log("invalid token or role");
@@ -127,9 +129,9 @@ const UseAdminData = () => {
         setErrors("");
       }, 3000);
     }
-  };
+  }, [baseUrl, token, role]);
 
-  const getDoneReserves = async (startDate = null, endDate = null) => {
+  const getDoneReserves = useCallback(async (startDate = null, endDate = null) => {
     try {
       if (!token || role !== "admin")
         return console.log("invalid token or role");
@@ -151,9 +153,9 @@ const UseAdminData = () => {
         setErrors("");
       }, 3000);
     }
-  };
+  }, [baseUrl, token, role]);
 
-  const getCanceledReserves = async () => {
+  const getCanceledReserves = useCallback(async () => {
     try {
       if (!token || role !== "admin")
         return console.log("invalid token or role");
@@ -170,9 +172,9 @@ const UseAdminData = () => {
         setErrors("");
       }, 3000);
     }
-  };
+  }, [baseUrl, token, role]);
 
-  const getTotalRevenue = async (startDate, endDate = null) => {
+  const getTotalRevenue = useCallback(async (startDate, endDate = null) => {
     try {
       if (!token || role !== "admin")
         return console.log("invalid token or role");
@@ -188,22 +190,25 @@ const UseAdminData = () => {
         }));
       }
     } catch (error) {
-      // console.log(error);
+      setErrors(error.response?.data?.message || "خطا در دریافت درآمد کل");
+      timeoutID.current = setTimeout(() => {
+        setErrors("");
+      }, 3000);
     }
-  };
+  }, [baseUrl, token, role]);
 
-  const getServices = async () => {
+  const getServices = useCallback(async () => {
     try {
       const res = await axios.get(`${baseUrl}/api/services-list`);
       if (res.status === 200) {
         setServicesList(res.data.data || []);
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.error("Error fetching services:", error);
     }
-  };
+  }, [baseUrl]);
 
-  const getServicers = async () => {
+  const getServicers = useCallback(async () => {
     try {
       const res = await axios.get(`${baseUrl}/api/servicers-list`);
       if (res.status === 200) {
@@ -217,9 +222,9 @@ const UseAdminData = () => {
         setErrors("");
       }, 3000);
     }
-  };
+  }, [baseUrl]);
 
-  const getComments = async () => {
+  const getComments = useCallback(async () => {
     try {
       const res = await axios.get(`${baseUrl}/api/comments-list`);
       if (res.status === 200) {
@@ -231,9 +236,9 @@ const UseAdminData = () => {
         setErrors("");
       }, 3000);
     }
-  };
+  }, [baseUrl]);
 
-  const getPortfolio = async (serviceID) => {
+  const getPortfolio = useCallback(async (serviceID) => {
     try {
       const res = await axios.get(`${baseUrl}/api/portfolio-list`, {
         params: { serviceID },
@@ -250,9 +255,9 @@ const UseAdminData = () => {
         setErrors("");
       }, 3000);
     }
-  };
+  }, [baseUrl]);
 
-  const getActiveUsers = async () => {
+  const getActiveUsers = useCallback(async () => {
     try {
       if (!token || role !== "admin")
         return console.log("invalid token or role");
@@ -271,9 +276,9 @@ const UseAdminData = () => {
         setErrors("");
       }, 3000);
     }
-  };
+  }, [baseUrl, token, role]);
 
-  const getInactiveUsers = async () => {
+  const getInactiveUsers = useCallback(async () => {
     try {
       if (!token || role !== "admin")
         return console.log("invalid token or role");
@@ -292,9 +297,9 @@ const UseAdminData = () => {
         setErrors("");
       }, 3000);
     }
-  };
+  }, [baseUrl, token, role]);
 
-  const getNewUsers = async () => {
+  const getNewUsers = useCallback(async () => {
     try {
       if (!token || role !== "admin")
         return console.log("invalid token or role");
@@ -313,13 +318,13 @@ const UseAdminData = () => {
         setErrors("");
       }, 3000);
     }
-  };
+  }, [baseUrl, token, role]);
 
-  const formatPrice = (price) => {
+  const formatPrice = useCallback((price) => {
     return new Intl.NumberFormat().format(price);
-  };
+  }, []);
 
-  const getGeneralSettingsInfo = async () => {
+  const getGeneralSettingsInfo = useCallback(async () => {
     try {
       // console.log("VITE_BASE_URL:", import.meta.env.VITE_BASE_URL);
 
@@ -335,7 +340,7 @@ const UseAdminData = () => {
         setErrors("");
       }, 3000);
     }
-  };
+  }, [baseUrl]);
 
   useEffect(() => {
     return () => {

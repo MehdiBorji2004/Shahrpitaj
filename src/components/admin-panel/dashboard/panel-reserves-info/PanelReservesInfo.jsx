@@ -1,16 +1,16 @@
 import UseAdminData from "../../../../hooks/UseAdminData";
 import axios from "axios";
-import { panelReservesInfo, reservesStats } from "../../adminPanelData";
-import { useContext, useEffect, useRef, useState } from "react";
+import { reservesStats } from "../../adminPanelData";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import AlertMessage from "../../../alert-messages/AlertMessage";
 import PersianDate from "persian-date";
-import { dateContext } from "../../AdminPanel";
+import { DateContext } from "../../dateContext";
 import UsersAccordion from "../../../accordion-users/UsersAccordion";
 import * as HiIcons from "react-icons/hi2";
 import { IoCloseCircle } from "react-icons/io5";
 
 const PanelReservesInfo = ({ dataKey }) => {
-  const { convertedDate } = useContext(dateContext);
+  const { convertedDate } = useContext(DateContext);
   const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
 
   const {
@@ -114,7 +114,7 @@ const PanelReservesInfo = ({ dataKey }) => {
     }
   };
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       await getCanceledReserves();
       if (convertedDate?.startDate && convertedDate?.endDate) {
@@ -127,7 +127,14 @@ const PanelReservesInfo = ({ dataKey }) => {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
-  };
+  }, [
+    convertedDate?.startDate,
+    convertedDate?.endDate,
+    getCanceledReserves,
+    getActiveReserves,
+    getDoneReserves,
+    getAllReserves,
+  ]);
 
   const reservesAccordionData = [
     {
@@ -174,7 +181,7 @@ const PanelReservesInfo = ({ dataKey }) => {
   useEffect(() => {
     fetchData();
     if (timeoutID.current) clearTimeout(timeoutID.current);
-  }, [convertedDate.startDate, convertedDate.endDate]);
+  }, [convertedDate.startDate, convertedDate.endDate, fetchData]);
 
   return (
     <div className="reserves-info-continer">

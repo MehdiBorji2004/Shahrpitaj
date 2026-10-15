@@ -8,7 +8,7 @@ const ServicesItem = ({ setIsClicked }) => {
 
   useEffect(() => {
     getServices();
-  }, []);
+  }, [getServices]);
 
   return (
     <ul className="services-list">

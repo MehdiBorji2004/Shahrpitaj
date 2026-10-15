@@ -22,13 +22,14 @@ const ScrollTop = () => {
   };
 
   useEffect(() => {
-    scrollRef.current?.addEventListener("click", handleScrollTop);
+    const scrollElement = scrollRef.current;
+    scrollElement?.addEventListener("click", handleScrollTop);
     window.addEventListener("scroll", showScroller);
 
     return () => {
-        scrollRef.current?.removeEventListener("click", handleScrollTop);
-        window.removeEventListener("scroll", showScroller);
-    }
+      scrollElement?.removeEventListener("click", handleScrollTop);
+      window.removeEventListener("scroll", showScroller);
+    };
   }, []);
 
   return (

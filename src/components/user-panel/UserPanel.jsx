@@ -1,7 +1,7 @@
 import "./user-panel.css";
 import MainLayout from "../../layouts/MainLayout";
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { IoPencilOutline } from "react-icons/io5";
 import { TbLogout2 } from "react-icons/tb";
 import ReserveBtn from "../reserve-btn/ReserveBtn";
@@ -34,18 +34,18 @@ const UserPanel = ({ dataKey }) => {
     );
   };
 
-  const getUserData = async () => {
+  const getUserData = useCallback(async () => {
     try {
       const res = await axios.get(`${baseUrl}/auth/my-panel`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUserData(res.data.data.existedUser);
     } catch (err) {
-      console.log(err);
+      console.error("Error loading user data:", err);
     }
-  };
+  }, [baseUrl, token]);
 
-  const getReserveData = async () => {
+  const getReserveData = useCallback(async () => {
     try {
       const res = await axios.get(`${baseUrl}/auth/my-reserves`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -53,9 +53,9 @@ const UserPanel = ({ dataKey }) => {
 
       setReservesData(res.data.data || []);
     } catch (err) {
-      console.log(err);
+      console.error("Error loading reservations:", err);
     }
-  };
+  }, [baseUrl, token]);
 
   const handleCancelReserve = async (reserveID) => {
     try {
@@ -77,6 +77,7 @@ const UserPanel = ({ dataKey }) => {
         await getReserveData();
       }
     } catch (err) {
+      console.error("Error cancelling reservation:", err);
       showMessage("error", "خطا در لغو نوبت");
       await getReserveData();
       await getUserData();
@@ -93,6 +94,7 @@ const UserPanel = ({ dataKey }) => {
 
       setUserData((prev) => ({ ...prev, imageUrl: "" }));
     } catch (err) {
+      console.error("Error deleting profile image:", err);
       showMessage("error", "خطای حذف پروفایل");
     }
   };
@@ -103,15 +105,15 @@ const UserPanel = ({ dataKey }) => {
     navigate("/");
   };
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     if (!token) return;
     await Promise.all([getUserData(), getReserveData()]);
-  };
+  }, [token, getUserData, getReserveData]);
 
   useEffect(() => {
     fetchData();
     return () => clearTimeout(timeoutID.current);
-  }, [token]);
+  }, [fetchData]);
 
   const Layout = dataKey === "admin-panel" ? "div" : MainLayout;
 

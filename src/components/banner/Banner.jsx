@@ -20,7 +20,7 @@ const Banner = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [getGeneralSettingsInfo]);
 
   return (
     <div className="banner-container">

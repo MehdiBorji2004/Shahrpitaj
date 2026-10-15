@@ -55,6 +55,7 @@ const Services = () => {
         await getServices();
         await getGeneralSettingsInfo();
       } catch (error) {
+        console.error("Error loading services:", error);
         setErrors("خطا در بارگذاری خدمات");
       } finally {
         setIsLoading(false);
@@ -62,13 +63,13 @@ const Services = () => {
     };
 
     fetchData();
-  }, []);
+  }, [getServices, getGeneralSettingsInfo, setErrors]);
 
   useEffect(() => {
     if (servicesList && servicesList.length > 0) {
       setErrors(null);
     }
-  }, []);
+  }, [servicesList, setErrors]);
 
   if (isLoading) {
     return (

@@ -31,7 +31,7 @@ const ManageAdmins = () => {
         getAdmins(); // Refresh the admins list after descent
         setDescentMsg(res.data?.message || "ادمین با موفقیت تنزل یافت ✅");
         timeoutID.current = setTimeout(() => {
-          setUpgradeMsg("");
+          setDescentMsg("");
         }, 3000);
       }
     } catch (error) {
@@ -49,7 +49,7 @@ const ManageAdmins = () => {
     return () => {
       if (timeoutID) clearTimeout(timeoutID);
     };
-  }, []);
+  }, [getAdmins]);
 
   return (
     <section className="panel-content">

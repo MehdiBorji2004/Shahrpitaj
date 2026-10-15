@@ -1,20 +1,22 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import HomePage from "../pages/HomePage";
-import ReservePage from "../pages/ReservePage";
-import MainServicesPage from "../pages/services-page/MainServicesPage";
-import ServicePage from "../pages/services-page/ServicePage";
-import RegisterPage from "../pages/RegisterPage";
-import VerifyCodePage from "../pages/VerifyCodePage";
+import { lazy, Suspense, useEffect } from "react";
+const HomePage = lazy(() => import("../pages/HomePage"));
+const ReservePage = lazy(() => import("../pages/ReservePage"));
+const MainServicesPage = lazy(
+  () => import("../pages/services-page/MainServicesPage")
+);
+const ServicePage = lazy(() => import("../pages/services-page/ServicePage"));
+const RegisterPage = lazy(() => import("../pages/RegisterPage"));
+const VerifyCodePage = lazy(() => import("../pages/VerifyCodePage"));
 import ProtectedRoutes from "./ProtectedRoutes";
-import UserPanelPage from "../pages/UserPanelPage";
-import AdminPanelPage from "../pages/AdminPanelPage";
+const UserPanelPage = lazy(() => import("../pages/UserPanelPage"));
+const AdminPanelPage = lazy(() => import("../pages/AdminPanelPage"));
 import AdminRoutes from "./AdminRoutes";
 import UseAdminData from "../hooks/UseAdminData";
-import { useEffect, useState } from "react";
-import ContactPage from "../pages/ContactPage";
-import AboutPage from "../pages/AboutPage";
-import NotFoundPage from "../pages/NotFoundPage";
-import MaintenancePage from "../pages/MaintenancePage";
+const ContactPage = lazy(() => import("../pages/ContactPage"));
+const AboutPage = lazy(() => import("../pages/AboutPage"));
+const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
+const MaintenancePage = lazy(() => import("../pages/MaintenancePage"));
 
 const AppRoutes = () => {
   const {
@@ -28,24 +30,24 @@ const AppRoutes = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await getServices();
-        await getGeneralSettingsInfo();
+        await Promise.all([getServices(), getGeneralSettingsInfo()]);
       } catch (error) {
-        throw new Error("error in fetching data!", error);
+        console.error("error in fetching data!", error);
       }
     };
 
-    fetchData();
-  }, []);
+    void fetchData();
+  }, [getServices, getGeneralSettingsInfo]);
 
   return (
     <BrowserRouter>
-      {role !== "admin" &&
-      generalSettingsInfo.length > 0 &&
-      generalSettingsInfo[0].systemInfo.maintenanceMode ? (
-        <MaintenancePage />
-      ) : (
-        <Routes>
+      <Suspense fallback={<p role="status">در حال بارگذاری صفحه...</p>}>
+        {role !== "admin" &&
+        generalSettingsInfo.length > 0 &&
+        generalSettingsInfo[0].systemInfo?.maintenanceMode ? (
+          <MaintenancePage />
+        ) : (
+          <Routes>
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/" element={<HomePage />} />
           <Route
@@ -100,8 +102,9 @@ const AppRoutes = () => {
           />
 
           <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      )}
+          </Routes>
+        )}
+      </Suspense>
     </BrowserRouter>
   );
 };

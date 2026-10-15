@@ -16,7 +16,7 @@ const SiteLogo = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [getGeneralSettingsInfo]);
 
   return (
     <div className="site-logo">

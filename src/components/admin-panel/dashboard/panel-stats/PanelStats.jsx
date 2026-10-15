@@ -1,10 +1,10 @@
 import { panelStats } from "../../adminPanelData";
 import UseAdminData from "../../../../hooks/UseAdminData";
 import { useContext, useEffect } from "react";
-import { dateContext } from "../../AdminPanel";
+import { DateContext } from "../../dateContext";
 
 const PanelStats = () => {
-  const { convertedDate } = useContext(dateContext);
+  const { convertedDate } = useContext(DateContext);
 
   const {
     panelData,
@@ -19,21 +19,27 @@ const PanelStats = () => {
     const fetchData = async () => {
       try {
         if (convertedDate.startDate && convertedDate.endDate) {
-          await getUsers(convertedDate.startDate, convertedDate.endDate);
-          await getActiveReserves(
-            convertedDate.startDate,
-            convertedDate.endDate
-          );
-          await getDoneReserves(convertedDate.startDate, convertedDate.endDate);
-          await getTotalRevenue(convertedDate.startDate, convertedDate.endDate);
+          await Promise.all([
+            getUsers(convertedDate.startDate, convertedDate.endDate),
+            getActiveReserves(convertedDate.startDate, convertedDate.endDate),
+            getDoneReserves(convertedDate.startDate, convertedDate.endDate),
+            getTotalRevenue(convertedDate.startDate, convertedDate.endDate),
+          ]);
         }
       } catch (error) {
-        throw new Error("error in fetching data:", error);
+        console.error("error in fetching data:", error);
       }
     };
 
-    fetchData();
-  }, [convertedDate.startDate, convertedDate.endDate]);
+    void fetchData();
+  }, [
+    convertedDate.startDate,
+    convertedDate.endDate,
+    getUsers,
+    getActiveReserves,
+    getDoneReserves,
+    getTotalRevenue,
+  ]);
 
   return (
     <div className="row site-info-container">

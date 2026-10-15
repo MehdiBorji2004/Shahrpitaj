@@ -67,7 +67,7 @@ const Footer = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [getGeneralSettingsInfo]);
   return (
     <div className="footer-box">
       <div className="container-xl row footer-container">

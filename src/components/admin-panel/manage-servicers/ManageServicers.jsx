@@ -1,7 +1,7 @@
 import "./manage-servicers.css";
 import UseAdminData from "../../../hooks/UseAdminData";
 import { servicersInputData } from "../adminPanelData";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import AlertMessage from "../../alert-messages/AlertMessage";
 import { CiCirclePlus } from "react-icons/ci";
 import { CloseButton, Modal, Spinner } from "react-bootstrap";
@@ -275,13 +275,13 @@ const ManageServicers = () => {
     }
   };
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       await getServicers();
     } catch (error) {
       setErrors(error.message);
     }
-  };
+  }, [getServicers, setErrors]);
 
   useEffect(() => {
     fetchData();
@@ -289,7 +289,7 @@ const ManageServicers = () => {
     return () => {
       if (timeoutID.current) clearTimeout(timeoutID.current);
     };
-  }, []);
+  }, [fetchData]);
 
   return (
     <section className="panel-content">

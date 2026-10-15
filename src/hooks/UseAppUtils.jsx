@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 const UseAppUtils = () => {
   const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
@@ -7,7 +7,7 @@ const UseAppUtils = () => {
   const [reserveEndHour, setReserveEndHour] = useState(null);
   const [durationTime, setDurationTime] = useState(null);
 
-  const getWorkTimes = async () => {
+  const getWorkTimes = useCallback(async () => {
     try {
       const res = await axios.get(`${baseUrl}/api/get-work-times`);
       if (res.status === 200) {
@@ -18,7 +18,7 @@ const UseAppUtils = () => {
     } catch (error) {
       console.error("خطا در دریافت زمان‌های کاری:", error);
     }
-  };
+  }, [baseUrl]);
 
   return {
     getWorkTimes,

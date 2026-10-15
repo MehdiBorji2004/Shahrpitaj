@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import "./time-picker.css";
 import axios from "axios";
 import UseAppUtils from "../../../../hooks/UseAppUtils";
@@ -17,7 +17,7 @@ const TimePicker = ({
   const { getWorkTimes, reserveStartHour, reserveEndHour, durationTime } =
     UseAppUtils();
 
-  const getReservedTimes = async (date, name) => {
+  const getReservedTimes = useCallback(async (date, name) => {
     if (!date) return;
 
     try {
@@ -37,24 +37,19 @@ const TimePicker = ({
         setReservedTimes(res.data?.data || []);
       }
     } catch (error) {
+      console.error("Error fetching reserved times:", error);
       setReservedTimes([]);
     }
-  };
-
-  // تابع برای تبدیل زمان به دقیقه
-  const timeToMinutes = (timeStr) => {
-    const [hours, minutes] = timeStr.split(":").map(Number);
-    return hours * 60 + minutes;
-  };
+  }, [baseUrl]);
 
   // تابع برای تبدیل دقیقه به زمان
-  const minutesToTime = (totalMinutes) => {
+  const minutesToTime = useCallback((totalMinutes) => {
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
     return `${hours}:${minutes.toString().padStart(2, "0")}`;
-  };
+  }, []);
 
-  const generateTimeSlots = () => {
+  const generateTimeSlots = useCallback(() => {
     if (
       !durationTime ||
       durationTime <= 0 ||
@@ -105,22 +100,29 @@ const TimePicker = ({
     setAvailableTimes(times);
     setSelectedTime(null);
     onTimeSelect(null);
-  };
+  }, [
+    durationTime,
+    reserveStartHour,
+    reserveEndHour,
+    selectedDate,
+    onTimeSelect,
+    minutesToTime,
+  ]);
 
   const handleTimeSelect = (time) => {
     setSelectedTime(time);
     onTimeSelect(time);
   };
 
-  const filterAvailableTimes = () => {
+  const filterAvailableTimes = useCallback(() => {
     if (!availableTimes.length || !reservedTimes.length) return availableTimes;
     return availableTimes.filter((time) => !reservedTimes.includes(time));
-  };
+  }, [availableTimes, reservedTimes]);
 
   // get data from useAppUtils hook
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     await getWorkTimes();
-  };
+  }, [getWorkTimes]);
 
   // useEffect برای فیلتر کردن زمان‌ها
   useEffect(() => {
@@ -128,7 +130,7 @@ const TimePicker = ({
       const filtered = filterAvailableTimes();
       setFilteredTimes(filtered);
     }
-  }, [availableTimes, reservedTimes]);
+  }, [availableTimes, reservedTimes, filterAvailableTimes]);
 
   // useEffect برای مقداردهی اولیه
   useEffect(() => {
@@ -142,11 +144,11 @@ const TimePicker = ({
       }
 
       // ابتدا زمان‌های کاری را دریافت کن
-      fetchData();
+      void fetchData();
     };
 
     initializeData();
-  }, [selectedDate, servicerName]);
+  }, [selectedDate, servicerName, fetchData, onTimeSelect]);
 
   // useEffect برای تولید زمان‌ها پس از دریافت زمان‌های کاری
   useEffect(() => {
@@ -160,6 +162,8 @@ const TimePicker = ({
     durationTime,
     selectedDate,
     servicerName,
+    generateTimeSlots,
+    getReservedTimes,
   ]);
 
   return (

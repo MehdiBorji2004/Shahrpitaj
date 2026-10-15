@@ -105,7 +105,10 @@ const UsersAccordion = ({
                       تاریخ و ساعت : {item.time} / {item.date.jd}{" "}
                       {item.date.monthName} {item.date.jy}
                     </p>
-                    <p> هزینه : {`${formatPrice(item.price)} تومان` || 0} </p>
+                    <p>
+                      هزینه :{" "}
+                      {item.price ? `${formatPrice(item.price)} تومان` : "0"}
+                    </p>
                     {dataKey === "activeReserves" &&
                       item.status === "active" && (
                         <ManageButtons

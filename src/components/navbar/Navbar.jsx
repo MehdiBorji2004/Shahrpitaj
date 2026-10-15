@@ -1,7 +1,7 @@
 import { Navigate, NavLink } from "react-router-dom";
 import navItemsData from "../navbar/navItemsData.jsx";
 import "./navbar.css";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ServicesItem from "./services-item/ServicesItem.jsx";
 import axios from "axios";
 import UseAdminData from "../../hooks/UseAdminData.jsx";
@@ -13,15 +13,12 @@ const Navbar = ({ closeMenu }) => {
   const [shouldRedirect, setShouldRedirect] = useState(false);
   const [role, setRole] = useState("");
   const token = localStorage.getItem("token");
-  let filteredData = useRef();
-  let timeoutID = useRef(null);
+  const timeoutID = useRef(null);
   const { errors, setErrors } = UseAdminData();
 
-  const isAdmin = async () => {
+  const isAdmin = useCallback(async () => {
     try {
-      if (!token) {
-        return <Navigate to={"/login"} />;
-      }
+      if (!token) return;
 
       const res = await axios.get(`${baseUrl}/auth/role`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -31,25 +28,23 @@ const Navbar = ({ closeMenu }) => {
         setRole(res.data.data || "");
       }
     } catch (error) {
+      console.error("Error verifying navigation role:", error);
+      setErrors(error.response?.data?.message || "خطا در بررسی دسترسی");
       timeoutID.current = setTimeout(() => {
         setShouldRedirect(true);
       }, 2000);
     }
-  };
+  }, [baseUrl, setErrors, token]);
 
-  if (token && role === "admin") {
-    filteredData = navItemsData.filter((item) => {
-      return item.id !== 5 && item.id !== 6;
-    });
-  } else if (token) {
-    filteredData = navItemsData.filter((item) => {
-      return item.id !== 5 && item.id !== 7;
-    });
-  } else {
-    filteredData = navItemsData.filter((item) => {
-      return item.id !== 6 && item.id !== 7;
-    });
-  }
+  const filteredData = useMemo(() => {
+    if (token && role === "admin") {
+      return navItemsData.filter((item) => item.id !== 5 && item.id !== 6);
+    }
+    if (token) {
+      return navItemsData.filter((item) => item.id !== 5 && item.id !== 7);
+    }
+    return navItemsData.filter((item) => item.id !== 6 && item.id !== 7);
+  }, [role, token]);
 
   const handleClick = () => {
     setIsClicked(!isClicked);
@@ -69,11 +64,15 @@ const Navbar = ({ closeMenu }) => {
   };
 
   useEffect(() => {
-    isAdmin();
+    void isAdmin();
     return () => {
       if (timeoutID.current) clearTimeout(timeoutID.current);
     };
-  }, [timeoutID.current]);
+  }, [isAdmin]);
+
+  if (shouldRedirect) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <>
