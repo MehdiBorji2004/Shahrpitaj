@@ -66,7 +66,7 @@
 /* mobile size */
 @media (max-width: 576px) {
   .scroll-top {
-    bottom: 1.5rem;
+    bottom: 5.5rem;
     right: 1.5rem;
     width: 32px;
     height: 32px;
@@ -76,11 +76,9 @@
 /* small mobile size */
 @media (max-width: 300px) {
   .scroll-top {
-    bottom: 1.2rem;
+    bottom: 5.5rem;
     right: 1.2rem;
     width: 28px;
     height: 28px;
   }
 }
-
-

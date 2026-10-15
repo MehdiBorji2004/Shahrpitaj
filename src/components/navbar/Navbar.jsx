@@ -7,6 +7,8 @@ import axios from "axios";
 import UseAdminData from "../../hooks/UseAdminData.jsx";
 import AlertMessage from "../alert-messages/AlertMessage.jsx";
 
+export let filteredNavData = null;
+
 const Navbar = ({ closeMenu }) => {
   const baseUrl = import.meta.env.VITE_BASE_URL || "https://api.shahrpitaj.ir";
   const [isClicked, setIsClicked] = useState(false);
@@ -36,7 +38,7 @@ const Navbar = ({ closeMenu }) => {
     }
   }, [baseUrl, setErrors, token]);
 
-  const filteredData = useMemo(() => {
+  filteredNavData = useMemo(() => {
     if (token && role === "admin") {
       return navItemsData.filter((item) => item.id !== 5 && item.id !== 6);
     }
@@ -76,7 +78,7 @@ const Navbar = ({ closeMenu }) => {
 
   return (
     <>
-      {filteredData.map((item, index) => {
+      {filteredNavData.map((item, index) => {
         return (
           <li
             key={index}
