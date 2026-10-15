@@ -8,6 +8,7 @@ const Header = ({ isMobileSize, isFixed }) => {
   return (
     <header className={`header ${isFixed ? "fix-header" : ""}`}>
       <SiteLogo />
+
       {!isMobileSize && (
         <nav className="header-nav">
           <ul className="header-nav-list">
@@ -15,6 +16,7 @@ const Header = ({ isMobileSize, isFixed }) => {
           </ul>
         </nav>
       )}
+
       <div className="header-reserve-box">
         <ReserveBtn />
       </div>

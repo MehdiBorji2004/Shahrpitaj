@@ -4,11 +4,11 @@ import Header from "../components/header/Header";
 import BottomNavigation from "../components/bottom-navigation/BottomNavigation";
 
 const MainLayout = ({ children }) => {
-  const [isMobileSize, setIsMobileSize] = useState(false);
+  const [isMobileSize, setIsMobileSize] = useState(window.innerWidth <= 430);
   const [isFixed, setIsFixed] = useState(false);
 
   const handleResize = () => {
-    if (window.innerWidth < 576) {
+    if (window.innerWidth <= 430) {
       setIsMobileSize(true);
     } else {
       setIsMobileSize(false);
@@ -16,7 +16,7 @@ const MainLayout = ({ children }) => {
   };
 
   const handleScroll = () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY >= 50) {
       setIsFixed(true);
     } else {
       setIsFixed(false);
@@ -24,9 +24,10 @@ const MainLayout = ({ children }) => {
   };
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
     handleResize();
+    handleScroll();
 
+    window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleScroll);
 
     return () => {
