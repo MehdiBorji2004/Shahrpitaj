@@ -75,11 +75,11 @@
     min-width: max-content;
   }
   .feature-text-title {
-    font-size: 12px;
+    font-size: 15px;
     width: 100% !important;
   }
   .feature-text-subtitle {
-    font-size: 9px;
+    font-size: 12px;
     width: 100% !important;
   }
   .reserve-btn-link svg {

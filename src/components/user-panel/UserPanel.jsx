@@ -30,7 +30,7 @@ const UserPanel = ({ dataKey }) => {
     clearTimeout(timeoutID.current);
     timeoutID.current = setTimeout(
       () => setMessage({ type: "", text: "" }),
-      2500
+      2500,
     );
   };
 
@@ -169,7 +169,7 @@ const UserPanel = ({ dataKey }) => {
                   >
                     ویرایش <IoPencilOutline />
                   </button>
-
+                  {/* 
                   {!userData.imageUrl ? (
                     <button
                       className="btn edit-info-btn"
@@ -184,7 +184,7 @@ const UserPanel = ({ dataKey }) => {
                     >
                       حذف پروفایل
                     </button>
-                  )}
+                  )} */}
                 </div>
               </>
             ) : (

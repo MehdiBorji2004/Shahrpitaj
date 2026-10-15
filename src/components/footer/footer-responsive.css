@@ -112,7 +112,7 @@
     justify-content: center;
   }
   .footer-contacts-icons a svg {
-    font-size: 15px;
+    font-size: 20px;
   }
   .footer-credits p {
     font-size: 12px;
@@ -126,7 +126,7 @@
   }
   .developer-name a p,
   .developer-name a p b {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .footer-reserve-btn {
@@ -180,11 +180,11 @@
   }
   .footer-useful-links p,
   .footer-user-links p {
-    font-size: 13px;
+    font-size: 14px;
   }
   .useful-links-item a,
   .user-links-item a {
-    font-size: 12px;
+    font-size: 14px;
   }
   .footer-info {
     padding: 0%;
@@ -195,7 +195,7 @@
       padding: 10px;
       width: 25%;
       border-radius: 50px;
-      font-size: 11px;
+      font-size: 14px;
     }
   }
 
@@ -204,19 +204,20 @@
   }
   .footer-address p,
   .footer-address p b {
-    font-size: 11px;
+    font-size: 14px;
   }
   .footer-contacts-title {
-    font-size: 12px;
+    font-size: 14px;
   }
   .footer-contacts-icons a svg {
-    font-size: 16px;
+    font-size: 20px;
   }
-  .footer-credits {
-    font-size: 10px;
+  .footer-credits p {
+    font-size: 14px;
   }
-  .developer-name a {
-    font-size: 10px;
+  .developer-name a p,
+  .developer-name a p b {
+    font-size: 14px;
   }
 }
 

@@ -1,4 +1,5 @@
 .scroll-top {
+  background-color: #fff;
   display: block;
   position: fixed;
   z-index: 10000;
@@ -68,8 +69,8 @@
   .scroll-top {
     bottom: 5.5rem;
     right: 1.5rem;
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
   }
 }
 

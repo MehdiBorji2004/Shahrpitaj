@@ -145,14 +145,14 @@
     width: 100%;
   }
   .banner-title {
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
     width: 100%;
   }
   .banner-subtitle {
     text-align: justify;
     line-height: 1.7;
-    font-size: 11px;
+    font-size: 13.5px;
     margin-bottom: 1rem !important;
   }
   .banner-address {
@@ -166,11 +166,11 @@
       width: 100%;
       margin: 0 auto !important;
       padding: 8px 0;
-      font-size: 11px;
+      font-size: 14px;
       border-radius: 50px;
 
       svg {
-        font-size: 9px;
+        font-size: 12px;
       }
     }
   }
@@ -181,20 +181,20 @@
   .address-text {
     width: 100%;
     height: 50%;
-    font-size: 10px;
+    font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
   }
   .address-text b {
-    font-size: 12px;
+    font-size: 14px;
   }
   .banner-img-container {
-    width: 50%;
+    width: 60%;
   }
   .banner-img-container img {
-    width: 45%;
+    width: 60%;
   }
   .banner-features :nth-child(1),
   .banner-features :nth-child(2) {
@@ -231,10 +231,10 @@
     width: 60%;
   }
   .address-text {
-    font-size: 10px;
+    font-size: 14px;
   }
   .address-text b {
-    font-size: 11px;
+    font-size: 14px;
   }
   .banner-img-container img {
     width: 60%;

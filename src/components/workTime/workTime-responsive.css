@@ -102,11 +102,11 @@
     width: 100%;
   }
   .work-time-title {
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
   }
   .work-time-subtitle {
-    font-size: 10px;
+    font-size: 14px;
     text-align: justify;
     padding-bottom: 1rem;
     width: 80%;
@@ -115,9 +115,9 @@
     width: 50%;
   }
   .week-days {
-    font-size: 10px;
+    font-size: 14px;
     padding: 6px;
-    width: 90%;
+    width: 100%;
   }
 }
 
