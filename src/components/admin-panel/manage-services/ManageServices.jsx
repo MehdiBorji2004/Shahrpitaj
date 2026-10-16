@@ -158,6 +158,8 @@ const ManageServices = () => {
       const validateData = await validateFormData();
 
       if (validateData) {
+        setLoading(true);
+
         const servicePath = generatePersianPath(validateData.serviceName);
 
         const formDataToSend = new FormData();
@@ -506,7 +508,7 @@ const ManageServices = () => {
                 <button
                   type="submit"
                   className="btn submit-btn"
-                  onClick={() => setLoading(true)}
+                  // onClick={() => setLoading(true)}
                 >
                   {loading ? (
                     <>
