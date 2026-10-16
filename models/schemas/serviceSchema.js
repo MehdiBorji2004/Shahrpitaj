@@ -6,7 +6,7 @@ const serviceSchema = new mongoose.Schema({
   servicePrice: { type: Number, required: true },
   servicePath: { type: String, required: true, unique: true },
   servicePortfolio: [{ type: String, default: "" }],
-  imageUrl: { type: String, required: true },
+  imageUrl: { type: String, required: false, default: "" },
   createdAt: {
     solarDate: { type: String },
     time: { type: String },

@@ -7,7 +7,7 @@ const servicerSchema = new mongoose.Schema({
   role: { type: String, required: true, trim: true },
   experience: { type: String, required: true },
   specialty: { type: String, required: true },
-  imageUrl: { type: String, trim: true, default: "" },
+  imageUrl: { type: String, trim: true, required: false, default: "" },
   createdAt: {
     solarDate: { type: String },
     time: { type: String },
