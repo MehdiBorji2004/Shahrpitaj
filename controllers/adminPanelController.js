@@ -57,7 +57,7 @@ const getAllReserves = async (req, res) => {
 
   const getResult = await adminPanelModel.allReserves(
     startDateParsed,
-    endDateParsed
+    endDateParsed,
   );
   if (getResult.success) {
     return res.status(getResult.status).json({
@@ -79,7 +79,7 @@ const getActiveReserves = async (req, res) => {
 
   const getResult = await adminPanelModel.activeReserves(
     startDateParsed,
-    endDateParsed
+    endDateParsed,
   );
   if (getResult.success) {
     return res.status(getResult.status).json({
@@ -100,7 +100,7 @@ const getDoneReserves = async (req, res) => {
 
   const getResult = await adminPanelModel.doneReserves(
     startDateParsed,
-    endDateParsed
+    endDateParsed,
   );
   if (getResult.success) {
     return res.status(getResult.status).json({
@@ -138,7 +138,7 @@ const getTotalRevenue = async (req, res) => {
 
   const getResult = await adminPanelModel.totalRevenue(
     startDateParsed,
-    endDateParsed
+    endDateParsed,
   );
   if (getResult.success) {
     return res.status(getResult.status).json({
@@ -261,9 +261,10 @@ const addNewService = async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: "لطفاً یک عکس آپلود کنید" });
   }
-  const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${
-    req.file.filename
-  }`;
+  // const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${
+  //   req.file.filename
+  // }`;
+  const imageUrl = `https://api.shahrpitaj.ir/uploads/${req.file.filename}`;
 
   const { serviceName, serviceDetails, servicePrice, servicePath } = req.body;
   if (
@@ -278,7 +279,7 @@ const addNewService = async (req, res) => {
       serviceDetails,
       servicePrice,
       servicePath,
-      imageUrl
+      imageUrl,
     );
     if (addResult.success) {
       return res.status(addResult.status).json({
@@ -299,7 +300,7 @@ const addNewService = async (req, res) => {
 
 const addNewServicer = async (req, res) => {
   const imageUrl = req.file
-    ? `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`
+    ? `https://api.shahrpitaj.ir/uploads/${req.file.filename}`
     : "";
 
   const servicerData = req.body;
@@ -347,7 +348,7 @@ const changeWorkTimes = async (req, res) => {
     const changeResult = await adminPanelModel.changeWorkTimes(
       startHour,
       endHour,
-      duration
+      duration,
     );
 
     if (changeResult.success) {
@@ -375,7 +376,7 @@ const replyComment = async (req, res) => {
     const result = await adminPanelModel.setReply(
       adminID,
       adminReply,
-      commentID
+      commentID,
     );
     if (result.success) {
       return res.status(result.status).json({
@@ -518,14 +519,19 @@ const changeServiceImg = async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: "لطفاً یک عکس آپلود کنید" });
   }
-  const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${
-    req.file.filename
-  }`;
+
+  // const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${
+  //   req.file.filename
+  // }`;
+
+  const imageUrl = `https://api.shahrpitaj.ir/uploads/${req.file.filename}`;
+
   const { serviceID } = req.body;
+
   if (imageUrl && serviceID) {
     const changeResult = await adminPanelModel.changeServiceImg(
       imageUrl,
-      serviceID
+      serviceID,
     );
     if (changeResult.success) {
       return res
@@ -544,7 +550,7 @@ const deleteServicePortfolio = async (req, res) => {
   if (serviceID && imageUrl) {
     const deleteResult = await adminPanelModel.deleteServicePortfolio(
       serviceID,
-      imageUrl
+      imageUrl,
     );
     if (deleteResult.success) {
       return res
@@ -618,13 +624,13 @@ const uploadServicerImg = async (req, res) => {
 
   const { servicerID } = req.body;
   const imageUrl = req.file
-    ? `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`
+    ? `https://api.shahrpitaj.ir/uploads/${req.file.filename}`
     : "";
 
   if (servicerID && imageUrl) {
     const uploadResult = await adminPanelModel.uploadServicerImg(
       servicerID,
-      imageUrl
+      imageUrl,
     );
 
     if (uploadResult.success) {

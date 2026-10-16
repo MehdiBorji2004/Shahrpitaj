@@ -18,7 +18,7 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
-  })
+  }),
 );
 
 // Body Parser
@@ -26,7 +26,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Static Files
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/uploads", express.static("/var/www/uploads"));
 
 // Routes
 app.use("/api", appRouter);
