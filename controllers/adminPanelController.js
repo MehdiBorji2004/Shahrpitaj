@@ -258,22 +258,18 @@ const deleteService = async (req, res) => {
 };
 
 const addNewService = async (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ message: "لطفاً یک عکس آپلود کنید" });
-  }
+  // if (!req.file) {
+  //   return res.status(400).json({ message: "لطفاً یک عکس آپلود کنید" });
+  // }
   // const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${
   //   req.file.filename
   // }`;
-  const imageUrl = `https://api.shahrpitaj.ir/uploads/${req.file.filename}`;
+  const imageUrl = req.file
+    ? `https://api.shahrpitaj.ir/uploads/${req.file.filename}`
+    : "";
 
   const { serviceName, serviceDetails, servicePrice, servicePath } = req.body;
-  if (
-    serviceName &&
-    serviceDetails &&
-    servicePrice &&
-    servicePath &&
-    imageUrl
-  ) {
+  if (serviceName && serviceDetails && servicePrice && servicePath) {
     const addResult = await adminPanelModel.addService(
       serviceName,
       serviceDetails,
