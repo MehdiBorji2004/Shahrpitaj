@@ -7,7 +7,7 @@ const servicersSchema = Yup.object().shape({
     .trim()
     .required("نام خدمات الزامی است*"),
   serviceDetails: Yup.string()
-    .min(3, " جزئیات خدمات باید حداقل 20 حرف باشد*")
+    .min(5, " جزئیات خدمات باید حداقل 5 حرف باشد*")
     .max(100000, "جزئیات خدمات نباید بیشتر از 100000 حرف باشد*")
     .trim()
     .required("جزئیات خدمات الزامی است*"),

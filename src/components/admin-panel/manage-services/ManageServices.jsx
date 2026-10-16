@@ -188,6 +188,7 @@ const ManageServices = () => {
           });
           setImageFile(null);
           setShowServiceForm(false);
+          setLoading(false);
           timeoutID.current = setTimeout(() => {
             setAddMsg("");
           }, 3000);
@@ -502,8 +503,24 @@ const ManageServices = () => {
               </div>
 
               <Modal.Footer className="form-footer">
-                <button type="submit" className="btn submit-btn">
-                  افزودن خدمات
+                <button
+                  type="submit"
+                  className="btn submit-btn"
+                  onClick={() => setLoading(true)}
+                >
+                  {loading ? (
+                    <>
+                      <Spinner
+                        animation="border"
+                        role="status"
+                        variant="light"
+                        size="sm"
+                      ></Spinner>{" "}
+                      در حال افزودن ...
+                    </>
+                  ) : (
+                    "افزودن خدمت"
+                  )}
                 </button>
                 <button
                   type="button"
