@@ -205,7 +205,7 @@ const ManageComments = () => {
                       <img
                         src={
                           comment.admin_profile ||
-                          "/images/team-img/team-default-img.png"
+                          "/images/team-img/team-default-img.webp"
                         }
                         alt="img"
                       />

@@ -129,7 +129,7 @@ const ManageServices = () => {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
           },
-        }
+        },
       );
 
       if (res.status === 200) {
@@ -175,7 +175,7 @@ const ManageServices = () => {
               Authorization: `Bearer ${token}`,
               "Content-Type": "multipart/form-data",
             },
-          }
+          },
         );
 
         if (res.status === 201) {
@@ -229,7 +229,7 @@ const ManageServices = () => {
     setService_id(serviceID);
 
     const serviceToEdit = servicesList.find(
-      (service) => service._id === serviceID
+      (service) => service._id === serviceID,
     );
 
     if (serviceToEdit) {
@@ -257,7 +257,7 @@ const ManageServices = () => {
           { serviceID: service_id, newData: validate },
           {
             headers: { Authorization: `Bearer ${token}` },
-          }
+          },
         );
         if (res.status === 200) {
           setEditMsg(res.data.message || "خدمات مورد نظر با موفقیت ویرایش شد");
@@ -294,7 +294,7 @@ const ManageServices = () => {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
           },
-        }
+        },
       );
 
       if (res.status === 200) {
@@ -340,7 +340,10 @@ const ManageServices = () => {
                 <div className="service-card-header">
                   <Link to={service.servicePath}>
                     <img
-                      src={service.imageUrl || "/images/default-service.jpg"}
+                      src={
+                        service.imageUrl ||
+                        "/images/services-img/default-service-img.webp"
+                      }
                       alt={service.serviceName}
                     />
                   </Link>
@@ -491,6 +494,7 @@ const ManageServices = () => {
                   type="file"
                   accept="image/*"
                   onChange={(e) => setImageFile(e.target.files[0])}
+                  required={false}
                 />
                 <span className="input-icon">
                   <RiImageAiLine />
@@ -569,7 +573,7 @@ const ManageServices = () => {
                       className="remove-preview"
                       onClick={() => {
                         const newFiles = portfolioFiles.filter(
-                          (_, i) => i !== index
+                          (_, i) => i !== index,
                         );
                         setPortfolioFiles(newFiles);
                       }}

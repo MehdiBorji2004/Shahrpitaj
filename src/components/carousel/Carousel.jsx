@@ -124,7 +124,7 @@ const Carousel = () => {
                           <img
                             src={
                               service.imageUrl ||
-                              "/images/site-logo/site-logo.png"
+                              "/images/services-img/default-service-img.webp"
                             }
                             alt={service.serviceName}
                             className="service-image"

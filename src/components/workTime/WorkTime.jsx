@@ -58,7 +58,7 @@ const WorkTime = () => {
         </div>
       </div>
       <div className="col-6 px-0 work-time-img">
-        <img className="img-fluid" src="/images/worktime-img.png" alt="clock" />
+        <img className="img-fluid" src="/images/worktime-img.webp" alt="clock" />
       </div>
     </div>
   );

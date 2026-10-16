@@ -479,7 +479,7 @@
     var(--primary-blue) 0%,
     var(--primary-dark) 100%
   ); */
-  background-image: url("/images/google-map-img.png");
+  background-image: url("/images/google-map-img.webp");
   display: flex;
   flex-direction: column;
   align-items: center;

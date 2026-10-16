@@ -51,7 +51,7 @@ const Banner = () => {
           </div>
         </div>
         <div className="col-xl-4 banner-img-container">
-          <img src="/images/banner-img2.jpg" alt="img" />
+          <img src="/images/banner-img2.webp" alt="img" />
         </div>
       </div>
     </div>

@@ -63,7 +63,7 @@ const Team = () => {
                     <img
                       src={
                         servicer?.imageUrl ||
-                        "/images/team-img/team-default-img.png"
+                        "/images/team-img/team-default-img.webp"
                       }
                       alt="img"
                       className="card-img-top"

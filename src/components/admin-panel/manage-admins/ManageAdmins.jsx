@@ -82,7 +82,7 @@ const ManageAdmins = () => {
               <div className="admin-img">
                 <img
                   src={
-                    admin.imageUrl || "/images/team-img/team-default-img.png"
+                    admin.imageUrl || "/images/team-img/team-default-img.webp"
                   }
                   alt="img"
                 />
