@@ -167,7 +167,7 @@ const ManageServices = () => {
         formDataToSend.append("serviceDetails", validateData.serviceDetails);
         formDataToSend.append("servicePrice", validateData.servicePrice);
         servicePath && formDataToSend.append("servicePath", servicePath);
-        imageFile && formDataToSend.append("image", imageFile);
+        imageFile ? formDataToSend.append("image", imageFile) : "";
 
         const res = await axios.post(
           `${baseUrl}/admin/add-service`,
